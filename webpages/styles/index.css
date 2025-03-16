@@ -17,74 +17,98 @@
 /* Global Fonts */
 
 @font-face {
-    font-family: "MTNBrighterSans";
-    src: url("../fonts/MTNBrighterSans-Regular.woff") format("woff"),
-      url("../fonts/MTNBrighterSans-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  :root {
-    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --heading-font: system-ui, sans-serif;
-    --paragraph-font: system-ui, sans-serif;
-  }
+  font-family: "NunitoReg";
+  src: url("../fonts/Nunito-Regular.woff") format("woff"),
+    url("../fonts/Nunito-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Riverside-Script";
+  src: url("../fonts/Riverside-Script.woff") format("woff"),
+    url("../fonts/Riverside-Script.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/Orbitron-Regular.woff") format("woff"),
+    url("../fonts/Orbitron-Regular.woff2") format("woff2");
+}
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Riverside-Script", sans-serif;
+  --paragraph-font: "NunitoReg", sans-serif;
+  --logo-font: "Orbitron", sans-serif;
+}
 
 /* Global Colors */
 
 :root {
   --background-color: #e6e6e6;
   --primary-color: #ffffff;
-  --secondary-color: #01668e;
+  --secondary-color: #0DA2FF;
   --primary-font-color: #000000;
   --primary-font-color-alt: #ffffff;
+  --hover-color: #d1d1d1;
+  --hover-color-alt: #9edaff;
   --secondary-font-color: #202020;
   --shadow-color: #1313132c;
-  --link-color: #01668e;
+  --link-color: #00E5FF;
+  --border-color: #3A7FFF;
 }
 
-  
 /* Global Behaviours */
-S
-  :root {
-    scroll-behavior: smooth;
-  }
+
+:root {
+  scroll-behavior: smooth;
+}
 
 /*--------------------------------------------------------------
-  # 2. Layout
-  --------------------------------------------------------------*/
+# 2. Layout
+--------------------------------------------------------------*/
 
-  * {
-    max-width: 900px;
-    margin: auto;
-    box-sizing: border-box;
-    transition: all 0.5s;
-  }
-  
-  body {
-    background-position: center;
-    background-size: contain;
-    background-color: var(--background-color);
-    font-family: var(--paragraph-font);
-    color: var(--primary-font-color);
-    
-  }
+* {
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
 
-  .login-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+body {
+  background-position: center;
+  font-family: var(--paragraph-font);
+  background-color: var(--background-color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
 
-  a {
-    text-decoration: none;
-    transition: 0.3s;
-    font-family: var(--paragraph-font);
-    color: var(--secondary-font-color);
-  }
+a, h1, h2, p {
+  text-decoration: none;
+  transition: 0.3s;
+  color: var(--primary-font-color-alt);
+}
+
+h1 {
+  font-family: var(--heading-font);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hyperlink {
+  color: var(--link-color);
+}
 
 /*--------------------------------------------------------------
   # 3. Sections
@@ -96,7 +120,7 @@ S
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: var(--primary-color);
     background-color: var(--primary-color);
     padding: 10px 20px;
@@ -111,8 +135,11 @@ S
 }
 
 .header-logo a {
-  color: var(--heading-color);
+    color: var(--heading-color);
+    font-family: var(--logo-font);
+    font-size: 40px;
 }
+  
 .header-logo a span {
   color: var(--primary-color-light);
 }
@@ -126,13 +153,14 @@ S
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--primary-color);
   width: 100%;
+  height: 75px;
   padding: 10px ;
   border-bottom: 1px solid var(--primary-color-light);
   box-shadow: 0 2px 4px var(--shadow-color);
+  background-color: var(--primary-color);
 }
-
+  
 .nav-bar ul {
   display: flex;
   list-style: none;
@@ -154,3 +182,87 @@ S
   font-size: 20px;
 }
 
+.ACCtext {
+  font-size: 4rem;
+  color: var(--primary-color);
+  }
+.login-content {
+  padding: 50px;
+  }
+  
+.login-input {
+  padding: 20px;
+  }
+
+ /* Search
+    ============================= */
+
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image:linear-gradient(to bottom, rgba(83, 188, 233, 0.63), rgba(16, 13, 92, 0.63));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    padding: 50px;
+  }
+
+  .search-container h1 {
+    padding: 50px;
+    font-size: 50px;
+  }
+
+  .search-content {
+    display: flex;
+    border: none;
+    font-size: 20px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .search-content input {
+    width: 500px;
+    padding: 10px;
+    margin: 10px;
+    margin-right:0px;
+    border:none;
+    text-align: center;
+}
+
+  .search-content:hover {
+  border: 1px solid var(--primary-color);
+    }
+
+    .search-content input:active {
+      border: none;
+    }
+
+  .search-content button {
+    width: 40px;
+    margin: 10px;
+    margin-left: 0px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color)
+  }
+
+  .search-content button:hover {
+    background-color: var(--hover-color)
+  }
+ /* Footer
+    ============================= */
+
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
