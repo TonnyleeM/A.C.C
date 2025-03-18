@@ -22,8 +22,7 @@ def fetch_country_culture(country):
     response = requests.get(url)
 
     if response.status_code == 200:
-        return response.text  # Return the HTML content
-    else:
+        return response.text  
         return None
 
 def extract_summary(html_content):
