@@ -177,6 +177,12 @@ form {
   text-align: center;
 }
 
+.index-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .index-item a {
   display: flex;
   justify-content: center;
@@ -185,6 +191,7 @@ form {
   height: 50px;
   border-radius: 50%;
 }
+
 .index-item a:hover {
   background-color: var(--hover-color);
 }
@@ -193,6 +200,7 @@ form {
   font-size: 4rem;
   color: var(--primary-color);
 }
+
 .login-content {
   padding: 50px;
 }
@@ -201,43 +209,49 @@ form {
   padding: 20px;
 }
 
-  /* Index Info
+/* Index Info
     ============================= */
 
-    .index-item .tooltiptext-1,
-    .index-item .tooltiptext-2{
-       visibility: hidden;
-       margin-right: -60px;
-       background-color: var(--shadow-color);
-       color: var(--primary-color);
-       text-align: center;
-       border-radius: 6px;
-       padding: 5px;
-       position: absolute;
-       z-index: 1;
-       top: 70px;
-       right: 70px;
-       opacity: 0;
-       transition: opacity 0.3s;
-    }
-    
-    .index-item .tooltiptext-1 {
-     right: 90px;
-    }
-    
-    .index-item a:hover + .tooltiptext-1,
-    .index-item a:hover + .tooltiptext-2{
-       visibility: visible;
-       opacity: 1;
-    }
-    
+.index-item .tooltiptext-1,
+ .index-item .tooltiptext-2,
+ .index-item .tooltiptext-3{
+    visibility: hidden;
+    margin-right: -60px;
+    background-color: var(--shadow-color);
+    color: var(--primary-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 70px;
+    right: 70px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
 
-/* Search
+.index-item .tooltiptext-1 {
+  right: 180px;
+}
+
+.index-item .tooltiptext-2 {
+  right: 90px;
+}
+
+.index-item a:hover + .tooltiptext-1,
+.index-item a:hover + .tooltiptext-2,
+.index-item a:hover + .tooltiptext-3{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Profile
     ============================= */
 
-.search-container {
+.country-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -252,22 +266,21 @@ form {
   padding: 50px;
 }
 
-.search-container h1 {
-  padding: 50px;
-  padding-top: 0px;
-  font-size: 50px;
+.country-container h1 {
+  font-size: 30px;
+  padding: 20px;
+  padding-left: 0;
 }
 
-.search-content {
+.country-content {
   display: flex;
-  border: none;
+  flex-direction: column;
+  text-align: left;
   font-size: 20px;
-  background-color: var(--primary-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  padding: 20px;
 }
 
-.search-content input {
+.country-content input {
   width: 500px;
   padding: 10px;
   margin: 10px;
@@ -276,15 +289,7 @@ form {
   text-align: center;
 }
 
-.search-content:hover {
-  border: 1px solid var(--primary-color);
-}
-
-.search-content input:active {
-  border: none;
-}
-
-.search-content button {
+.country-content button {
   width: 40px;
   margin: 10px;
   margin-left: 0px;
@@ -296,7 +301,7 @@ form {
   border-radius: 50%;
 }
 
-.search-content button:hover {
+.country-content button:hover {
   background-color: var(--hover-color);
 }
 
@@ -307,12 +312,55 @@ form {
   color: var(--primary-font-color);
 }
 
-/* Destinaton
+/* Location (Tour Operator Working Locations)
+    ============================= */
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--primary-color);
+  padding: 50px;
+}
+
+.location-container h1 {
+  color: var(--primary-font-color);
+  padding-bottom: 10px;
+}
+
+.location-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin: 10px;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 3px 5px var(--shadow-color);
+}
+
+.country-map {
+  padding: 20px;
+}
+
+iframe {
+  border: none;
+  border-radius: 12px;
+}
+
+/* Other Operators
     ============================= */
 
 .content-container {
   margin: 50px;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .destination-container {
@@ -322,6 +370,7 @@ form {
   align-items: center;
   justify-content: center;
 }
+
 .destination-content {
   display: flex;
   flex-direction: column;
@@ -335,28 +384,44 @@ form {
   margin: 10px;
   box-shadow: 0 3px 5px var(--shadow-color);
 }
+
 .destination-content h3 {
   padding: 10px;
 }
+
 .destination-content img {
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
+
+.destination-content p {
+  color: var(--primary-font-color);
+  padding: 5px;
+  padding-bottom: 0px;
+}
+
 .destination-content a {
   width: 100%;
 }
+
 .destination-content button {
   width: 100%;
   padding: 8px;
   background-color: var(--secondary-color);
-  color: var(--primary-font-color-alt);
   border: none;
   border-radius: 8px;
+  color: var(--primary-font-color-alt);
 }
+
+.more-btn {
+  width: 100%;
+}
+
 .destination-content button:hover {
   background-color: var(--hover-color-alt);
 }
+
 /* Footer
     ============================= */
 
