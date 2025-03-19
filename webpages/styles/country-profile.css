@@ -327,6 +327,7 @@ form {
 
 .location-container h1 {
   color: var(--primary-font-color);
+  padding-bottom: 10px;
 }
 
 .location-content {
@@ -341,42 +342,13 @@ form {
   box-shadow: 0 3px 5px var(--shadow-color);
 }
 
-.location-content img {
-  border-radius: 12px;
+.country-map {
   padding: 20px;
 }
 
-#location-desc {
-  padding: 5px;
-  padding-left: 0;
-}
-
-.location-info {
-  padding: 20px;
-  padding-left: 0px;
-}
-
-.location-info h3,
-.location-info p {
-  color: var(--primary-font-color);
-}
-
-.location-info h3 {
-  font-size: 30px;
-}
-
-.location-info button {
-  width: 50%;
-  margin: 5px;
-  padding: 8px;
-  background-color: var(--secondary-color);
+iframe {
   border: none;
-  border-radius: 8px;
-  color: var(--primary-font-color-alt);
-}
-
-.location-info a {
-  width: 50%;
+  border-radius: 12px;
 }
 
 /* Other Operators
@@ -385,9 +357,13 @@ form {
 .content-container {
   margin: 50px;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.operator-container {
+.destination-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -410,8 +386,7 @@ form {
 }
 
 .destination-content h3 {
-  padding: 5px;
-  padding-bottom: 0px;
+  padding: 10px;
 }
 
 .destination-content img {
@@ -424,20 +399,6 @@ form {
   color: var(--primary-font-color);
   padding: 5px;
   padding-bottom: 0px;
-}
-
-#tour-name {
-  padding-top: 5px;
-}
-
-#tour-destination {
-  padding-top: 0px;
-  padding-bottom: 5px;
-}
-
-#expertise {
-  color: var(--primary-font-color);
-  padding: 5px;
 }
 
 .destination-content a {
