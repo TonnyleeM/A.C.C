@@ -18,7 +18,7 @@ cursor = conn.cursor()
 cursor.execute(f'''
 CREATE TABLE IF NOT EXISTS {country_table_name} (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    country_name TEXT,
+    country_name TEXT UNIQUE,
     description TEXT,
     map_url TEXT
 )
@@ -29,7 +29,7 @@ cursor.execute(f'''
 CREATE TABLE IF NOT EXISTS {destination_table_name} (
     destination_id INTEGER PRIMARY KEY AUTOINCREMENT,
     country_id INTEGER,
-    name CHAR,
+    name CHAR UNIQUE,
     description TEXT,
     location POINT,
     FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS {tour_operators_table_name} (
     operator_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     country_id INTEGER,
-    company_name CHAR,
+    company_name CHAR UNIQUE,
     expertise TEXT,
     services_offered TEXT,
     FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
@@ -54,9 +54,9 @@ CREATE TABLE IF NOT EXISTS {tour_operators_table_name} (
 cursor.execute(f'''
 CREATE TABLE IF NOT EXISTS {users_table_name} (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username CHAR,
+    username CHAR UNIQUE,
     password CHAR,
-    email CHAR,
+    email CHAR UNIQUE,
     phone CHAR,
     interests TEXT,
     user_type CHAR CHECK(user_type IN ('tourist', 'operator'))
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS {tours_table_name} (
     tour_id INTEGER PRIMARY KEY AUTOINCREMENT,
     operator_id INTEGER,
     destination_id INTEGER,
-    tour_name CHAR,
+    tour_name CHAR UNIQUE,
     description TEXT,
     price DECIMAL,
     duration CHAR,
@@ -100,7 +100,7 @@ with open('african_summaries.json', 'r') as file:
 for country, description in country_data.items():
     map_url = f"https://www.google.com/maps/place/{country.replace(' ', '+')}"
     cursor.execute(f'''
-    INSERT INTO {country_table_name} (country_name, description, map_url)
+    INSERT OR IGNORE INTO {country_table_name} (country_name, description, map_url)
     VALUES (?, ?, ?)
     ''', (country, description, map_url))
 
@@ -108,7 +108,6 @@ for country, description in country_data.items():
 conn.commit()
 
 # Commit changes and close the connection
-conn.commit()
 conn.close()
 
 print("Data has been successfully inserted into the country summaries table.")
