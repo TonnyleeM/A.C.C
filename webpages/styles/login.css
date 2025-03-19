@@ -189,12 +189,28 @@ border-bottom: 1px solid var(--primary-color-light);
 box-shadow: 0 2px 4px var(--shadow-color);
 background-color: var(--primary-color);
 }
+
 .ACCtext {
+  padding: 20px;
   font-size: 4rem;
   color: var(--primary-color);
 }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
 .login-content {
   padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .login-input {
@@ -209,7 +225,8 @@ background-color: var(--primary-color);
       left: 0;
       bottom: 0;
       width: 100%;
-      color: white;
+      color: var(--primary-color);
+      background-color: var(--shadow-color);
       text-align: center;
       padding: 20px;
     }

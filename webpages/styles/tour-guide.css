@@ -51,15 +51,15 @@
 :root {
   --background-color: #e6e6e6;
   --primary-color: #ffffff;
-  --secondary-color: #0da2ff;
+  --secondary-color: #0DA2FF;
   --primary-font-color: #000000;
   --primary-font-color-alt: #ffffff;
   --hover-color: #d1d1d1;
   --hover-color-alt: #9edaff;
   --secondary-font-color: #202020;
   --shadow-color: #1313132c;
-  --link-color: #00e5ff;
-  --border-color: #3a7fff;
+  --link-color: #00E5FF;
+  --border-color: #3A7FFF;
 }
 
 /* Global Behaviours */
@@ -87,10 +87,7 @@ body {
   background-size: 100% 100%;
 }
 
-a,
-h1,
-h2,
-p {
+a, h1, h2, p {
   text-decoration: none;
   transition: 0.3s;
   color: var(--primary-font-color-alt);
@@ -117,32 +114,32 @@ form {
   # 3. Sections
   --------------------------------------------------------------*/
 
-/* Header
+ /* Header
     ============================= */
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-color);
-  background-color: var(--primary-color);
-  padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    background-color: var(--primary-color);
+    padding: 10px 20px;
 }
-
+      
 .header-logo {
-  display: flex;
-  block-size: var(--rel-100);
-  inline-size: var(--rel-100);
-  cursor: pointer;
-  align-items: center;
+    display: flex;
+    block-size: var(--rel-100);
+    inline-size: var(--rel-100);
+    cursor: pointer;
+    align-items: center;
 }
 
 .header-logo a {
-  color: var(--heading-color);
-  font-family: var(--logo-font);
-  font-size: 40px;
+    color: var(--heading-color);
+    font-family: var(--logo-font);
+    font-size: 40px;
 }
-
+  
 .header-logo a span {
   color: var(--primary-color-light);
 }
@@ -158,12 +155,12 @@ form {
   align-items: center;
   width: 100%;
   height: 75px;
-  padding: 10px;
+  padding: 10px ;
   border-bottom: 1px solid var(--primary-color-light);
   box-shadow: 0 2px 4px var(--shadow-color);
   background-color: var(--primary-color);
 }
-
+  
 .nav-bar ul {
   display: flex;
   list-style: none;
@@ -185,104 +182,98 @@ form {
   height: 50px;
   border-radius: 50%;
 }
-.index-item a:hover {
+ .index-item a:hover {
   background-color: var(--hover-color);
-}
-
+ }
 .ACCtext {
   font-size: 4rem;
   color: var(--primary-color);
-}
+  }
 .login-content {
   padding: 50px;
-}
-
+  }
+  
 .login-input {
   padding: 20px;
-}
+  }
 
-/* Search
+ /* Search
     ============================= */
 
-.search-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(83, 188, 233, 0.63),
-    rgba(16, 13, 92, 0.63)
-  );
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  padding: 50px;
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image:linear-gradient(to bottom, rgba(83, 188, 233, 0.63), rgba(16, 13, 92, 0.63));
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      padding: 50px;
+    }
+  
+    .search-container h1 {
+      padding: 50px;
+      font-size: 50px;
+    }
+
+  .search-content {
+    display: flex;
+    border: none;
+    font-size: 20px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .search-content input {
+    width: 500px;
+    padding: 10px;
+    margin: 10px;
+    margin-right:0px;
+    border:none;
+    text-align: center;
 }
 
-.search-container h1 {
-  padding: 50px;
-  padding-top: 0px;
-  font-size: 50px;
-}
-
-.search-content {
-  display: flex;
-  border: none;
-  font-size: 20px;
-  background-color: var(--primary-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-}
-
-.search-content input {
-  width: 500px;
-  padding: 10px;
-  margin: 10px;
-  margin-right: 0px;
-  border: none;
-  text-align: center;
-}
-
-.search-content:hover {
+  .search-content:hover {
   border: 1px solid var(--primary-color);
-}
+    }
 
-.search-content input:active {
-  border: none;
-}
+  .search-content input:active {
+    border: none;
+  }
 
-.search-content button {
-  width: 40px;
-  margin: 10px;
-  margin-left: 0px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-}
+  .search-content button {
+    width: 40px;
+    margin: 10px;
+    margin-left: 0px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+  }
 
-.search-content button:hover {
-  background-color: var(--hover-color);
-}
+  .search-content button:hover {
+    background-color: var(--hover-color)
+  }
 
-.content h2 {
-  padding: 20px;
-  font-size: 50px;
-  text-align: center;
-  color: var(--primary-font-color);
-}
+  .content h2 {
+    padding: 20px;
+      font-size: 50px;
+      text-align: center;
+      color: var(--primary-font-color);
+  }
 
-/* Destinaton
+ /* Destinaton
     ============================= */
 
 .content-container {
-  margin: 50px;
-  display: flex;
-}
+    margin: 50px;
+    display: flex;
+  }
 
 .destination-container {
   display: flex;
@@ -290,7 +281,8 @@ form {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
+} 
+
 .destination-content {
   display: flex;
   flex-direction: column;
@@ -301,38 +293,69 @@ form {
   padding: 20px;
   border-radius: 8px;
   width: 300px;
-  margin: 10px;
+  margin: 5px;
   box-shadow: 0 3px 5px var(--shadow-color);
 }
+
 .destination-content h3 {
-  padding: 10px;
+  padding: 5px;
+  padding-bottom: 0px;
 }
+
 .destination-content img {
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
+
+.destination-content p {
+  color: var(--primary-font-color);
+  padding: 5px;
+  padding-bottom: 0px;
+}
+
+#tour-name {
+  padding-top: 5px;
+}
+#tour-destination {
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+
+#expertise {
+  color: var(--primary-font-color);
+  padding: 5px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+.destination-content a {
+  width: 100%;
+}
 .destination-content button {
   width: 100%;
   padding: 8px;
   background-color: var(--secondary-color);
-  color: var(--primary-font-color-alt);
   border: none;
   border-radius: 8px;
+  color: var(--primary-font-color-alt)
+}
+.more-btn {
+  width: 100%;
 }
 .destination-content button:hover {
   background-color: var(--hover-color-alt);
 }
-/* Footer
+
+ /* Footer
     ============================= */
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: var(--primary-color);
-  background-color: var(--shadow-color);
-  text-align: center;
-  padding: 20px;
-}
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: var(--primary-color);
+      background-color: var(--shadow-color);
+      text-align: center;
+      padding: 20px;
+    }
