@@ -177,6 +177,12 @@ form {
   text-align: center;
 }
 
+.index-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .index-item a {
   display: flex;
   justify-content: center;
@@ -202,6 +208,43 @@ form {
 .login-input {
   padding: 20px;
 }
+
+/* Index Info
+    ============================= */
+
+.index-item .tooltiptext-1,
+ .index-item .tooltiptext-2,
+ .index-item .tooltiptext-3{
+    visibility: hidden;
+    margin-right: -60px;
+    background-color: var(--shadow-color);
+    color: var(--primary-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 70px;
+    right: 70px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.index-item .tooltiptext-1 {
+  right: 180px;
+}
+
+.index-item .tooltiptext-2 {
+  right: 90px;
+}
+
+.index-item a:hover + .tooltiptext-1,
+.index-item a:hover + .tooltiptext-2,
+.index-item a:hover + .tooltiptext-3{
+    visibility: visible;
+    opacity: 1;
+}
+
 
 /* Profile
     ============================= */
