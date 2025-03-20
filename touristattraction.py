@@ -1,6 +1,6 @@
+import http.client
 import json
-import requests
-from bs4 import BeautifulSoup
+import urllib.parse
 
 # List of African countries
 african_countries = [
@@ -16,38 +16,48 @@ african_countries = [
     "Tunisia", "Uganda", "Zambia", "Zimbabwe"
 ]
 
-def fetch_country_culture(country):
-    # Format the URL for the specified country
-    url = f"https://en.wikipedia.org/wiki/Tourism_in_{country.replace(' ', '_')}"
-    print(f"Fetching data from: {url}")  # Debugging line
-    response = requests.get(url)
+# Your API key
+api_key = "YOUR_API_KEY"
 
-    if response.status_code == 200:
-        # Parse the HTML content
-        soup = BeautifulSoup(response.content, 'html.parser')
+# Categories to search for
+categories = [
+    "accommodation", "activity", "entertainment", "entertainment.culture",
+    "entertainment.culture.arts_centre", "entertainment.zoo", "leisure",
+    "natural", "national_park", "tourism", "tourism.attraction",
+    "tourism.sights", "tourism.sights.memorial"
+]
 
-        # Example extraction: Get the first paragraph for culture description
-        description = soup.find('p').text.strip() if soup.find('p') else "No description available"
-        
-        return {
-            "country": country,
-            "description": description,
-            "url": url
-        }
-    else:
-        print(f"Failed to retrieve data for {country}: {response.status_code}")
-        return {
-            "country": country,
-            "description": "No data available",
-            "url": url
-        }
-
-# Dictionary to hold results
+# Store results
 results = {}
 
-# Iterate through each country and fetch data
+# Search for each category in each country
 for country in african_countries:
-    results[country] = fetch_country_culture(country)
+    print(f"Fetching places for: {country}")
+    
+    # URL encode the country name
+    encoded_country = urllib.parse.quote(country)
+    
+    # Construct the API request URL using multiple categories
+    category_query = ','.join(categories)
+    url = (
+        f"https://api.geoapify.com/v2/places?categories={category_query}"
+        f"&filter=name:{encoded_country}&limit=20&apiKey={api_key}"
+    )
+    
+    # Make the request
+    conn = http.client.HTTPSConnection("api.geoapify.com")
+    conn.request("GET", url)
+    
+    res = conn.getresponse()
+    data = res.read()
+    
+    # Decode and parse the JSON data
+    response_data = json.loads(data.decode("utf-8"))
+    
+    # Store results
+    results[country] = response_data.get('features', [])
+    
+    conn.close()
 
 # Save results to a JSON file
 with open('african_countries_data.json', 'w') as json_file:
