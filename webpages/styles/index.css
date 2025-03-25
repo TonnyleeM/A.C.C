@@ -320,12 +320,77 @@ form {
   color: var(--primary-font-color);
 }
 
+
+/* Locations (Countries)
+    ========================================================================= */
+
+.country-container {
+  background-color: var(--primary-color);
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.country-container h2 {
+  padding: 10px;
+  font-size: 40px;
+  color: var(--primary-font-color)
+}
+.location-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.location-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+  margin: 10px;
+  box-shadow: 0 3px 5px var(--shadow-color);
+}
+
+.location-content h3 {
+  padding: 10px;
+}
+
+.location-content img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.location-content a {
+  width: 100%;
+}
+
+.location-content button {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--secondary-color);
+  color: var(--primary-font-color-alt);
+  border: none;
+  border-radius: 8px;
+}
+
+.location-content button:hover {
+  background-color: var(--hover-color-alt);
+}
+
 /* Destinaton
-    ============================= */
+    ========================================================================= */
 
 .content-container {
   margin: 30px 15px;
-  /* Reduced from 50px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -356,8 +421,16 @@ form {
   box-shadow: 0 3px 5px var(--shadow-color);
 }
 
-.destination-content h3 {
+.destination-content h3{
   padding: 10px;
+  padding-bottom: 0px;
+  color: var(--primary-font-color);
+}
+
+.destination-content p {
+  padding: 10px;
+  padding-top: 0px;
+  color: var(--primary-font-color);
 }
 
 .destination-content img {

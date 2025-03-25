@@ -271,49 +271,21 @@ form {
   text-align: center;
   font-size: 30px;
   padding: 20px;
-  padding-top: 0;
 }
 
 .profile-content h2 {
   font-size: 20px;
   padding: 5px;
-  padding-left: 0;
 }
 
 .profile-content {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   font-size: 20px;
   padding: 20px;
 }
-
-.profile-content input {
-  width: 500px;
-  padding: 10px;
-  margin: 10px;
-  margin-right: 0px;
-  border: none;
-  text-align: center;
-}
-
-.profile-content button {
-  width: 40px;
-  margin: 10px;
-  margin-left: 0px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-}
-
-.profile-content button:hover {
-  background-color: var(--hover-color);
-}
-
-
 
 /* Location (Tour Operator Working Locations)
     ============================= */
@@ -346,17 +318,10 @@ form {
 
 .employees-content img {
   border-radius: 12px;
-  padding: 20px;
 }
-
-#location-desc {
-  padding: 5px;
-  padding-left: 0;
-}
-
 
 /* Other Operators
-    ============================= */
+    ===================================================== */
 
 .content-container {
   margin: 50px;
@@ -383,41 +348,14 @@ form {
   color: var(--primary-font-color);
 }
 
-.operator-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.operator-container p,
-.operator-container h3 {
-  padding: 10px;
-  font-size: 20px;
-  text-align: center;
-  color: var(--primary-font-color);
-}
-.est-price {
-  color: var
-}
-.operator-container input {
-  width: 500px;
-  padding: 10px;
-  margin: 10px;
-  margin-right: 0px;
-  border: none;
-  text-align: center;
-}
-
 textarea {
-  width: 500px;
+  width: 80%;
   background-color: var(--primary-color);
   margin: 10px;
   border: none;
 }
 
-.operator-content {
+.employee-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -431,22 +369,23 @@ textarea {
   box-shadow: 0 3px 5px var(--shadow-color);
 }
 
-.operator-content h3 {
+.employee-container h3 {
   padding: 5px;
   padding-bottom: 0px;
 }
 
-.operator-content img {
+.employee-container img {
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.operator-content p {
+.employee-container p {
   color: var(--primary-font-color);
   padding: 5px;
   padding-bottom: 0px;
 }
+
 
 #tour-name {
   padding-top: 5px;
@@ -462,11 +401,11 @@ textarea {
   padding: 5px;
 }
 
-.operator-content a {
+.employee-container a {
   width: 100%;
 }
 
-.operator-content button {
+.employee-container button {
   width: 100%;
   padding: 8px;
   background-color: var(--secondary-color);
@@ -479,8 +418,39 @@ textarea {
   width: 100%;
 }
 
-.more-btn button {
+/* Booking Info
+    ============================= */
+
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-container h3 {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: var(--primary-font-color);
+}
+.est-price {
+  color: var(--hover-color);
+}
+.booking-container input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 0px;
+  border: none;
+  text-align: center;
+}
+
+.booking-container a button {
+  font-size: 20px;
   width: 100%;
+  height: 40px;
   padding: 8px;
   background-color: var(--secondary-color);
   border: none;
@@ -488,8 +458,31 @@ textarea {
   color: var(--primary-font-color-alt);
 }
 
-.operator-content button:hover {
+.info-nb {
+  width: 80%;
+  padding: 10px;
+  padding-bottom: 20px;
+  font-size: 15px;
+  color: var(--primary-font-color);
+}
+
+.employee-container button:hover {
   background-color: var(--hover-color-alt);
+}
+
+@media screen and (max-width: 768px) {
+  .booking-container {
+    max-width: 500px;
+  }
+
+  .profile-content input,
+  .info-nb,
+  textarea,
+  .booking-container input {
+    width: 500px;
+  }
+
+  
 }
 
 /* Footer

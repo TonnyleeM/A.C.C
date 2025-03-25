@@ -40,6 +40,7 @@
             <div class="profile-container">
                 <div class="profile-content">
                     <h2>You Are Booking for:</h2>
+                    <img src="images/person-placeholder.jpg" width="400">
                     <h1>Lion's Den Wildlife Tours</h1>
                     <p id="location-desc">Get close and personal with the most majestic views and see the beauty of wildlife in its natural form!</p>
                     </a>
@@ -48,7 +49,7 @@
             <div class="employees-container">
                 <h1>Select your desired operator:</h1>
                 <div class="employees-content">
-                    <div class="operator-content">
+                    <div class="employee-container">
                         <img src="images/location.jpg" alt="kenya" width="600">
                         <h3 id="tour-name">Ronald Mutembe</h3>
                         <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
@@ -58,7 +59,7 @@
                             <button>Select</button>
                         </a>
                     </div>
-                    <div class="operator-content">
+                    <div class="employee-container">
                         <img src="images/location.jpg" alt="kenya" width="600">
                         <h3 id="tour-name">Ronald Mutembe</h3>
                         <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
@@ -73,16 +74,17 @@
             <div class="content-container">
                 <div class="content">
                     <h2>Fill in The Desired Information</h2>
-                    <div class="operator-container">
-                        <p>When are you planning to visit?</p>
+                    <div class="booking-container">
+                        <h3>When are you planning to visit?</h3>
                         <input type="date" id="date" name="date">  
-                        <p>How many people are you booking for?</p>
+                        <h3>How many people are you booking for?</h3>
                         <input type="number" id="quantity" name="quantity" min="1" max="10">
-                        <p id="est-price">Estimated price: 100 000 RWF</p>
-                        <p>Any additional information?</p>
+                        <h3 id="est-price">Estimated price: 100 000 RWF</h3>
+                        <h3>Any additional information?</h3>
                         <textarea id="add-info" name="add-info" rows="4" cols="50"></textarea>
+                        <p class="info-nb">Note: This information will be shared with your chosen tour operator to make your experience better. Refrain from sharing sensitive and private information.</p>
                         <a href="tour-confirm.html" class="more-btn">
-                            <button>Book</button>
+                            <button>Book Now</button>
                     </div>
                 </div>
             </div>

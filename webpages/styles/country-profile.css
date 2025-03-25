@@ -325,8 +325,9 @@ form {
   padding: 50px;
 }
 
-.location-container h1 {
+.location-container h2 {
   color: var(--primary-font-color);
+  font-size: 50px;
   padding-bottom: 10px;
 }
 
