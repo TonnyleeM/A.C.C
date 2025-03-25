@@ -313,12 +313,7 @@ form {
   background-color: var(--hover-color);
 }
 
-.content h2 {
-  padding: 20px;
-  font-size: 50px;
-  text-align: center;
-  color: var(--primary-font-color);
-}
+
 
 /* Location (Tour Operator Working Locations)
     ============================= */
@@ -363,21 +358,63 @@ form {
 /* Other Operators
     ============================= */
 
-  .content-container {
-    margin: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    }
+.content-container {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content h2 {
+  padding: 20px;
+  font-size: 50px;
+  text-align: center;
+  color: var(--primary-font-color);
+}
 
 .operator-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.operator-container p,
+.operator-container h3 {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: var(--primary-font-color);
+}
+.est-price {
+  color: var
+}
+.operator-container input {
+  width: 500px;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 0px;
+  border: none;
+  text-align: center;
+}
+
+textarea {
+  width: 500px;
+  background-color: var(--primary-color);
+  margin: 10px;
+  border: none;
 }
 
 .operator-content {
