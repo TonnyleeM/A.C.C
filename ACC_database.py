@@ -108,7 +108,7 @@ for country, description in country_data.items():
 conn.commit()
 
 # Read data from the grouped_sorted_africa_attractions_data.json file
-with open('grouped_sorted_africa_attractions_data.json', 'r') as file:
+with open('african_countries_data.json', 'r') as file:
     grouped_data = json.load(file)
 
 # Prepare and insert data into the destinations table

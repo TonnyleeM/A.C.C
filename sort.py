@@ -4,20 +4,18 @@ import json
 with open('grouped_sorted_africa_attractions_data.json', 'r') as file:
     data = json.load(file)
 
-# Extracting country names, destination names, and descriptions
-extracted_data = []
+# Prepare the extracted data in the desired format
+extracted_data = {}
 
 for country, destinations in data.items():
+    extracted_data[country] = []
     for destination in destinations:
-        country_name = country
-        destination_name = destination['name']
-        description = destination['description']
-        
-        extracted_data.append({
-            "country": country_name,
-            "destination": destination_name,
-            "description": description
-        })
+        # Prepare the destination entry with only name and description
+        destination_entry = {
+            "name": destination['name'],
+            "description": destination['description']
+        }
+        extracted_data[country].append(destination_entry)
 
 # Save extracted data to a new JSON file
 with open('extracted_attractions_data.json', 'w') as outfile:

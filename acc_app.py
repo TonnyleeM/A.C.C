@@ -138,4 +138,4 @@ conn.commit()
 conn.close()
 
 print("Data has been successfully inserted into the country summaries and destinations tables.")
-print("All additional tables have been created empty.")s
+print("All additional tables have been created empty.")
