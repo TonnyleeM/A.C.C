@@ -1,7 +1,30 @@
-import json
+from flask import Flask, jsonify, request, redirect, url_for, session
+from flask_cors import CORS
+from flask_oauthlib.client import OAuth
 import sqlite3
+import json
 
-# Define the database and table names
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Change this to a random secret key
+CORS(app)  # Enable CORS for all routes
+oauth = OAuth(app)
+
+# Configure the OAuth2 provider (Google in this case)
+google = oauth.remote_app(
+    'google',
+    consumer_key='YOUR_CLIENT_ID',  # Replace with your Google Client ID
+    consumer_secret='YOUR_CLIENT_SECRET',  # Replace with your Google Client Secret
+    request_token_params={
+        'scope': 'email',
+    },
+    base_url='https://www.googleapis.com/oauth2/v1/',
+    request_token_url=None,
+    access_token_method='POST',
+    access_token_url='https://accounts.google.com/o/oauth2/token',
+    authorize_url='https://accounts.google.com/o/oauth2/auth',
+)
+
+# Database and table names
 db_name = 'African_Cultures_Connected.db'
 country_table_name = 'country_summaries'
 destination_table_name = 'destinations'
@@ -10,132 +33,299 @@ users_table_name = 'users'
 tours_table_name = 'tours'
 bookings_table_name = 'bookings'
 
-# Create a connection to the SQLite database
-conn = sqlite3.connect(db_name)
-cursor = conn.cursor()
+def get_db_connection():
+    conn = sqlite3.connect(db_name)
+    conn.row_factory = sqlite3.Row
+    return conn
 
-# Create the country summaries table if it doesn't exist
-cursor.execute(f'''
-CREATE TABLE IF NOT EXISTS {country_table_name} (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    country_name TEXT UNIQUE,
-    description TEXT,
-    map_url TEXT
-)
-''')
-
-# Create the destinations table if it doesn't exist
-cursor.execute(f'''
-CREATE TABLE IF NOT EXISTS {destination_table_name} (
-    destination_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    country_id INTEGER,
-    name CHAR UNIQUE,
-    description TEXT,
-    location TEXT,  -- Changed from POINT to TEXT for iframe link
-    FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
-)
-''')
-
-# Create the tour operators table if it doesn't exist
-cursor.execute(f'''
-CREATE TABLE IF NOT EXISTS {tour_operators_table_name} (
-    operator_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    country_id INTEGER,
-    company_name CHAR UNIQUE,
-    expertise TEXT,
-    services_offered TEXT,
-    FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
-    FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
-)
-''')
-
-# Create the users table if it doesn't exist
-cursor.execute(f'''
-CREATE TABLE IF NOT EXISTS {users_table_name} (
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username CHAR UNIQUE,
-    password CHAR,
-    email CHAR UNIQUE,
-    phone CHAR,
-    interests TEXT,
-    user_type CHAR CHECK(user_type IN ('tourist', 'operator'))
-)
-''')
-
-# Create the tours table if it doesn't exist
-cursor.execute(f'''
-CREATE TABLE IF NOT EXISTS {tours_table_name} (
-    tour_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    operator_id INTEGER,
-    destination_id INTEGER,
-    tour_name CHAR UNIQUE,
-    description TEXT,
-    price DECIMAL,
-    duration CHAR,
-    FOREIGN KEY (operator_id) REFERENCES {tour_operators_table_name}(operator_id),
-    FOREIGN KEY (destination_id) REFERENCES {destination_table_name}(destination_id)
-)
-''')
-
-# Create the bookings table if it doesn't exist
-cursor.execute(f'''
-CREATE TABLE IF NOT EXISTS {bookings_table_name} (
-    booking_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    tour_id INTEGER,
-    booking_date DATE,
-    status CHAR CHECK(status IN ('pending', 'confirmed', 'cancelled')),
-    total_cost DECIMAL,
-    FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
-    FOREIGN KEY (tour_id) REFERENCES {tours_table_name}(tour_id)
-)
-''')
-
-# Read data from the country summaries JSON file
+# Load country data from JSON file and insert it into the database
 with open('african_summaries.json', 'r') as file:
     country_data = json.load(file)
 
-# Prepare and insert data into the country summaries table
-for country, description in country_data.items():
-    map_url = f"https://www.google.com/maps/place/{country.replace(' ', '+')}"
-    cursor.execute(f'''
-    INSERT OR IGNORE INTO {country_table_name} (country_name, description, map_url)
-    VALUES (?, ?, ?)
-    ''', (country, description, map_url))
-
-# Commit the changes for country summaries
-conn.commit()
-
-# Read data from the grouped_sorted_africa_attractions_data.json file
-with open('grouped_sorted_africa_attractions_data.json', 'r') as file:
-    grouped_data = json.load(file)
-
-# Prepare and insert data into the destinations table
-for country, destinations in grouped_data.items():
-    # Get the country_id for the current country
-    cursor.execute(f'''
-    SELECT id FROM {country_table_name} WHERE country_name = ?
-    ''', (country,))
-    country_id = cursor.fetchone()
-
-    if country_id:
-        country_id = country_id[0]
-        for destination in destinations:
-            # Extract the description and iframe link
-            description = destination.get('description', '')
-            iframe_link = destination.get('iframe_link', '')
-
+def insert_country_data():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    for country, description in country_data.items():
+        map_url = f"https://www.google.com/maps/place/{country.replace(' ', '+')}"
+        
+        # Check if the country already exists
+        cursor.execute(f'''
+        SELECT * FROM {country_table_name} WHERE country_name = ?
+        ''', (country,))
+        
+        if cursor.fetchone() is None:
+            # If not exists, insert into the database
             cursor.execute(f'''
-            INSERT OR IGNORE INTO {destination_table_name} (country_id, name, description, location)
-            VALUES (?, ?, ?, ?)
-            ''', (country_id, destination['name'], description, iframe_link))  # Use iframe_link for location
+            INSERT INTO {country_table_name} (country_name, description, map_url)
+            VALUES (?, ?, ?)
+            ''', (country, description, map_url))
+        else:
+            # Optionally, update the existing record if needed
+            cursor.execute(f'''
+            UPDATE {country_table_name} 
+            SET description = ?, map_url = ?
+            WHERE country_name = ?
+            ''', (description, map_url, country))
+    
+    conn.commit()
+    conn.close()
 
-# Commit the changes for destinations
-conn.commit()
+# Insert country data, if not already present
+insert_country_data()
 
-# Close the connection
-conn.close()
+# API Endpoints
+@app.route('/')
+def index():
+    return 'Welcome! <a href="/login">Login with Google</a>'
 
-print("Data has been successfully inserted into the country summaries and destinations tables.")
-print("All additional tables have been created empty.")
+@app.route('/login')
+def login():
+    return google.authorize(callback=url_for('authorized', _external=True))
+
+@app.route('/callback')
+def authorized():
+    response = google.authorized_response()
+    if response is None or 'access_token' not in response:
+        return 'Access denied: reason={} error={}'.format(
+            request.args['error_reason'],
+            request.args['error_description']
+        )
+    
+    session['google_token'] = (response['access_token'], '')
+    user_info = google.get('userinfo')
+    
+    # User information handling
+    email = user_info.data['email']
+    username = email.split('@')[0]  # Create username from email
+
+    # Insert or update user in the database
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute(f'''
+        INSERT INTO {users_table_name} (username, email) VALUES (?, ?)
+        ON CONFLICT(email) DO UPDATE SET username = ?
+    ''', (username, email, username))
+    
+    conn.commit()
+    conn.close()
+
+    return f'Logged in as: {email}'
+
+@app.route('/countries', methods=['POST'])
+def add_country():
+    new_country = request.json
+    country_name = new_country.get('country_name')
+    description = new_country.get('description')
+
+    map_url = f"https://www.google.com/maps/place/{country_name.replace(' ', '+')}"
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Check if country exists
+    cursor.execute(f'''
+    SELECT * FROM {country_table_name} WHERE country_name = ?
+    ''', (country_name,))
+    
+    if cursor.fetchone() is None:
+        # If not exists, insert into the database
+        cursor.execute(f'''
+        INSERT INTO {country_table_name} (country_name, description, map_url)
+        VALUES (?, ?, ?)
+        ''', (country_name, description, map_url))
+    else:
+        # Update the existing record if needed
+        cursor.execute(f'''
+        UPDATE {country_table_name} 
+        SET description = ?, map_url = ?
+        WHERE country_name = ?
+        ''', (description, map_url, country_name))
+    
+    conn.commit()
+    conn.close()
+    return jsonify(new_country), 201
+
+@app.route('/destinations', methods=['POST'])
+def add_destination():
+    new_destination = request.json
+    country_id = new_destination.get('country_id')
+    name = new_destination.get('name')
+    description = new_destination.get('description')
+    location = new_destination.get('location')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Check if destination exists
+    cursor.execute(f'''
+    SELECT * FROM {destination_table_name} WHERE name = ? AND country_id = ?
+    ''', (name, country_id))
+    
+    if cursor.fetchone() is None:
+        # If not exists, insert into the database
+        cursor.execute(f'''
+        INSERT INTO {destination_table_name} (country_id, name, description, location)
+        VALUES (?, ?, ?, ?)
+        ''', (country_id, name, description, location))
+    else:
+        # Update the existing record if needed
+        cursor.execute(f'''
+        UPDATE {destination_table_name} 
+        SET description = ?, location = ?
+        WHERE name = ? AND country_id = ?
+        ''', (description, location, name, country_id))
+    
+    conn.commit()
+    conn.close()
+    return jsonify(new_destination), 201
+
+@app.route('/tour_operators', methods=['POST'])
+def add_tour_operator():
+    new_operator = request.json
+    user_id = new_operator.get('user_id')
+    country_id = new_operator.get('country_id')
+    company_name = new_operator.get('company_name')
+    expertise = new_operator.get('expertise')
+    services_offered = new_operator.get('services_offered')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Check if tour operator exists
+    cursor.execute(f'''
+    SELECT * FROM {tour_operators_table_name} WHERE company_name = ? AND user_id = ?
+    ''', (company_name, user_id))
+    
+    if cursor.fetchone() is None:
+        # If not exists, insert into the database
+        cursor.execute(f'''
+        INSERT INTO {tour_operators_table_name} (user_id, country_id, company_name, expertise, services_offered)
+        VALUES (?, ?, ?, ?, ?)
+        ''', (user_id, country_id, company_name, expertise, services_offered))
+    else:
+        # Update the existing record if needed
+        cursor.execute(f'''
+        UPDATE {tour_operators_table_name} 
+        SET country_id = ?, expertise = ?, services_offered = ?
+        WHERE company_name = ? AND user_id = ?
+        ''', (country_id, expertise, services_offered, company_name, user_id))
+    
+    conn.commit()
+    conn.close()
+    return jsonify(new_operator), 201
+
+@app.route('/users', methods=['POST'])
+def add_user():
+    new_user = request.json
+    username = new_user.get('username')
+    password = new_user.get('password')
+    email = new_user.get('email')
+    phone = new_user.get('phone')
+    interests = new_user.get('interests')
+    user_type = new_user.get('user_type')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Check if user exists
+    cursor.execute(f'''
+    SELECT * FROM {users_table_name} WHERE email = ?
+    ''', (email,))
+    
+    if cursor.fetchone() is None:
+        # If not exists, insert into the database
+        cursor.execute(f'''
+        INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ''', (username, password, email, phone, interests, user_type))
+    else:
+        # Update the existing record if needed
+        cursor.execute(f'''
+        UPDATE {users_table_name} 
+        SET username = ?, password = ?, phone = ?, interests = ?, user_type = ?
+        WHERE email = ?
+        ''', (username, password, phone, interests, user_type, email))
+    
+    conn.commit()
+    conn.close()
+    return jsonify(new_user), 201
+
+@app.route('/tours', methods=['POST'])
+def add_tour():
+    new_tour = request.json
+    operator_id = new_tour.get('operator_id')
+    destination_id = new_tour.get('destination_id')
+    tour_name = new_tour.get('tour_name')
+    description = new_tour.get('description')
+    price = new_tour.get('price')
+    duration = new_tour.get('duration')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Check if tour exists
+    cursor.execute(f'''
+    SELECT * FROM {tours_table_name} WHERE tour_name = ? AND operator_id = ?
+    ''', (tour_name, operator_id))
+    
+    if cursor.fetchone() is None:
+        # If not exists, insert into the database
+        cursor.execute(f'''
+        INSERT INTO {tours_table_name} (operator_id, destination_id, tour_name, description, price, duration)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ''', (operator_id, destination_id, tour_name, description, price, duration))
+    else:
+        # Update the existing record if needed
+        cursor.execute(f'''
+        UPDATE {tours_table_name} 
+        SET destination_id = ?, description = ?, price = ?, duration = ?
+        WHERE tour_name = ? AND operator_id = ?
+        ''', (destination_id, description, price, duration, tour_name, operator_id))
+    
+    conn.commit()
+    conn.close()
+    return jsonify(new_tour), 201
+
+@app.route('/bookings', methods=['POST'])
+def add_booking():
+    new_booking = request.json
+    user_id = new_booking.get('user_id')
+    tour_id = new_booking.get('tour_id')
+    booking_date = new_booking.get('booking_date')
+    status = new_booking.get('status')
+    total_cost = new_booking.get('total_cost')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Check if booking exists
+    cursor.execute(f'''
+    SELECT * FROM {bookings_table_name} WHERE user_id = ? AND tour_id = ? AND booking_date = ?
+    ''', (user_id, tour_id, booking_date))
+    
+    if cursor.fetchone() is None:
+        # If not exists, insert into the database
+        cursor.execute(f'''
+        INSERT INTO {bookings_table_name} (user_id, tour_id, booking_date, status, total_cost)
+        VALUES (?, ?, ?, ?, ?)
+        ''', (user_id, tour_id, booking_date, status, total_cost))
+    else:
+        # Update the existing record if needed
+        cursor.execute(f'''
+        UPDATE {bookings_table_name} 
+        SET status = ?, total_cost = ?
+        WHERE user_id = ? AND tour_id = ? AND booking_date = ?
+        ''', (status, total_cost, user_id, tour_id, booking_date))
+    
+    conn.commit()
+    conn.close()
+    return jsonify(new_booking), 201
+
+@google.tokengetter
+def get_google_oauth2_token():
+    return session.get('google_token')
+
+if __name__ == '__main__':
+    app.run(debug=True)
