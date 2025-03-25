@@ -1,0 +1,1732 @@
+{
+    "Algeria": [
+        {
+            "name": "Algiers Kasbah",
+            "city": "Algeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Algiers+Kasbah,Algeria",
+            "description": "A historic medina with narrow streets, traditional houses, and a rich cultural heritage."
+        },
+        {
+            "name": "Hoggar Mountains",
+            "city": "Algeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Hoggar+Mountains,Algeria",
+            "description": "A range featuring dramatic peaks and a rich Berber culture."
+        },
+        {
+            "name": "Ruins of Timgad",
+            "city": "Algeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ruins+of+Timgad,Algeria",
+            "description": "Ancient Roman ruins showcasing well-preserved structures and mosaics."
+        },
+        {
+            "name": "Sahara Desert",
+            "city": "Algeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sahara+Desert,Algeria",
+            "description": "The world’s largest hot desert, offering stunning dunes and unique landscapes."
+        },
+        {
+            "name": "Tassili n'Ajjer National Park",
+            "city": "Algeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tassili+n'Ajjer+National+Park,Algeria",
+            "description": "A UNESCO World Heritage site known for its unique rock formations and prehistoric rock art."
+        }
+    ],
+    "Angola": [
+        {
+            "name": "Kalandula Falls",
+            "city": "Angola",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kalandula+Falls,Angola",
+            "description": "A stunning waterfall, one of the largest in Africa, surrounded by lush vegetation."
+        },
+        {
+            "name": "Kissama National Park",
+            "city": "Angola",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kissama+National+Park,Angola",
+            "description": "A wildlife reserve known for its elephants, diverse fauna, and eco-tourism opportunities."
+        },
+        {
+            "name": "Luanda Bay",
+            "city": "Angola",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Luanda+Bay,Angola",
+            "description": "A picturesque bay offering scenic views and vibrant city life."
+        },
+        {
+            "name": "Mussulo Island",
+            "city": "Angola",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mussulo+Island,Angola",
+            "description": "A beautiful island known for its beaches and clear waters, ideal for relaxation."
+        },
+        {
+            "name": "Tundavala Fissure",
+            "city": "Angola",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tundavala+Fissure,Angola",
+            "description": "A dramatic geological formation offering breathtaking views of the surrounding landscape."
+        }
+    ],
+    "Benin": [
+        {
+            "name": "Ganvie Village",
+            "city": "Benin",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ganvie+Village,Benin",
+            "description": "A unique stilt village known for its traditional fishing culture."
+        },
+        {
+            "name": "Grand Popo Beach",
+            "city": "Benin",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Grand+Popo+Beach,Benin",
+            "description": "A beautiful sandy beach popular for relaxation and water sports."
+        },
+        {
+            "name": "Ouidah Museum of History",
+            "city": "Benin",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ouidah+Museum+of+History,Benin",
+            "description": "A museum showcasing the rich history and culture of Benin."
+        },
+        {
+            "name": "Pendjari National Park",
+            "city": "Benin",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Pendjari+National+Park,Benin",
+            "description": "A protected area famous for its wildlife, including elephants and lions."
+        },
+        {
+            "name": "Royal Palace of Abomey",
+            "city": "Benin",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Royal+Palace+of+Abomey,Benin",
+            "description": "A UNESCO World Heritage site with historical significance in the Dahomey Kingdom."
+        }
+    ],
+    "Botswana": [
+        {
+            "name": "Chobe National Park",
+            "city": "Botswana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Chobe+National+Park,Botswana",
+            "description": "Renowned for its large elephant population and diverse wildlife."
+        },
+        {
+            "name": "Makgadikgadi Pan",
+            "city": "Botswana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Makgadikgadi+Pan,Botswana",
+            "description": "One of the largest salt pans in the world, offering stunning landscapes."
+        },
+        {
+            "name": "Moremi Game Reserve",
+            "city": "Botswana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Moremi+Game+Reserve,Botswana",
+            "description": "A premier wildlife reserve known for its rich biodiversity."
+        },
+        {
+            "name": "Okavango Delta",
+            "city": "Botswana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Okavango+Delta,Botswana",
+            "description": "A UNESCO World Heritage site with unique wetlands and rich biodiversity."
+        },
+        {
+            "name": "Tsodilo Hills",
+            "city": "Botswana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tsodilo+Hills,Botswana",
+            "description": "Known for ancient rock art and cultural significance."
+        }
+    ],
+    "Burkina Faso": [
+        {
+            "name": "Bobo-Dioulasso",
+            "city": "Burkina Faso",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bobo-Dioulasso,Burkina+Faso",
+            "description": "The second-largest city known for its vibrant arts scene."
+        },
+        {
+            "name": "Lake Tengrela",
+            "city": "Burkina Faso",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Tengrela,Burkina+Faso",
+            "description": "A beautiful lake popular for birdwatching and fishing."
+        },
+        {
+            "name": "Nazinga Game Ranch",
+            "city": "Burkina Faso",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nazinga+Game+Ranch,Burkina+Faso",
+            "description": "A wildlife reserve known for its conservation efforts."
+        },
+        {
+            "name": "Ouagadougou",
+            "city": "Burkina Faso",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ouagadougou,Burkina+Faso",
+            "description": "The capital city known for its cultural festivals."
+        },
+        {
+            "name": "Ruins of Loropéni",
+            "city": "Burkina Faso",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ruins+of+Loropéni,Burkina+Faso",
+            "description": "A UNESCO World Heritage site with ancient stone ruins."
+        }
+    ],
+    "Burundi": [
+        {
+            "name": "Gitega National Museum",
+            "city": "Burundi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Gitega+National+Museum,Burundi",
+            "description": "A museum showcasing the cultural heritage of Burundi."
+        },
+        {
+            "name": "Kibira National Park",
+            "city": "Burundi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kibira+National+Park,Burundi",
+            "description": "A protected rainforest rich in biodiversity."
+        },
+        {
+            "name": "Lake Tanganyika",
+            "city": "Burundi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Tanganyika,Burundi",
+            "description": "One of the largest lakes in the world, known for its clear waters."
+        },
+        {
+            "name": "Saga Beach",
+            "city": "Burundi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Saga+Beach,Burundi",
+            "description": "A popular beach destination for relaxation."
+        },
+        {
+            "name": "Source of the Nile",
+            "city": "Burundi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Source+of+the+Nile,Burundi",
+            "description": "The starting point of the Nile River, rich in history."
+        }
+    ],
+    "Cape Verde": [
+        {
+            "name": "Fogo Volcano",
+            "city": "Cape Verde",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Fogo+Volcano,Cape+Verde",
+            "description": "An active volcano and the highest point in Cape Verde."
+        },
+        {
+            "name": "Mindelo",
+            "city": "Cape Verde",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mindelo,Cape+Verde",
+            "description": "A lively city known for its music and vibrant culture."
+        },
+        {
+            "name": "Praia",
+            "city": "Cape Verde",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Praia,Cape+Verde",
+            "description": "The capital city with beautiful beaches and a rich history."
+        },
+        {
+            "name": "Sal Island",
+            "city": "Cape Verde",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sal+Island,Cape+Verde",
+            "description": "Known for its stunning beaches and water sports."
+        },
+        {
+            "name": "São Vicente",
+            "city": "Cape Verde",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=São+Vicente,Cape+Verde",
+            "description": "An island famous for its cultural events and festivals."
+        }
+    ],
+    "Cameroon": [
+        {
+            "name": "Dja Faunal Reserve",
+            "city": "Cameroon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Dja+Faunal+Reserve,Cameroon",
+            "description": "A UNESCO World Heritage site known for its biodiversity."
+        },
+        {
+            "name": "Limbe Botanic Gardens",
+            "city": "Cameroon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Limbe+Botanic+Gardens,Cameroon",
+            "description": "A beautiful garden showcasing the region's flora."
+        },
+        {
+            "name": "Mount Cameroon",
+            "city": "Cameroon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mount+Cameroon,Cameroon",
+            "description": "An active volcano offering hiking trails and stunning views."
+        },
+        {
+            "name": "Waza National Park",
+            "city": "Cameroon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Waza+National+Park,Cameroon",
+            "description": "A wildlife reserve home to diverse species, including lions and elephants."
+        },
+        {
+            "name": "Yaoundé",
+            "city": "Cameroon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Yaoundé,Cameroon",
+            "description": "The capital city known for its vibrant culture and history."
+        }
+    ],
+    "Central African Republic": [
+        {
+            "name": "Berberati",
+            "city": "Central African Republic",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Berberati,Central+African+Republic",
+            "description": "A city known for its cultural diversity and local markets."
+        },
+        {
+            "name": "Boali Waterfalls",
+            "city": "Central African Republic",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Boali+Waterfalls,Central+African+Republic",
+            "description": "Stunning waterfalls located near Bangui, popular for their beauty."
+        },
+        {
+            "name": "Dzanga-Sangha National Park",
+            "city": "Central African Republic",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Dzanga-Sangha+National+Park,Central+African+Republic",
+            "description": "A biodiversity hotspot known for gorilla tracking and rich wildlife."
+        },
+        {
+            "name": "Manova-Gounda St. Floris National Park",
+            "city": "Central African Republic",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Manova-Gounda+St.+Floris+National+Park,Central+African+Republic",
+            "description": "A national park known for its diverse ecosystems and wildlife."
+        },
+        {
+            "name": "Sangha River",
+            "city": "Central African Republic",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sangha+River,Central+African+Republic",
+            "description": "A river that provides beautiful views and opportunities for eco-tourism."
+        }
+    ],
+    "Chad": [
+        {
+            "name": "Aoûdaï National Park",
+            "city": "Chad",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Aoûdaï+National+Park,Chad",
+            "description": "A national park known for its wildlife and natural beauty."
+        },
+        {
+            "name": "Lake Chad",
+            "city": "Chad",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Chad,Chad",
+            "description": "A shrinking lake offering unique landscapes and fishing opportunities."
+        },
+        {
+            "name": "N'Djamena",
+            "city": "Chad",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=N'Djamena,Chad",
+            "description": "The capital city known for its vibrant culture and history."
+        },
+        {
+            "name": "Tibesti Mountains",
+            "city": "Chad",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tibesti+Mountains,Chad",
+            "description": "A mountain range offering stunning landscapes and hiking opportunities."
+        },
+        {
+            "name": "Zakouma National Park",
+            "city": "Chad",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Zakouma+National+Park,Chad",
+            "description": "A protected area known for wildlife conservation and diverse ecosystems."
+        }
+    ],
+    "Comoros": [
+        {
+            "name": "Anjouan Island",
+            "city": "Comoros",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Anjouan+Island,Comoros",
+            "description": "An island known for its lush landscapes and rich biodiversity."
+        },
+        {
+            "name": "Moheli Marine Park",
+            "city": "Comoros",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Moheli+Marine+Park,Comoros",
+            "description": "A marine park offering snorkeling and diving opportunities."
+        },
+        {
+            "name": "Moroni",
+            "city": "Comoros",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Moroni,Comoros",
+            "description": "The capital city with beautiful architecture and cultural heritage."
+        },
+        {
+            "name": "Mount Karthala",
+            "city": "Comoros",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mount+Karthala,Comoros",
+            "description": "An active volcano that is a popular hiking destination."
+        },
+        {
+            "name": "Ngazidja",
+            "city": "Comoros",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ngazidja,Comoros",
+            "description": "The largest island known for its beautiful beaches and nature."
+        }
+    ],
+    "DR Congo": [
+        {
+            "name": "Kahuzi-Biega National Park",
+            "city": "DR Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kahuzi-Biega+National+Park,DR+Congo",
+            "description": "A UNESCO World Heritage site known for its mountain gorillas."
+        },
+        {
+            "name": "Kinshasa",
+            "city": "DR Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kinshasa,DR+Congo",
+            "description": "The capital city with vibrant music and cultural scenes."
+        },
+        {
+            "name": "Lake Tanganyika",
+            "city": "DR Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Tanganyika,DR+Congo",
+            "description": "One of the largest lakes in the world, known for its clear waters."
+        },
+        {
+            "name": "Lola ya Bonobo",
+            "city": "DR Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lola+ya+Bonobo,DR+Congo",
+            "description": "A sanctuary for bonobos and a place for eco-tourism."
+        },
+        {
+            "name": "Virunga National Park",
+            "city": "DR Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Virunga+National+Park,DR+Congo",
+            "description": "A UNESCO World Heritage site famous for its biodiversity."
+        }
+    ],
+    "Republic of the Congo": [
+        {
+            "name": "Brazzaville",
+            "city": "Republic of the Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Brazzaville,Republic+of+the+Congo",
+            "description": "The capital city known for its vibrant culture and markets."
+        },
+        {
+            "name": "Lesio-Louna Wildlife Reserve",
+            "city": "Republic of the Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lesio-Louna+Wildlife+Reserve,Republic+of+the+Congo",
+            "description": "A reserve known for its wildlife and conservation efforts."
+        },
+        {
+            "name": "Loufoulakari Falls",
+            "city": "Republic of the Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Loufoulakari+Falls,Republic+of+the+Congo",
+            "description": "Beautiful waterfalls offering scenic views."
+        },
+        {
+            "name": "Odzala-Kokoua National Park",
+            "city": "Republic of the Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Odzala-Kokoua+National+Park,Republic+of+the+Congo",
+            "description": "A national park known for its biodiversity and unique ecosystems."
+        },
+        {
+            "name": "Tchimpounga Chimpanzee Rehabilitation Center",
+            "city": "Republic of the Congo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tchimpounga+Chimpanzee+Rehabilitation+Center,Republic+of+the+Congo",
+            "description": "A center dedicated to the rehabilitation of chimpanzees."
+        }
+    ],
+    "Djibouti": [
+        {
+            "name": "Arta Beach",
+            "city": "Djibouti",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Arta+Beach,Djibouti",
+            "description": "A beautiful beach known for its stunning views and relaxation."
+        },
+        {
+            "name": "Day Forest National Park",
+            "city": "Djibouti",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Day+Forest+National+Park,Djibouti",
+            "description": "A protected area known for its rich biodiversity and hiking trails."
+        },
+        {
+            "name": "Djibouti City",
+            "city": "Djibouti",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Djibouti+City,Djibouti",
+            "description": "The capital city featuring diverse culture and historical sites."
+        },
+        {
+            "name": "Gulf of Tadjoura",
+            "city": "Djibouti",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Gulf+of+Tadjoura,Djibouti",
+            "description": "A gulf known for its beautiful beaches and marine life."
+        },
+        {
+            "name": "Lake Assal",
+            "city": "Djibouti",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Assal,Djibouti",
+            "description": "The lowest point in Africa, known for its salt flats and stunning landscapes."
+        }
+    ],
+    "Egypt": [
+        {
+            "name": "Abu Simbel",
+            "city": "Egypt",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Abu+Simbel,Egypt",
+            "description": "Famous ancient temples built during the reign of Pharaoh Ramses II."
+        },
+        {
+            "name": "Luxor",
+            "city": "Egypt",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Luxor,Egypt",
+            "description": "Known for its temples and the Valley of the Kings, rich in ancient history."
+        },
+        {
+            "name": "Pyramids of Giza",
+            "city": "Egypt",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Pyramids+of+Giza,Egypt",
+            "description": "Iconic ancient structures and one of the Seven Wonders of the Ancient World."
+        },
+        {
+            "name": "Valley of the Kings",
+            "city": "Egypt",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Valley+of+the+Kings,Egypt",
+            "description": "A burial site of many pharaohs, known for its royal tombs."
+        }
+    ],
+    "Cairo": [
+        {
+            "name": "Egyptian Museum",
+            "city": "Cairo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Egyptian+Museum,Cairo",
+            "description": "Home to an extensive collection of ancient Egyptian antiquities."
+        }
+    ],
+    "Equatorial Guinea": [
+        {
+            "name": "Bioko Island",
+            "city": "Equatorial Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bioko+Island,Equatorial+Guinea",
+            "description": "An island known for its volcanic landscapes and biodiversity."
+        },
+        {
+            "name": "Malabo",
+            "city": "Equatorial Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Malabo,Equatorial+Guinea",
+            "description": "The capital city known for its colonial architecture and coastal views."
+        },
+        {
+            "name": "Monte Alén National Park",
+            "city": "Equatorial Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Monte+Alén+National+Park,Equatorial+Guinea",
+            "description": "A protected area with diverse wildlife and lush rainforests."
+        },
+        {
+            "name": "Punta Europa",
+            "city": "Equatorial Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Punta+Europa,Equatorial+Guinea",
+            "description": "A scenic area known for its beautiful coastline and views."
+        },
+        {
+            "name": "Rio Muni",
+            "city": "Equatorial Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Rio+Muni,Equatorial+Guinea",
+            "description": "The mainland region known for its rich biodiversity."
+        }
+    ],
+    "Eritrea": [
+        {
+            "name": "Asmara",
+            "city": "Eritrea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Asmara,Eritrea",
+            "description": "The capital known for its Italian colonial architecture and vibrant culture."
+        },
+        {
+            "name": "Dahlak Archipelago",
+            "city": "Eritrea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Dahlak+Archipelago,Eritrea",
+            "description": "A group of islands known for their stunning marine life and diving spots."
+        },
+        {
+            "name": "Keren",
+            "city": "Eritrea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Keren,Eritrea",
+            "description": "A city known for its vibrant markets and cultural diversity."
+        },
+        {
+            "name": "Massawa",
+            "city": "Eritrea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Massawa,Eritrea",
+            "description": "A coastal city known for its beautiful architecture and historical significance."
+        },
+        {
+            "name": "Senafe",
+            "city": "Eritrea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Senafe,Eritrea",
+            "description": "A town with rich history and stunning landscapes."
+        }
+    ],
+    "Eswatini": [
+        {
+            "name": "Hlane Royal National Park",
+            "city": "Eswatini",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Hlane+Royal+National+Park,Eswatini",
+            "description": "Known for its wildlife and beautiful landscapes."
+        },
+        {
+            "name": "Mantenga Cultural Village",
+            "city": "Eswatini",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mantenga+Cultural+Village,Eswatini",
+            "description": "A cultural village showcasing the traditions of the Swazi people."
+        },
+        {
+            "name": "Mlilwane Wildlife Sanctuary",
+            "city": "Eswatini",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mlilwane+Wildlife+Sanctuary,Eswatini",
+            "description": "A sanctuary offering a chance to see diverse wildlife and enjoy outdoor activities."
+        },
+        {
+            "name": "Royal Swazi Spa",
+            "city": "Eswatini",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Royal+Swazi+Spa,Eswatini",
+            "description": "A luxurious spa known for its relaxing treatments and beautiful surroundings."
+        },
+        {
+            "name": "Sibebe Rock",
+            "city": "Eswatini",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sibebe+Rock,Eswatini",
+            "description": "A massive granite rock formation offering hiking opportunities and scenic views."
+        }
+    ],
+    "Ethiopia": [
+        {
+            "name": "Addis Ababa",
+            "city": "Ethiopia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Addis+Ababa,Ethiopia",
+            "description": "The capital city known for its historical sites and vibrant culture."
+        },
+        {
+            "name": "Axum",
+            "city": "Ethiopia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Axum,Ethiopia",
+            "description": "An ancient city known for its obelisks and rich history."
+        },
+        {
+            "name": "Gondar",
+            "city": "Ethiopia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Gondar,Ethiopia",
+            "description": "Known for its medieval castles and historical significance."
+        },
+        {
+            "name": "Lalibela",
+            "city": "Ethiopia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lalibela,Ethiopia",
+            "description": "Famous for its rock-hewn churches, a UNESCO World Heritage site."
+        },
+        {
+            "name": "Simien Mountains National Park",
+            "city": "Ethiopia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Simien+Mountains+National+Park,Ethiopia",
+            "description": "A UNESCO World Heritage site known for its stunning landscapes and biodiversity."
+        }
+    ],
+    "Gabon": [
+        {
+            "name": "Akanda National Park",
+            "city": "Gabon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Akanda+National+Park,Gabon",
+            "description": "A national park known for its mangroves and diverse wildlife."
+        },
+        {
+            "name": "Ivindo National Park",
+            "city": "Gabon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ivindo+National+Park,Gabon",
+            "description": "Home to waterfalls and rich biodiversity."
+        },
+        {
+            "name": "Libreville",
+            "city": "Gabon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Libreville,Gabon",
+            "description": "The capital city known for its vibrant markets and coastal views."
+        },
+        {
+            "name": "Loango National Park",
+            "city": "Gabon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Loango+National+Park,Gabon",
+            "description": "A wildlife reserve known for its elephants and marine life."
+        },
+        {
+            "name": "Mikongo Lodge",
+            "city": "Gabon",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mikongo+Lodge,Gabon",
+            "description": "A lodge offering eco-tourism experiences in the rainforest."
+        }
+    ],
+    "Gambia": [
+        {
+            "name": "Abuko Nature Reserve",
+            "city": "Gambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Abuko+Nature+Reserve,Gambia",
+            "description": "A protected area known for its diverse bird species and wildlife."
+        },
+        {
+            "name": "Banjul",
+            "city": "Gambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Banjul,Gambia",
+            "description": "The capital city located on an island with a rich colonial history."
+        },
+        {
+            "name": "Kachikally Crocodile Pool",
+            "city": "Gambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kachikally+Crocodile+Pool,Gambia",
+            "description": "A sacred crocodile pool with cultural significance."
+        },
+        {
+            "name": "River Gambia National Park",
+            "city": "Gambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=River+Gambia+National+Park,Gambia",
+            "description": "A park known for its diverse wildlife and scenic river views."
+        },
+        {
+            "name": "Tanji Village Museum",
+            "city": "Gambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tanji+Village+Museum,Gambia",
+            "description": "A museum showcasing the cultural heritage of The Gambia."
+        }
+    ],
+    "Ghana": [
+        {
+            "name": "Accra",
+            "city": "Ghana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Accra,Ghana",
+            "description": "The capital city known for its historical sites and vibrant culture."
+        },
+        {
+            "name": "Cape Coast Castle",
+            "city": "Ghana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Cape+Coast+Castle,Ghana",
+            "description": "A historic slave trade site with a museum."
+        },
+        {
+            "name": "Kakum National Park",
+            "city": "Ghana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kakum+National+Park,Ghana",
+            "description": "Known for its canopy walkway and rich biodiversity."
+        },
+        {
+            "name": "Mole National Park",
+            "city": "Ghana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mole+National+Park,Ghana",
+            "description": "A wildlife park known for its elephants and safaris."
+        },
+        {
+            "name": "Wli Waterfalls",
+            "city": "Ghana",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Wli+Waterfalls,Ghana",
+            "description": "The highest waterfall in Ghana, surrounded by lush vegetation."
+        }
+    ],
+    "Guinea": [
+        {
+            "name": "Boke",
+            "city": "Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Boke,Guinea",
+            "description": "A city known for its cultural diversity and beautiful landscapes."
+        },
+        {
+            "name": "Conakry",
+            "city": "Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Conakry,Guinea",
+            "description": "The capital city known for its vibrant culture and markets."
+        },
+        {
+            "name": "Fouta Djallon",
+            "city": "Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Fouta+Djallon,Guinea",
+            "description": "A mountainous region known for its scenic views and hiking trails."
+        },
+        {
+            "name": "Kankan",
+            "city": "Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kankan,Guinea",
+            "description": "A city with a rich history and vibrant culture."
+        },
+        {
+            "name": "Mount Nimba",
+            "city": "Guinea",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mount+Nimba,Guinea",
+            "description": "A UNESCO World Heritage site known for its unique flora and fauna."
+        }
+    ],
+    "Guinea-Bissau": [
+        {
+            "name": "Bijagos Archipelago",
+            "city": "Guinea-Bissau",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bijagos+Archipelago,Guinea-Bissau",
+            "description": "A group of islands known for their biodiversity and traditional cultures."
+        },
+        {
+            "name": "Bissau",
+            "city": "Guinea-Bissau",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bissau,Guinea-Bissau",
+            "description": "The capital city with colonial architecture and cultural heritage."
+        },
+        {
+            "name": "Cacheu River",
+            "city": "Guinea-Bissau",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Cacheu+River,Guinea-Bissau",
+            "description": "A river known for its natural beauty and biodiversity."
+        },
+        {
+            "name": "Joao Vieira and Poilao Marine National Park",
+            "city": "Guinea-Bissau",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Joao+Vieira+and+Poilao+Marine+National+Park,Guinea-Bissau",
+            "description": "A marine park known for its rich biodiversity."
+        },
+        {
+            "name": "Orango Islands National Park",
+            "city": "Guinea-Bissau",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Orango+Islands+National+Park,Guinea-Bissau",
+            "description": "A national park famous for its unique wildlife and ecosystems."
+        }
+    ],
+    "Ivory Coast": [
+        {
+            "name": "Abidjan",
+            "city": "Ivory Coast",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Abidjan,Ivory+Coast",
+            "description": "The economic capital known for its vibrant culture and modern architecture."
+        },
+        {
+            "name": "Assinie-Mafia",
+            "city": "Ivory Coast",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Assinie-Mafia,Ivory+Coast",
+            "description": "A coastal town known for its beautiful beaches and resorts."
+        },
+        {
+            "name": "Comoé National Park",
+            "city": "Ivory Coast",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Comoé+National+Park,Ivory+Coast",
+            "description": "A national park known for its rich wildlife and diverse ecosystems."
+        },
+        {
+            "name": "Taï National Park",
+            "city": "Ivory Coast",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Taï+National+Park,Ivory+Coast",
+            "description": "A UNESCO World Heritage site known for its rainforests and wildlife."
+        },
+        {
+            "name": "Yamoussoukro",
+            "city": "Ivory Coast",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Yamoussoukro,Ivory+Coast",
+            "description": "The political capital known for the Basilica of Our Lady of Peace."
+        }
+    ],
+    "Kenya": [
+        {
+            "name": "Amboseli National Park",
+            "city": "Kenya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Amboseli+National+Park,Kenya",
+            "description": "Famous for its large elephant herds and views of Mount Kilimanjaro."
+        },
+        {
+            "name": "Lake Nakuru",
+            "city": "Kenya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Nakuru,Kenya",
+            "description": "Known for its flamingos and diverse birdlife."
+        },
+        {
+            "name": "Maasai Mara National Reserve",
+            "city": "Kenya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Maasai+Mara+National+Reserve,Kenya",
+            "description": "Famous for the Great Migration and rich wildlife."
+        },
+        {
+            "name": "Nairobi National Park",
+            "city": "Kenya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nairobi+National+Park,Kenya",
+            "description": "A unique wildlife reserve located just outside the capital."
+        },
+        {
+            "name": "Tsavo National Park",
+            "city": "Kenya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tsavo+National+Park,Kenya",
+            "description": "One of the largest national parks in the world, known for its diverse ecosystems."
+        }
+    ],
+    "Lesotho": [
+        {
+            "name": "Katse Dam",
+            "city": "Lesotho",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Katse+Dam,Lesotho",
+            "description": "A large dam known for its stunning views and engineering marvel."
+        },
+        {
+            "name": "Maloti Mountains",
+            "city": "Lesotho",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Maloti+Mountains,Lesotho",
+            "description": "A mountain range offering breathtaking views and hiking opportunities."
+        },
+        {
+            "name": "Sani Pass",
+            "city": "Lesotho",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sani+Pass,Lesotho",
+            "description": "A scenic mountain pass known for its breathtaking views."
+        },
+        {
+            "name": "Sehlabathebe National Park",
+            "city": "Lesotho",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sehlabathebe+National+Park,Lesotho",
+            "description": "A national park known for its unique flora and fauna."
+        },
+        {
+            "name": "Thaba Bosiu",
+            "city": "Lesotho",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Thaba+Bosiu,Lesotho",
+            "description": "A historic mountain and cultural site."
+        }
+    ],
+    "Liberia": [
+        {
+            "name": "Kpatawee Waterfall",
+            "city": "Liberia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kpatawee+Waterfall,Liberia",
+            "description": "A stunning waterfall surrounded by lush vegetation."
+        },
+        {
+            "name": "Lake Piso",
+            "city": "Liberia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Piso,Liberia",
+            "description": "A large lake known for its biodiversity and fishing opportunities."
+        },
+        {
+            "name": "Monrovia",
+            "city": "Liberia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Monrovia,Liberia",
+            "description": "The capital city with a rich history and coastal views."
+        },
+        {
+            "name": "Robertsport",
+            "city": "Liberia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Robertsport,Liberia",
+            "description": "A coastal town known for its beautiful beaches and surfing."
+        },
+        {
+            "name": "Sapo National Park",
+            "city": "Liberia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sapo+National+Park,Liberia",
+            "description": "A national park known for its biodiversity and wildlife conservation efforts."
+        }
+    ],
+    "Libya": [
+        {
+            "name": "Cyrene",
+            "city": "Libya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Cyrene,Libya",
+            "description": "Ancient ruins of a city founded by the Greeks."
+        },
+        {
+            "name": "Ghadames",
+            "city": "Libya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ghadames,Libya",
+            "description": "A UNESCO World Heritage site known for its unique architecture."
+        },
+        {
+            "name": "Leptis Magna",
+            "city": "Libya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Leptis+Magna,Libya",
+            "description": "An ancient Roman city with well-preserved ruins."
+        },
+        {
+            "name": "Sahara Desert",
+            "city": "Libya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sahara+Desert,Libya",
+            "description": "Offers unique desert landscapes and opportunities for exploration."
+        },
+        {
+            "name": "Tripoli",
+            "city": "Libya",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tripoli,Libya",
+            "description": "The capital city with a mix of modern and historical architecture."
+        }
+    ],
+    "Madagascar": [
+        {
+            "name": "Andasibe-Mantadia National Park",
+            "city": "Madagascar",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Andasibe-Mantadia+National+Park,Madagascar",
+            "description": "Known for its unique wildlife, including lemurs."
+        },
+        {
+            "name": "Avenue of the Baobabs",
+            "city": "Madagascar",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Avenue+of+the+Baobabs,Madagascar",
+            "description": "A striking landscape featuring iconic baobab trees."
+        },
+        {
+            "name": "Nosy Be",
+            "city": "Madagascar",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nosy+Be,Madagascar",
+            "description": "A popular island destination known for its beaches and diving spots."
+        },
+        {
+            "name": "Ranomafana National Park",
+            "city": "Madagascar",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ranomafana+National+Park,Madagascar",
+            "description": "Famous for its hot springs and rich biodiversity."
+        },
+        {
+            "name": "Tsingy de Bemaraha",
+            "city": "Madagascar",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tsingy+de+Bemaraha,Madagascar",
+            "description": "A UNESCO World Heritage site known for its limestone formations."
+        }
+    ],
+    "Malawi": [
+        {
+            "name": "Blantyre",
+            "city": "Malawi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Blantyre,Malawi",
+            "description": "A city known for its colonial architecture and cultural heritage."
+        },
+        {
+            "name": "Lake Malawi National Park",
+            "city": "Malawi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Malawi+National+Park,Malawi",
+            "description": "A UNESCO World Heritage site known for its biodiversity."
+        },
+        {
+            "name": "Liwonde National Park",
+            "city": "Malawi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Liwonde+National+Park,Malawi",
+            "description": "Known for its wildlife and scenic landscapes."
+        },
+        {
+            "name": "Nyika National Park",
+            "city": "Malawi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nyika+National+Park,Malawi",
+            "description": "A national park known for its rolling hills and rich flora and fauna."
+        },
+        {
+            "name": "Zomba Plateau",
+            "city": "Malawi",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Zomba+Plateau,Malawi",
+            "description": "A scenic plateau offering hiking trails and stunning views."
+        }
+    ],
+    "Mali": [
+        {
+            "name": "Bandiagara Escarpment",
+            "city": "Mali",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bandiagara+Escarpment,Mali",
+            "description": "A UNESCO World Heritage site known for its stunning landscapes."
+        },
+        {
+            "name": "Djenné",
+            "city": "Mali",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Djenné,Mali",
+            "description": "Famous for its mud-brick architecture and historical significance."
+        },
+        {
+            "name": "Mopti",
+            "city": "Mali",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mopti,Mali",
+            "description": "A city known for its vibrant markets and cultural diversity."
+        },
+        {
+            "name": "Timbuktu",
+            "city": "Mali",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Timbuktu,Mali",
+            "description": "A historic city known for its ancient mosques and cultural heritage."
+        },
+        {
+            "name": "Tomb of Askia",
+            "city": "Mali",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tomb+of+Askia,Mali",
+            "description": "A UNESCO World Heritage site and an important historical landmark."
+        }
+    ],
+    "Mauritania": [
+        {
+            "name": "Atar",
+            "city": "Mauritania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Atar,Mauritania",
+            "description": "A city known for its rich history and traditional architecture."
+        },
+        {
+            "name": "Banc d'Arguin National Park",
+            "city": "Mauritania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Banc+d'Arguin+National+Park,Mauritania",
+            "description": "A UNESCO World Heritage site known for its rich biodiversity."
+        },
+        {
+            "name": "Chinguetti",
+            "city": "Mauritania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Chinguetti,Mauritania",
+            "description": "An ancient trading town with historical significance."
+        },
+        {
+            "name": "Nouakchott",
+            "city": "Mauritania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nouakchott,Mauritania",
+            "description": "The capital city known for its markets and cultural diversity."
+        },
+        {
+            "name": "Ouadane",
+            "city": "Mauritania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ouadane,Mauritania",
+            "description": "A historic town known for its ancient architecture."
+        }
+    ],
+    "Mauritius": [
+        {
+            "name": "Black River Gorges National Park",
+            "city": "Mauritius",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Black+River+Gorges+National+Park,Mauritius",
+            "description": "A national park known for its hiking trails and diverse flora."
+        },
+        {
+            "name": "Chamarel",
+            "city": "Mauritius",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Chamarel,Mauritius",
+            "description": "Famous for its colored earth and stunning waterfalls."
+        },
+        {
+            "name": "Le Morne Brabant",
+            "city": "Mauritius",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Le+Morne+Brabant,Mauritius",
+            "description": "A UNESCO World Heritage site known for its historical significance."
+        },
+        {
+            "name": "Port Louis",
+            "city": "Mauritius",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Port+Louis,Mauritius",
+            "description": "The capital city known for its bustling markets and waterfront."
+        },
+        {
+            "name": "Île aux Cerfs",
+            "city": "Mauritius",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Île+aux+Cerfs,Mauritius",
+            "description": "A beautiful island known for its beaches and water sports."
+        }
+    ],
+    "Morocco": [
+        {
+            "name": "Atlas Mountains",
+            "city": "Morocco",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Atlas+Mountains,Morocco",
+            "description": "A mountain range offering stunning landscapes and hiking opportunities."
+        },
+        {
+            "name": "Chefchaouen",
+            "city": "Morocco",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Chefchaouen,Morocco",
+            "description": "Known for its blue-painted streets and buildings."
+        },
+        {
+            "name": "Fes",
+            "city": "Morocco",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Fes,Morocco",
+            "description": "A city known for its well-preserved medieval architecture."
+        },
+        {
+            "name": "Marrakech",
+            "city": "Morocco",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Marrakech,Morocco",
+            "description": "Famous for its vibrant souks and historical palaces."
+        },
+        {
+            "name": "Sahara Desert",
+            "city": "Morocco",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sahara+Desert,Morocco",
+            "description": "A vast desert known for its stunning dunes and unique landscapes."
+        }
+    ],
+    "Mozambique": [
+        {
+            "name": "Bazaruto Archipelago",
+            "city": "Mozambique",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bazaruto+Archipelago,Mozambique",
+            "description": "A group of islands known for their beautiful beaches and diving spots."
+        },
+        {
+            "name": "Gorongosa National Park",
+            "city": "Mozambique",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Gorongosa+National+Park,Mozambique",
+            "description": "A national park known for its rich biodiversity and conservation efforts."
+        },
+        {
+            "name": "Ilha de Mozambique",
+            "city": "Mozambique",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ilha+de+Mozambique,Mozambique",
+            "description": "A historic island known for its colonial architecture."
+        },
+        {
+            "name": "Inhaca Island",
+            "city": "Mozambique",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Inhaca+Island,Mozambique",
+            "description": "An island known for its pristine beaches and marine life."
+        },
+        {
+            "name": "Maputo",
+            "city": "Mozambique",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Maputo,Mozambique",
+            "description": "The capital city known for its vibrant culture and architecture."
+        }
+    ],
+    "Namibia": [
+        {
+            "name": "Etosha National Park",
+            "city": "Namibia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Etosha+National+Park,Namibia",
+            "description": "Famous for its salt pans and diverse wildlife."
+        },
+        {
+            "name": "Fish River Canyon",
+            "city": "Namibia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Fish+River+Canyon,Namibia",
+            "description": "One of the largest canyons in the world, offering breathtaking views."
+        },
+        {
+            "name": "Skeleton Coast",
+            "city": "Namibia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Skeleton+Coast,Namibia",
+            "description": "Known for its shipwrecks and unique landscapes."
+        },
+        {
+            "name": "Sossusvlei",
+            "city": "Namibia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sossusvlei,Namibia",
+            "description": "Famous for its towering sand dunes and surreal landscapes."
+        },
+        {
+            "name": "Swakopmund",
+            "city": "Namibia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Swakopmund,Namibia",
+            "description": "A coastal town known for adventure sports and German colonial architecture."
+        }
+    ],
+    "Niger": [
+        {
+            "name": "Agadez",
+            "city": "Niger",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Agadez,Niger",
+            "description": "A historic city known for its architecture and Tuareg culture."
+        },
+        {
+            "name": "Air and Ténéré Natural Reserves",
+            "city": "Niger",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Air+and+Ténéré+Natural+Reserves,Niger",
+            "description": "A UNESCO World Heritage site known for its unique desert landscapes."
+        },
+        {
+            "name": "Kouré",
+            "city": "Niger",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kouré,Niger",
+            "description": "Known for its giraffe population and eco-tourism opportunities."
+        },
+        {
+            "name": "Niamey",
+            "city": "Niger",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Niamey,Niger",
+            "description": "The capital city with vibrant markets and cultural sites."
+        },
+        {
+            "name": "W National Park",
+            "city": "Niger",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=W+National+Park,Niger",
+            "description": "A national park known for its wildlife and diverse ecosystems."
+        }
+    ],
+    "Nigeria": [
+        {
+            "name": "Aso Rock",
+            "city": "Nigeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Aso+Rock,Nigeria",
+            "description": "A prominent rock formation and national landmark."
+        },
+        {
+            "name": "Lekki Conservation Centre",
+            "city": "Nigeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lekki+Conservation+Centre,Nigeria",
+            "description": "A nature reserve known for its canopy walkway and wildlife."
+        },
+        {
+            "name": "Niger River",
+            "city": "Nigeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Niger+River,Nigeria",
+            "description": "The longest river in West Africa, vital for transport and agriculture."
+        },
+        {
+            "name": "Olumo Rock",
+            "city": "Nigeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Olumo+Rock,Nigeria",
+            "description": "A historic rock formation with cultural significance."
+        },
+        {
+            "name": "Zuma Rock",
+            "city": "Nigeria",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Zuma+Rock,Nigeria",
+            "description": "A prominent rock formation known for its striking appearance."
+        }
+    ],
+    "Rwanda": [
+        {
+            "name": "Akagera National Park",
+            "city": "Rwanda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Akagera+National+Park,Rwanda",
+            "description": "A national park known for its diverse wildlife and scenic landscapes."
+        },
+        {
+            "name": "Kigali Genocide Memorial",
+            "city": "Rwanda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kigali+Genocide+Memorial,Rwanda",
+            "description": "A memorial site honoring the victims of the Rwandan genocide."
+        },
+        {
+            "name": "Lake Kivu",
+            "city": "Rwanda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Kivu,Rwanda",
+            "description": "A beautiful lake known for its scenic views and recreational activities."
+        },
+        {
+            "name": "Nyungwe Forest National Park",
+            "city": "Rwanda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nyungwe+Forest+National+Park,Rwanda",
+            "description": "A national park known for its rich biodiversity and canopy walk."
+        },
+        {
+            "name": "Volcanoes National Park",
+            "city": "Rwanda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Volcanoes+National+Park,Rwanda",
+            "description": "Famous for its mountain gorillas and stunning landscapes."
+        }
+    ],
+    "São Tomé and Príncipe": [
+        {
+            "name": "Bom Bom Island",
+            "city": "São Tomé and Príncipe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bom+Bom+Island,São+Tomé+and+Príncipe",
+            "description": "A tropical island known for its beautiful beaches."
+        },
+        {
+            "name": "Ilhéu das Rolas",
+            "city": "São Tomé and Príncipe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ilhéu+das+Rolas,São+Tomé+and+Príncipe",
+            "description": "An island known for its stunning landscapes and cultural significance."
+        },
+        {
+            "name": "Obo National Park",
+            "city": "São Tomé and Príncipe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Obo+National+Park,São+Tomé+and+Príncipe",
+            "description": "A national park known for its biodiversity and hiking trails."
+        },
+        {
+            "name": "Praia das Conchas",
+            "city": "São Tomé and Príncipe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Praia+das+Conchas,São+Tomé+and+Príncipe",
+            "description": "A beautiful beach known for its clear waters and relaxation."
+        },
+        {
+            "name": "São Tomé City",
+            "city": "São Tomé and Príncipe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=São+Tomé+City,São+Tomé+and+Príncipe",
+            "description": "The capital city known for its colonial architecture."
+        }
+    ],
+    "Senegal": [
+        {
+            "name": "Dakar",
+            "city": "Senegal",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Dakar,Senegal",
+            "description": "The capital city known for its vibrant culture and history."
+        },
+        {
+            "name": "Goree Island",
+            "city": "Senegal",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Goree+Island,Senegal",
+            "description": "Known for its historical significance in the slave trade."
+        },
+        {
+            "name": "Niokolo-Koba National Park",
+            "city": "Senegal",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Niokolo-Koba+National+Park,Senegal",
+            "description": "A UNESCO World Heritage site known for its wildlife diversity."
+        },
+        {
+            "name": "Pink Lake (Lac Rose)",
+            "city": "Senegal",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Pink+Lake+(Lac+Rose),Senegal",
+            "description": "Famous for its pink waters caused by algae."
+        },
+        {
+            "name": "Saloum Delta National Park",
+            "city": "Senegal",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Saloum+Delta+National+Park,Senegal",
+            "description": "Known for its mangroves and rich biodiversity."
+        }
+    ],
+    "Seychelles": [
+        {
+            "name": "Aldabra Atoll",
+            "city": "Seychelles",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Aldabra+Atoll,Seychelles",
+            "description": "A UNESCO World Heritage site known for its unique wildlife."
+        },
+        {
+            "name": "Anse Source d'Argent",
+            "city": "Seychelles",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Anse+Source+d'Argent,Seychelles",
+            "description": "Famous for its stunning beach and granite boulders."
+        },
+        {
+            "name": "La Digue Island",
+            "city": "Seychelles",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=La+Digue+Island,Seychelles",
+            "description": "Known for its beautiful beaches and laid-back atmosphere."
+        },
+        {
+            "name": "Mahé Island",
+            "city": "Seychelles",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mahé+Island,Seychelles",
+            "description": "The largest island known for its diverse landscapes and beaches."
+        },
+        {
+            "name": "Vallée de Mai Nature Reserve",
+            "city": "Seychelles",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Vallée+de+Mai+Nature+Reserve,Seychelles",
+            "description": "A UNESCO World Heritage site known for its unique palm trees."
+        }
+    ],
+    "Sierra Leone": [
+        {
+            "name": "Banana Islands",
+            "city": "Sierra Leone",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Banana+Islands,Sierra+Leone",
+            "description": "A group of islands known for their beautiful beaches."
+        },
+        {
+            "name": "Bureh Beach",
+            "city": "Sierra Leone",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bureh+Beach,Sierra+Leone",
+            "description": "A popular beach destination for relaxation and water sports."
+        },
+        {
+            "name": "Freetown",
+            "city": "Sierra Leone",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Freetown,Sierra+Leone",
+            "description": "The capital city known for its vibrant culture and history."
+        },
+        {
+            "name": "Loma Mountains",
+            "city": "Sierra Leone",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Loma+Mountains,Sierra+Leone",
+            "description": "A mountain range offering hiking opportunities and stunning views."
+        },
+        {
+            "name": "Tiwai Island Wildlife Sanctuary",
+            "city": "Sierra Leone",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tiwai+Island+Wildlife+Sanctuary,Sierra+Leone",
+            "description": "A sanctuary known for its diverse wildlife and eco-tourism."
+        }
+    ],
+    "Somalia": [
+        {
+            "name": "Berbera",
+            "city": "Somalia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Berbera,Somalia",
+            "description": "A coastal city known for its beautiful beaches."
+        },
+        {
+            "name": "Hargeisa",
+            "city": "Somalia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Hargeisa,Somalia",
+            "description": "The capital city known for its markets and culture."
+        },
+        {
+            "name": "Kismayo",
+            "city": "Somalia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kismayo,Somalia",
+            "description": "A port city known for its beaches and fishing industry."
+        },
+        {
+            "name": "Laas Geel",
+            "city": "Somalia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Laas+Geel,Somalia",
+            "description": "Known for its ancient rock art and archaeological significance."
+        },
+        {
+            "name": "Mogadishu",
+            "city": "Somalia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mogadishu,Somalia",
+            "description": "The capital city with a rich history and cultural heritage."
+        }
+    ],
+    "South Africa": [
+        {
+            "name": "Cape Town",
+            "city": "South Africa",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Cape+Town,South+Africa",
+            "description": "Known for its stunning landscapes and Table Mountain."
+        },
+        {
+            "name": "Garden Route",
+            "city": "South Africa",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Garden+Route,South+Africa",
+            "description": "A scenic drive known for its beautiful coastal views."
+        },
+        {
+            "name": "Kruger National Park",
+            "city": "South Africa",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kruger+National+Park,South+Africa",
+            "description": "One of the largest game reserves in Africa, famous for its wildlife."
+        },
+        {
+            "name": "Robben Island",
+            "city": "South Africa",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Robben+Island,South+Africa",
+            "description": "A historic site where Nelson Mandela was imprisoned."
+        },
+        {
+            "name": "Table Mountain",
+            "city": "South Africa",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Table+Mountain,South+Africa",
+            "description": "An iconic flat-topped mountain offering breathtaking views."
+        }
+    ],
+    "South Sudan": [
+        {
+            "name": "Boma National Park",
+            "city": "South Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Boma+National+Park,South+Sudan",
+            "description": "A national park known for its wildlife and diverse ecosystems."
+        },
+        {
+            "name": "Bor",
+            "city": "South Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bor,South+Sudan",
+            "description": "A town known for its cultural significance and markets."
+        },
+        {
+            "name": "Juba",
+            "city": "South Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Juba,South+Sudan",
+            "description": "The capital city with a rich cultural heritage."
+        },
+        {
+            "name": "Nimule National Park",
+            "city": "South Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nimule+National+Park,South+Sudan",
+            "description": "A national park known for its wildlife and scenic landscapes."
+        },
+        {
+            "name": "Sudd Wetlands",
+            "city": "South Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sudd+Wetlands,South+Sudan",
+            "description": "One of the largest wetlands in the world, rich in biodiversity."
+        }
+    ],
+    "Sudan": [
+        {
+            "name": "Jebel Barkal",
+            "city": "Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Jebel+Barkal,Sudan",
+            "description": "A mountain with ancient archaeological significance."
+        },
+        {
+            "name": "Khartoum",
+            "city": "Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Khartoum,Sudan",
+            "description": "The capital city known for its history and culture."
+        },
+        {
+            "name": "Nubian Desert",
+            "city": "Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nubian+Desert,Sudan",
+            "description": "A vast desert known for its stunning landscapes."
+        },
+        {
+            "name": "Pyramids of Meroë",
+            "city": "Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Pyramids+of+Meroë,Sudan",
+            "description": "Ancient pyramids and a UNESCO World Heritage site."
+        },
+        {
+            "name": "Red Sea Coast",
+            "city": "Sudan",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Red+Sea+Coast,Sudan",
+            "description": "Known for its beautiful beaches and coral reefs."
+        }
+    ],
+    "Tanzania": [
+        {
+            "name": "Mount Kilimanjaro",
+            "city": "Tanzania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mount+Kilimanjaro,Tanzania",
+            "description": "The highest mountain in Africa, popular for trekking."
+        },
+        {
+            "name": "Ngorongoro Crater",
+            "city": "Tanzania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Ngorongoro+Crater,Tanzania",
+            "description": "A UNESCO World Heritage site known for its wildlife."
+        },
+        {
+            "name": "Serengeti National Park",
+            "city": "Tanzania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Serengeti+National+Park,Tanzania",
+            "description": "Famous for the Great Migration and rich biodiversity."
+        },
+        {
+            "name": "Tarangire National Park",
+            "city": "Tanzania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Tarangire+National+Park,Tanzania",
+            "description": "Known for its large elephant herds and baobab trees."
+        },
+        {
+            "name": "Zanzibar",
+            "city": "Tanzania",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Zanzibar,Tanzania",
+            "description": "An island known for its beautiful beaches and spice markets."
+        }
+    ],
+    "Togo": [
+        {
+            "name": "Aneho",
+            "city": "Togo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Aneho,Togo",
+            "description": "A coastal town known for its beautiful beaches and history."
+        },
+        {
+            "name": "Fazao-Malfakassa National Park",
+            "city": "Togo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Fazao-Malfakassa+National+Park,Togo",
+            "description": "A national park known for its diverse wildlife and hiking trails."
+        },
+        {
+            "name": "Koutammakou",
+            "city": "Togo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Koutammakou,Togo",
+            "description": "A UNESCO World Heritage site known for its traditional mud huts."
+        },
+        {
+            "name": "Lomé",
+            "city": "Togo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lomé,Togo",
+            "description": "The capital city known for its vibrant markets and beaches."
+        },
+        {
+            "name": "Togoville",
+            "city": "Togo",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Togoville,Togo",
+            "description": "A town known for its rich cultural heritage and traditions."
+        }
+    ],
+    "Tunisia": [
+        {
+            "name": "Bardo National Museum",
+            "city": "Tunisia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bardo+National+Museum,Tunisia",
+            "description": "Home to one of the world's largest collections of mosaics."
+        },
+        {
+            "name": "Carthage",
+            "city": "Tunisia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Carthage,Tunisia",
+            "description": "Ancient ruins of a city founded by the Phoenicians."
+        },
+        {
+            "name": "Dougga",
+            "city": "Tunisia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Dougga,Tunisia",
+            "description": "A UNESCO World Heritage site known for its well-preserved Roman ruins."
+        },
+        {
+            "name": "El Jem",
+            "city": "Tunisia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=El+Jem,Tunisia",
+            "description": "Famous for its ancient amphitheater, one of the largest in the world."
+        },
+        {
+            "name": "Sidi Bou Said",
+            "city": "Tunisia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sidi+Bou+Said,Tunisia",
+            "description": "A picturesque town known for its blue and white architecture."
+        }
+    ],
+    "Uganda": [
+        {
+            "name": "Bwindi Impenetrable National Park",
+            "city": "Uganda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Bwindi+Impenetrable+National+Park,Uganda",
+            "description": "A UNESCO World Heritage site, famous for its mountain gorillas and rich biodiversity."
+        },
+        {
+            "name": "Kampala",
+            "city": "Uganda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kampala,Uganda",
+            "description": "The vibrant capital city, known for its cultural landmarks and lively markets."
+        },
+        {
+            "name": "Lake Victoria",
+            "city": "Uganda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Victoria,Uganda",
+            "description": "The largest lake in Africa, offering beautiful scenery and recreational activities."
+        },
+        {
+            "name": "Murchison Falls National Park",
+            "city": "Uganda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Murchison+Falls+National+Park,Uganda",
+            "description": "Known for its stunning waterfalls and abundant wildlife, including the 'Big Five.'"
+        },
+        {
+            "name": "Queen Elizabeth National Park",
+            "city": "Uganda",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Queen+Elizabeth+National+Park,Uganda",
+            "description": "A diverse ecosystem home to a variety of wildlife and beautiful landscapes."
+        }
+    ],
+    "Zambia": [
+        {
+        "name": "Kafue National Park",
+            "city": "Zambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kafue+National+Park,Zambia",
+            "description": "One of the largest national parks in Africa, known for its diverse wildlife and ecosystems."
+        },
+        {
+            "name": "Livingstone",
+            "city": "Zambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Livingstone,Zambia",
+            "description": "The gateway to Victoria Falls, offering numerous adventure activities."
+        },
+        {
+            "name": "Lower Zambezi National Park",
+            "city": "Zambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lower+Zambezi+National+Park,Zambia",
+            "description": "Known for its beautiful landscapes and rich wildlife."
+        },
+        {
+            "name": "South Luangwa National Park",
+            "city": "Zambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=South+Luangwa+National+Park,Zambia",
+            "description": "Famous for walking safaris and diverse animal species."
+        },
+        {
+            "name": "Victoria Falls",
+            "city": "Zambia",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Victoria+Falls,Zambia",
+            "description": "One of the largest and most famous waterfalls in the world."
+        }
+    ],
+    "Zimbabwe": [
+        {
+            "name": "Victoria Falls",
+            "city": "Zimbabwe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Victoria+Falls,Zimbabwe",
+            "description": "One of the largest and most famous waterfalls in the world."
+        },
+        {
+            "name": "Hwange National Park",
+            "city": "Zimbabwe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Hwange+National+Park,Zimbabwe",
+            "description": "Known for its large elephant population and diverse wildlife."
+        },
+        {
+            "name": "Mana Pools National Park",
+            "city": "Zimbabwe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mana+Pools+National+Park,Zimbabwe",
+            "description": "Famous for its walking safaris and stunning landscapes."
+        },
+        {
+            "name": "Great Zimbabwe",
+            "city": "Zimbabwe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Great+Zimbabwe,Zimbabwe",
+            "description": "Ancient city ruins that showcase the history of the Great Zimbabwe Kingdom."
+        },
+        {
+            "name": "Matobo National Park",
+            "city": "Zimbabwe",
+            "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Matobo+National+Park,Zimbabwe",
+            "description": "Known for its unique rock formations and rich cultural history."
+        }
+    ]
+}
