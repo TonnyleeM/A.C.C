@@ -382,10 +382,12 @@ form {
 /* Other Operators
     ============================= */
 
-.content-container {
-  margin: 50px;
-  display: flex;
-}
+    .content-container {
+      margin: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
 .operator-container {
   display: flex;

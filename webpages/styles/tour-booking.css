@@ -8,7 +8,6 @@
   - HEADER
   - MAIN
   - FOOTER
-4. Media Queries (NEW)
 */
 
 /*--------------------------------------------------------------
@@ -38,7 +37,6 @@
   src: url("../fonts/Orbitron-Regular.woff") format("woff"),
     url("../fonts/Orbitron-Regular.woff2") format("woff2");
 }
-
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -86,11 +84,7 @@ body {
   background-color: var(--background-color);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  /* Changed from 100% 100% to cover for better mobile handling */
-  width: 100%;
-  overflow-x: hidden;
-  /* Prevent horizontal scrolling */
+  background-size: 100% 100%;
 }
 
 a,
@@ -133,7 +127,6 @@ form {
   color: var(--primary-color);
   background-color: var(--primary-color);
   padding: 10px 20px;
-  width: 100%;
 }
 
 .header-logo {
@@ -184,6 +177,12 @@ form {
   text-align: center;
 }
 
+.index-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .index-item a {
   display: flex;
   justify-content: center;
@@ -214,74 +213,75 @@ form {
     ============================= */
 
 .index-item .tooltiptext-1,
-.index-item .tooltiptext-2 {
-  visibility: hidden;
-  margin-right: -60px;
-  background-color: var(--shadow-color);
-  color: var(--primary-color);
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  top: 70px;
-  right: 70px;
-  opacity: 0;
-  transition: opacity 0.3s;
+ .index-item .tooltiptext-2,
+ .index-item .tooltiptext-3{
+    visibility: hidden;
+    margin-right: -60px;
+    background-color: var(--shadow-color);
+    color: var(--primary-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 70px;
+    right: 70px;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .index-item .tooltiptext-1 {
+  right: 180px;
+}
+
+.index-item .tooltiptext-2 {
   right: 90px;
 }
 
-.index-item a:hover+.tooltiptext-1,
-.index-item a:hover+.tooltiptext-2 {
-  visibility: visible;
-  opacity: 1;
+.index-item a:hover + .tooltiptext-1,
+.index-item a:hover + .tooltiptext-2,
+.index-item a:hover + .tooltiptext-3{
+    visibility: visible;
+    opacity: 1;
 }
 
 
-/* Search
+/* Profile
     ============================= */
 
-.search-container {
+.profile-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: linear-gradient(to bottom,
-      rgba(83, 188, 233, 0.63),
-      rgba(16, 13, 92, 0.63));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(83, 188, 233, 0.63),
+    rgba(16, 13, 92, 0.63)
+  );
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  /* Changed from 100% 100% to cover for better mobile handling */
-  padding: 50px 20px;
-  /* Reduced horizontal padding for mobile */
-  width: 100%;
+  background-size: 100% 100%;
+  padding: 50px;
 }
 
-.search-container h1 {
-  padding: 30px;
-  /* Reduced from 50px */
-  padding-top: 0px;
-  font-size: 50px;
+.profile-container h1 {
+  font-size: 30px;
+  padding: 20px;
+  padding-left: 0;
 }
 
-.search-content {
+.profile-content {
   display: flex;
-  border: none;
+  flex-direction: column;
+  text-align: left;
   font-size: 20px;
-  background-color: var(--primary-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  width: 100%;
-  max-width: 500px;
+  padding: 20px;
 }
 
-.search-content input {
-  width: 100%;
+.profile-content input {
+  width: 500px;
   padding: 10px;
   margin: 10px;
   margin-right: 0px;
@@ -289,15 +289,7 @@ form {
   text-align: center;
 }
 
-.search-content:hover {
-  border: 1px solid var(--primary-color);
-}
-
-.search-content input:active {
-  border: none;
-}
-
-.search-content button {
+.profile-content button {
   width: 40px;
   margin: 10px;
   margin-left: 0px;
@@ -309,7 +301,7 @@ form {
   border-radius: 50%;
 }
 
-.search-content button:hover {
+.profile-content button:hover {
   background-color: var(--hover-color);
 }
 
@@ -320,28 +312,92 @@ form {
   color: var(--primary-font-color);
 }
 
-/* Destinaton
+/* Location (Tour Operator Working Locations)
     ============================= */
 
-.content-container {
-  margin: 30px 15px;
-  /* Reduced from 50px */
+.employees-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 30px);
+  text-align: center;
+  background-color: var(--primary-color);
+  padding: 50px;
 }
 
-.destination-container {
+.employees-container h1 {
+  color: var(--primary-font-color);
+}
+
+.employees-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin: 10px;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 3px 5px var(--shadow-color);
+}
+
+.employees-content img {
+  border-radius: 12px;
+  padding: 20px;
+}
+
+#location-desc {
+  padding: 5px;
+  padding-left: 0;
+}
+
+.location-info {
+  padding: 20px;
+  padding-left: 0px;
+}
+
+.location-info h3,
+.location-info p {
+  color: var(--primary-font-color);
+}
+
+.location-info h3 {
+  font-size: 30px;
+}
+
+.location-info button {
+  width: 50%;
+  margin: 5px;
+  padding: 8px;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--primary-font-color-alt);
+}
+
+.location-info a {
+  width: 50%;
+}
+
+/* Other Operators
+    ============================= */
+
+    .content-container {
+      margin: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+.operator-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
-.destination-content {
+.operator-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -351,35 +407,68 @@ form {
   padding: 20px;
   border-radius: 8px;
   width: 300px;
-  max-width: 100%;
   margin: 10px;
   box-shadow: 0 3px 5px var(--shadow-color);
 }
 
-.destination-content h3 {
-  padding: 10px;
+.operator-content h3 {
+  padding: 5px;
+  padding-bottom: 0px;
 }
 
-.destination-content img {
+.operator-content img {
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.destination-content a {
+.operator-content p {
+  color: var(--primary-font-color);
+  padding: 5px;
+  padding-bottom: 0px;
+}
+
+#tour-name {
+  padding-top: 5px;
+}
+
+#tour-destination {
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+
+#expertise {
+  color: var(--primary-font-color);
+  padding: 5px;
+}
+
+.operator-content a {
   width: 100%;
 }
 
-.destination-content button {
+.operator-content button {
   width: 100%;
   padding: 8px;
   background-color: var(--secondary-color);
-  color: var(--primary-font-color-alt);
   border: none;
   border-radius: 8px;
+  color: var(--primary-font-color-alt);
 }
 
-.destination-content button:hover {
+.more-btn {
+  width: 100%;
+}
+
+.more-btn button {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--primary-font-color-alt);
+}
+
+.operator-content button:hover {
   background-color: var(--hover-color-alt);
 }
 
@@ -395,107 +484,4 @@ footer {
   background-color: var(--shadow-color);
   text-align: center;
   padding: 20px;
-}
-
-/*--------------------------------------------------------------
-# 4. Media Queries (NEW)
---------------------------------------------------------------*/
-
-/* Mobile devices (up to 767px) */
-@media screen and (max-width: 767px) {
-  .header-logo a {
-    font-size: 30px;
-    /* Reduced font size for mobile */
-  }
-
-  .nav-bar {
-    height: auto;
-    flex-direction: column;
-    padding: 15px 10px;
-  }
-
-  .nav-bar ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  .search-container h1 {
-    font-size: 36px;
-    padding: 20px;
-  }
-
-  .ACCtext {
-    font-size: 2.5rem;
-  }
-
-  .search-content {
-    max-width: 100%;
-  }
-
-  .content h2 {
-    font-size: 32px;
-    padding: 15px;
-  }
-
-  .destination-content {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .login-content {
-    padding: 20px;
-  }
-
-  /* Adjust tooltip positions for mobile */
-  .index-item .tooltiptext-1,
-  .index-item .tooltiptext-2 {
-    margin-right: 0;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Tablets (768px to 991px) */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .search-container h1 {
-    font-size: 42px;
-  }
-
-  .content h2 {
-    font-size: 38px;
-  }
-
-  .destination-content {
-    width: calc(50% - 20px);
-  }
-}
-
-/* Ensure footer doesn't overlap content on small screens */
-@media screen and (max-height: 800px) {
-  footer {
-    position: relative;
-    margin-top: 50px;
-  }
-
-  body {
-    padding-bottom: 0;
-  }
-}
-
-/* Fix for very small screens */
-@media screen and (max-width: 360px) {
-  .header-logo a {
-    font-size: 24px;
-  }
-
-  .nav-bar ul {
-    gap: 10px;
-  }
-
-  .search-container h1 {
-    font-size: 30px;
-  }
 }
