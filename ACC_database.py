@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS {destination_table_name} (
     country_id INTEGER,
     name CHAR UNIQUE,
     description TEXT,
-    location POINT,
+    location TEXT,  -- Changed from POINT to TEXT for iframe link
     FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
 )
 ''')
@@ -107,8 +107,35 @@ for country, description in country_data.items():
 # Commit the changes for country summaries
 conn.commit()
 
-# Commit changes and close the connection
+# Read data from the grouped_sorted_africa_attractions_data.json file
+with open('grouped_sorted_africa_attractions_data.json', 'r') as file:
+    grouped_data = json.load(file)
+
+# Prepare and insert data into the destinations table
+for country, destinations in grouped_data.items():
+    # Get the country_id for the current country
+    cursor.execute(f'''
+    SELECT id FROM {country_table_name} WHERE country_name = ?
+    ''', (country,))
+    country_id = cursor.fetchone()
+
+    if country_id:
+        country_id = country_id[0]
+        for destination in destinations:
+            # Extract the description and iframe link
+            description = destination.get('description', '')
+            iframe_link = destination.get('iframe_link', '')
+
+            cursor.execute(f'''
+            INSERT OR IGNORE INTO {destination_table_name} (country_id, name, description, location)
+            VALUES (?, ?, ?, ?)
+            ''', (country_id, destination['name'], description, iframe_link))  # Use iframe_link for location
+
+# Commit the changes for destinations
+conn.commit()
+
+# Close the connection
 conn.close()
 
-print("Data has been successfully inserted into the country summaries table.")
+print("Data has been successfully inserted into the country summaries and destinations tables.")
 print("All additional tables have been created empty.")
