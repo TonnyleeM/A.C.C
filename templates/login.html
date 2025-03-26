@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACC Login</title>
-    <link rel="stylesheet" href="styles/login.css">
-    
+    <link rel="stylesheet" href="../static/styles/login.css">   
 </head>
     <body>
+        <form method="post">
         <!-- Header -->
         <header>
             <nav class="nav-bar">
                 <div class="header-logo">
-                    <a href="index.html" class="nav-link">ACC</a>
+                    <a href="#" class="nav-link">ACC</a>
                 </div>
             </nav>
         </header>
@@ -22,12 +22,14 @@
                 <div class="login-content">
                     <h1 class="ACCtext">Africa Cultures Connected</h1>
                     <h2>Enrich your cultures. Explore the world. Expand your mind.</h2>
-                    <form class="login-input" action="index.html" method="post">
+                    <form class="login-input" action="{{ url_for('homepage') }}" method="post">
                         <input type="username" id="username" name="username" placeholder="Enter username">
                         <input type="password" id="password" name="password" placeholder="Enter password">
-                        <button type="submit" class="login-btn">Log in</button>
+                        <a href="{{ url_for('homepage') }}">
+                            <button type="submit" class="login-btn">Register</button>
+                        </a>
                     </form>
-                    <p>Don't have an account? <a href="register.html" class="hyperlink">Register here</a></p>
+                    <p>Don't have an account? <a href="{{ url_for('register') }}" class="hyperlink">Register here</a></p>
                 </div>
             </div>
         </main>
@@ -39,7 +41,7 @@
                 </div>
             </div>
         </footer>
-
     </body>
-    <script src="scripts/login.js"></script>
+    <!-- <script src="{{ url_for('static', filename='script/login.js') }}"></script> -->
+
 </html>

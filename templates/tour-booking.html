@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC - Tour Booking</title>
-    <link rel="stylesheet" href="styles/tour-booker.css">
+    <title>ACC - Lion's Den Wildlife Tours</title>
+    <link rel="stylesheet" href="../static/styles/tour-booking.css">
 </head>
     <body>
         <!-- Header -->
         <header>
             <nav class="nav-bar">
                 <div class="header-logo">
-                    <a href="index.html" class="nav-link">ACC</a>
+                    <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
                 </div>
                 <ul class="index-menu">
                     <li class="index-item">
                         <a href="#" class="nav-link">
-                            <img src="images/search.png" alt="search" width="30" height="30">
+                            <img src="{{ url_for('static', filename='images/search.png') }}" alt="search" width="30" height="30">
                         </a>
                         <span class="tooltiptext-1">Search for Locations</span>
                     </li>
                     <li class="index-item">
-                        <a href="tour-guide-search.html" class="nav-link">
-                            <img src="images/tour-guide.png" alt="search" width="30" height="30">
+                        <a href="{{ url_for('tour_guide_search') }}" class="nav-link">
+                            <img src="{{ url_for('static', filename='images/tour-guide.png') }}" alt="search" width="30" height="30">
                         </a>
                         <span class="tooltiptext-2">Search for Tour Guides</span>
                     </li>
                     <li class="index-item">
                         <a href="#" class="nav-link">
-                            <img src="images/user-icon.png" alt="search" width="30" height="30">
+                            <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="search" width="30" height="30">
                         </a>
                         <span class="tooltiptext-3" >User Settings</span>
                     </li>
@@ -38,53 +38,47 @@
         <!-- Main -->
         <main>
             <div class="profile-container">
+                <img src="{{ url_for('static', filename='images/person-placeholder.jpg') }}" width="400">
                 <div class="profile-content">
-                    <h2>You Are Booking for:</h2>
-                    <img src="images/person-placeholder.jpg" width="400">
                     <h1>Lion's Den Wildlife Tours</h1>
                     <p id="location-desc">Get close and personal with the most majestic views and see the beauty of wildlife in its natural form!</p>
+                    <p id="location-price">Price: 100 000 RWF</p>
+                    <p id="location-duration">Duration: 2 Hours</p>
+                    <a href="{{ url_for('tour_booker') }}" class="more-btn">
+                        <button>Book Now!</button>
                     </a>
                 </div>
             </div>
             <div class="employees-container">
-                <h1>Select your desired operator:</h1>
+                <h1>Operators working here:</h1>
                 <div class="employees-content">
-                    <div class="employee-container">
-                        <img src="images/location.jpg" alt="kenya" width="600">
+                    <div class="operator-content">
+                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                         <h3 id="tour-name">Ronald Mutembe</h3>
                         <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
                         <p>Expertise in:</p>
                         <p id="expertise">wildlie, outdoors, safari</p>
-                        <a href="#" class="more-btn">
-                            <button>Select</button>
+                        <a href="{{ url_for('tour_booker') }}" class="more-btn">
+                            <button>More</button>
                         </a>
                     </div>
-                    <div class="employee-container">
-                        <img src="images/location.jpg" alt="kenya" width="600">
+                    <div class="operator-content">
+                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                         <h3 id="tour-name">Ronald Mutembe</h3>
                         <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
                         <p>Expertise in:</p>
                         <p id="expertise">wildlie, outdoors, safari</p>
-                     <a href="#" class="more-btn">
-                            <button>Select</button>
+                        <a href="{{ url_for('tour_operator') }}" class="more-btn">
+                            <button>More</button>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="content-container">
                 <div class="content">
-                    <h2>Fill in The Desired Information</h2>
-                    <div class="booking-container">
-                        <h3>When are you planning to visit?</h3>
-                        <input type="date" id="date" name="date">  
-                        <h3>How many people are you booking for?</h3>
-                        <input type="number" id="quantity" name="quantity" min="1" max="10">
-                        <h3 id="est-price">Estimated price: 100 000 RWF</h3>
-                        <h3>Any additional information?</h3>
-                        <textarea id="add-info" name="add-info" rows="4" cols="50"></textarea>
-                        <p class="info-nb">Note: This information will be shared with your chosen tour operator to make your experience better. Refrain from sharing sensitive and private information.</p>
-                        <a href="tour-confirm.html" class="more-btn">
-                            <button>Book Now</button>
+                    <h2>Discover Similar Locations</h2>
+                    <div class="operator-container">
+                        
                     </div>
                 </div>
             </div>
@@ -93,11 +87,9 @@
         <footer>
             <div class="footer-container">
                 <div class="footer-content">
-                    <p>&copy; 2021 Africa Cultures Connected</p>
+                    <p>&copy; 2025 Africa Cultures Connected</p>
                 </div>
             </div>
         </footer>
-
     </body>
-    
 </html>

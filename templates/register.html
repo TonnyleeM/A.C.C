@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC - Tour Booking Confirmation</title>
-    <link rel="stylesheet" href="styles/tour-confirm.css">
-    
+    <title>ACC New Account</title>
+    <link rel="stylesheet" href="../static/styles/login.css">
 </head>
     <body>
         <!-- Header -->
         <header>
             <nav class="nav-bar">
                 <div class="header-logo">
-                    <a href="index.html" class="nav-link">ACC</a>
+                    <a href="#" class="nav-link">ACC</a>
                 </div>
             </nav>
         </header>
@@ -20,14 +19,18 @@
         <main>
             <div class="login-container">
                 <div class="login-content">
-                    <h1 class="ACCtext">Tour Confirmation</h1>
-                    <h2>Enrich your cultures. Explore the world. Expand your mind.</h2>
-                    <form class="login-input" action="index.html" method="post">
+                    <h1>New Account Creation</h1>
+                    <h2>Register an account to explore Africa's vibrant landscapes</h2>
+                    <form class="login-input" action="{{ url_for('homepage') }}" method="post">
+                        <input type="email" id="email" name="email" placeholder="Enter email">
                         <input type="username" id="username" name="username" placeholder="Enter username">
                         <input type="password" id="password" name="password" placeholder="Enter password">
-                        <button type="submit" class="login-btn">Log in</button>
+                        <input type="password" id="password" name="password" placeholder="Enter password again">
+                        <a href="{{ url_for('homepage') }}">
+                            <button type="submit" class="login-btn">Register</button>
+                        </a>
                     </form>
-                    <p>Don't have an account? <a href="register.html" class="hyperlink">Register here</a></p>
+                    <p>Already have an account? <a href="{{ url_for('login') }}"  class="hyperlink">Login here</a></p>
                 </div>
             </div>
         </main>
@@ -41,5 +44,5 @@
         </footer>
 
     </body>
-    <script src="scripts/login.js"></script>
+    
 </html>

@@ -1,23 +1,17 @@
-# Ignore node_modules directory
 node_modules/
 
-# Ignore log files
 *.log
 
-# Ignore build directories
 dist/
 build/
 
-# Ignore environment variable files
 .env
 venv/
 .venv/
 
-# Ignore OS generated files
 .DS_Store
 Thumbs.db
 
-# Ignore IDE specific files
 .vscode/
 .idea/
 *.suo
@@ -26,5 +20,17 @@ Thumbs.db
 *.sln
 *.sw?
 
-# Ignore coverage reports
 coverage/
+
+*.pyc
+__pycache__/
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/

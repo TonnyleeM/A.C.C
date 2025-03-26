@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, redirect, url_for, session
+from flask import Flask, jsonify, request, redirect, url_for, session, render_template
 from flask_cors import CORS
 from flask_oauthlib.client import OAuth
 import sqlite3
@@ -75,13 +75,59 @@ def insert_country_data():
 insert_country_data()
 
 # API Endpoints
-@app.route('/')
-def index():
-    return 'Welcome! <a href="/login">Login with Google</a>'
-
-@app.route('/login')
+@app.route('/', methods=['GET', 'POST'])
 def login():
-    return google.authorize(callback=url_for('authorized', _external=True))
+    # if request.method == 'POST':
+    #     connection = sqlite3.connect('African_Cultures_Connected.db')
+    #     cursor = connection.cursor()
+    #     username = request.form['username']
+    #     password = request.form['password']
+    #     print(username, password)
+    #     query = "SELECT username,password FROM users WHERE username= '"+username+"' AND password= '"+password+"'"
+    #     cursor.execute(query)
+    #     result = cursor.fetchall()
+    #     if len(result) == 0:
+    #         print("Login failed")
+    #     else:
+    #         print("Login successful")
+    #         return render_template('homepage.html')
+
+    # return google.authorize(callback=url_for('authorized', _external=True))
+
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
+
+@app.route('/homepage', methods=['GET', 'POST'])
+def homepage():
+    return render_template('homepage.html')
+
+@app.route('/tour-booking', methods=['GET', 'POST'])
+def tour_booking():
+    return render_template('tour-booking.html')
+
+@app.route('/country_profile', methods=['GET', 'POST'])
+def country_profile():
+    return render_template('country-profile.html')
+
+@app.route('/tour_operator', methods=['GET', 'POST'])
+def tour_operator():
+    return render_template('tour-operator.html')
+
+@app.route('/tour_booker', methods=['GET', 'POST'])
+def tour_booker():
+    return render_template('tour-booker.html')
+
+@app.route('/tour_confirm', methods=['GET', 'POST'])
+def tour_confirm():
+    return render_template('tour-confirm.html')
+
+@app.route('/tour_guide_search', methods=['GET', 'POST'])
+def tour_guide_search():
+    return render_template('tour-guide-search.html')
+
 
 @app.route('/callback')
 def authorized():
@@ -125,7 +171,7 @@ def add_country():
     cursor = conn.cursor()
     
     # Check if country exists
-    cursor.execute(f'''
+    cursor.execute(f''' 
     SELECT * FROM {country_table_name} WHERE country_name = ?
     ''', (country_name,))
     
