@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC Homepage</title>
-    <link rel="stylesheet" href="../static/styles/index.css">
+    <title>ACC - Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}"> 
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav class="nav-bar">
             <div class="header-logo">
-                <a href="homepage.html" class="nav-link">ACC</a>
+                <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
             </div>
             <ul class="index-menu">
                 <li class="index-item">
@@ -21,7 +21,7 @@
                     <span class="tooltiptext-2">Search for Tour Guides</span>
                 </li>
                 <li class="index-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ url_for('user_settings') }}" class="nav-link">
                         <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="search" width="30" height="30">
                     </a>
                     <span class="tooltiptext-2">User Settings</span>
@@ -33,12 +33,7 @@
     <main>
         <div class="search-container">
             <h1>Africa Cultures Connected</h1>
-            <div class="search-content">
-                <input type="text" placeholder="search for country, destination">
-                <a href="{{ url_for('country_profile') }}">
-                    <button type="submit"><img src="{{ url_for('static', filename='images/search.png') }}" width="30"></button>
-                </a>
-            </div>
+            <h2>Enrich your cultures. Explore the world. Expand your mind.</h2>
         </div>
         <div class="country-container">
             <h2>Learn About Africa</h2>

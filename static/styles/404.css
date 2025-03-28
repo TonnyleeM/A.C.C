@@ -1,0 +1,227 @@
+/* CONTENTS
+1. Global
+  - Global Fonts
+  - Global Colors
+  - Global Behaviours
+2. Layout
+3. Sections
+  - HEADER
+  - MAIN
+  - FOOTER
+*/
+
+/*--------------------------------------------------------------
+# 1. Global
+--------------------------------------------------------------*/
+
+/* Global Fonts */
+
+@font-face {
+    font-family: "NunitoReg";
+    src: url("../fonts/Nunito-Regular.woff") format("woff"),
+      url("../fonts/Nunito-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+@font-face {
+    font-family: "Riverside-Script";
+    src: url("../fonts/Riverside-Script.woff") format("woff"),
+      url("../fonts/Riverside-Script.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Orbitron";
+    src: url("../fonts/Orbitron-Regular.woff") format("woff"),
+      url("../fonts/Orbitron-Regular.woff2") format("woff2");
+}
+  :root {
+    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Riverside-Script", sans-serif;
+    --paragraph-font: "NunitoReg", sans-serif;
+    --logo-font: "Orbitron", sans-serif;
+  }
+
+/* Global Colors */
+
+  :root {
+    --background-color: #e6e6e6;
+    --primary-color: #ffffff;
+    --secondary-color: #0DA2FF;
+    --primary-font-color: #000000;
+    --primary-font-color-alt: #ffffff;
+    --secondary-font-color: #202020;
+    --shadow-color: #1313132c;
+    --link-color: #00E5FF;
+    --border-color: #3A7FFF;
+  }
+  
+/* Global Behaviours */
+
+  :root {
+    scroll-behavior: smooth;
+  }
+
+/*--------------------------------------------------------------
+  # 2. Layout
+  --------------------------------------------------------------*/
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.5s;
+  }
+  
+  body {
+    background-position: center;
+    font-family: var(--paragraph-font);
+    background-image:
+    linear-gradient(to bottom, rgba(83, 188, 233, 0.63), rgba(16, 13, 92, 0.63)),
+    url('../images/login-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+  a, h1, h2, p {
+    text-decoration: none;
+    transition: 0.3s;
+    color: var(--primary-font-color-alt);
+  }
+
+  h1 {
+    font-family: var(--heading-font);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  input {
+    width: 500px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .login-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 15px;
+    width: 500px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; 
+  }
+
+  .input::hover {
+    border: 1px solid var(--primary-color);
+  }
+
+  .hyperlink {
+    color: var(--link-color);
+  }
+
+   /* Header
+    ============================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  width:100%;
+}
+
+.header-logo {
+  display: flex;
+  block-size: var(--rel-100);
+  inline-size: var(--rel-100);
+  cursor: pointer;
+  align-items: center;
+}
+
+.header-logo a {
+color: var(--heading-color);
+font-family: var(--logo-font);
+font-size: 40px;
+}
+.header-logo a span {
+color: var(--primary-color-light);
+}
+
+.header-logo a:hover,
+.header-logo a span:hover {
+color: var(--hover-color);
+}
+
+.nav-bar {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 75px;
+padding: 10px ;
+border-bottom: 1px solid var(--primary-color-light);
+box-shadow: 0 2px 4px var(--shadow-color);
+background-color: var(--primary-color);
+}
+
+.ACCtext {
+  padding: 20px;
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.login-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-input {
+  padding: 20px;
+}
+
+ /* Footer
+    ============================= */
+
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: var(--primary-color);
+      background-color: var(--shadow-color);
+      text-align: center;
+      padding: 20px;
+    }

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC Login</title>
-    <link rel="stylesheet" href="../static/styles/login.css">   
+    <title>ACC - Login</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">    -->
+    <link rel="stylesheet" href="../static/styles/login.css">
 </head>
     <body>
-        <form method="post">
         <!-- Header -->
         <header>
             <nav class="nav-bar">
@@ -22,12 +22,14 @@
                 <div class="login-content">
                     <h1 class="ACCtext">Africa Cultures Connected</h1>
                     <h2>Enrich your cultures. Explore the world. Expand your mind.</h2>
-                    <form class="login-input" action="{{ url_for('homepage') }}" method="post">
-                        <input type="username" id="username" name="username" placeholder="Enter username">
-                        <input type="password" id="password" name="password" placeholder="Enter password">
-                        <a href="{{ url_for('homepage') }}">
-                            <button type="submit" class="login-btn">Register</button>
-                        </a>
+                    <form class="login-input">
+                        <input type="text" id="username" name="username" placeholder="Enter username">
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="Enter password">
+                            <button type="button" class="toggle-password" onclick="togglePassword('password')">👁</button>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                        
                     </form>
                     <p>Don't have an account? <a href="{{ url_for('register') }}" class="hyperlink">Register here</a></p>
                 </div>
@@ -43,5 +45,5 @@
         </footer>
     </body>
     <!-- <script src="{{ url_for('static', filename='script/login.js') }}"></script> -->
-
+    <script src="{{ url_for('static', filename='script/login.js') }}"></script>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACC - Tour Booking</title>
-    <link rel="stylesheet" href="../static/styles/tour-booker.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-booker.css') }}"> 
 </head>
     <body>
         <!-- Header -->
@@ -15,10 +15,10 @@
                 </div>
                 <ul class="index-menu">
                     <li class="index-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url_for('homepage') }}"  class="nav-link">
                             <img src="{{ url_for('static', filename='images/search.png') }}" alt="search" width="30" height="30">
                         </a>
-                        <span class="tooltiptext-1">Search for Locations</span>
+                        <span class="tooltiptext-1">Search for Country</span>
                     </li>
                     <li class="index-item">
                         <a href="{{ url_for('tour_guide_search') }}" class="nav-link">
@@ -27,7 +27,7 @@
                         <span class="tooltiptext-2">Search for Tour Guides</span>
                     </li>
                     <li class="index-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url_for('user_settings') }}"  class="nav-link">
                             <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="search" width="30" height="30">
                         </a>
                         <span class="tooltiptext-3" >User Settings</span>
@@ -82,7 +82,7 @@
                         <h3 id="est-price">Estimated price: 100 000 RWF</h3>
                         <h3>Any additional information?</h3>
                         <textarea id="add-info" name="add-info" rows="4" cols="50"></textarea>
-                        <p class="info-nb">Note: This information will be shared with your chosen tour operator to make your experience better. Refrain from sharing sensitive and private information.</p>
+                        <p class="info-nb">Note: This information will be shared with your chosen tour operator to enhance your cultural experience. Refrain from sharing sensitive and private information.</p>
                         <a href="{{ url_for('tour_confirm') }}" class="more-btn">
                             <button>Book Now</button>
                     </div>

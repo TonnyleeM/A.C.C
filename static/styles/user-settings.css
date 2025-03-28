@@ -267,7 +267,7 @@ form {
 }
 
 .profile-container h1 {
-  font-size: 30px;
+  font-size: 40px;
   padding: 20px;
   padding-left: 0;
 }
@@ -275,8 +275,7 @@ form {
 .profile-content {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  font-size: 20px;
+  font-size: 25px;
   padding: 20px;
 }
 
@@ -307,89 +306,16 @@ form {
 
 .content h2 {
   padding: 20px;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
   color: var(--primary-font-color);
-}
-
-/* Location (Tour Operator Working Locations)
-    ============================= */
-
-.employees-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--primary-color);
-  padding: 50px;
-}
-
-.employees-container h1 {
-  color: var(--primary-font-color);
-}
-
-.employees-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-  margin: 10px;
-  background-color: var(--background-color);
-  border-radius: 12px;
-  box-shadow: 0 3px 5px var(--shadow-color);
-}
-
-.employees-content img {
-  border-radius: 12px;
-  padding: 20px;
-}
-
-#location-desc {
-  padding: 5px;
-  padding-left: 0;
-}
-
-.location-info {
-  padding: 20px;
-  padding-left: 0px;
-}
-
-.location-info h3,
-.location-info p {
-  color: var(--primary-font-color);
-}
-
-.location-info h3 {
-  font-size: 30px;
-}
-
-.location-info button {
-  width: 50%;
-  margin: 5px;
-  padding: 8px;
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 8px;
-  color: var(--primary-font-color-alt);
-}
-
-.location-info a {
-  width: 50%;
 }
 
 /* Other Operators
     ============================= */
 
-    .content-container {
-      margin: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-.operator-container {
+.content-container {
+  margin: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -397,7 +323,15 @@ form {
   justify-content: center;
 }
 
-.operator-content {
+.interests-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.interests-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -406,146 +340,128 @@ form {
   background-color: var(--primary-color);
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  width: 200px;
   margin: 10px;
   box-shadow: 0 3px 5px var(--shadow-color);
 }
 
-.operator-content h3 {
-  padding: 5px;
-  padding-bottom: 0px;
+.interests-content h3 {
+  padding: 10px;
 }
 
-.operator-content img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.operator-content p {
+.interests-content p {
   color: var(--primary-font-color);
   padding: 5px;
-  padding-bottom: 0px;
+  font-size: 20px;
 }
 
-#tour-name {
-  padding-top: 5px;
-}
-
-#tour-destination {
-  padding-top: 0px;
-  padding-bottom: 5px;
-}
-
-#expertise {
-  color: var(--primary-font-color);
-  padding: 5px;
-}
-
-.operator-content a {
+.interests-content a {
   width: 100%;
-}
-
-.operator-content button {
-  width: 100%;
-  padding: 8px;
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 8px;
-  color: var(--primary-font-color-alt);
 }
 
 .more-btn {
   width: 100%;
 }
 
-.more-btn button {
-  width: 100%;
-  padding: 8px;
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 8px;
-  color: var(--primary-font-color-alt);
-}
-
-.operator-content button:hover {
+.interests-content button:hover {
   background-color: var(--hover-color-alt);
 }
 
-
-/* Destination (Tour Destination Reccomendations)
+/* Update
     ============================= */
 
-
-.destination-container {
+.update-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-} 
+  background-color: var(--primary-color);
+}
 
-.destination-content {
+.update-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
-  background-color: var(--primary-color);
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
-  margin: 5px;
-  box-shadow: 0 3px 5px var(--shadow-color);
+  margin: 10px;
 }
 
-.destination-content h3 {
-  padding: 5px;
-  padding-bottom: 0px;
-}
-
-.destination-content img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.destination-content p {
+.update-content h2 {
+  font-size: 40px;
+  padding: 10px;
   color: var(--primary-font-color);
+}
+
+.update-content select {
+  margin: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
   padding: 5px;
-  padding-bottom: 0px;
+  border-radius: 5px;
 }
 
-#tour-name {
-  padding-top: 5px;
-}
-#tour-destination {
-  padding-top: 0px;
-  padding-bottom: 5px;
-}
-
-#expertise {
+.update-content label {
+  font-size: 20px;
+  margin: 20px;
+  padding: 20px;
   color: var(--primary-font-color);
-  padding: 5px;
-  padding-top: 0px;
-  padding-bottom: 10px;
 }
-.destination-content a {
+
+#interests {
   width: 100%;
+  font-size: 19px;
 }
-.destination-content button {
+
+.update-content button,
+.delete-content button,
+.logout-content button {
+  margin: 10px;
   width: 100%;
   padding: 8px;
+  font-size: 18px;
   background-color: var(--secondary-color);
   border: none;
   border-radius: 8px;
-  color: var(--primary-font-color-alt)
+  color: var(--primary-font-color-alt);
 }
-.more-btn {
+
+.delete-content button {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+}
+
+.account-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(83, 188, 233, 0.63),
+    rgba(16, 13, 92, 0.63)
+  );
+  }
+
+.delete-content,
+.logout-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
   width: 100%;
+  padding-bottom: 50px;
 }
-.destination-content button:hover {
-  background-color: var(--hover-color-alt);
+
+.delete-content h2,
+.logout-content h2 {
+  margin: 20px;
 }
 
 

@@ -74,7 +74,7 @@ def insert_country_data():
 # Insert country data, if not already present
 insert_country_data()
 
-# API Endpoints
+# Links to HTML pages
 @app.route('/', methods=['GET', 'POST'])
 def login():
     # if request.method == 'POST':
@@ -127,6 +127,46 @@ def tour_confirm():
 @app.route('/tour_guide_search', methods=['GET', 'POST'])
 def tour_guide_search():
     return render_template('tour-guide-search.html')
+
+@app.route('/user_settings', methods=['GET', 'POST'])
+def user_settings():
+    return render_template('user-settings.html')
+
+# Login Check
+def get_user(username, password):
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+    user = cursor.fetchone()
+    conn.close()
+    return user
+
+@app.route("/login_check", methods=["POST"])
+def login_check():
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
+
+    user = get_user(username, password)
+    if user:
+        return jsonify({"success": True, "message": "Login successful"})
+    else:
+        return jsonify({"success": False, "message": "Invalid credentials"}), 401
+
+
+def save_user(email, username, password):
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+    try:
+        cursor.execute("INSERT INTO users (email, username, password) VALUES (?, ?, ?)", 
+                       (email, username, ))
+        conn.commit()
+        return True
+    except sqlite3.IntegrityError:
+        return False  # Username or email already exists
+    finally:
+        conn.close()
+
 
 
 @app.route('/callback')

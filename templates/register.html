@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC New Account</title>
+    <title>ACC - Register Account</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">  -->
     <link rel="stylesheet" href="../static/styles/login.css">
 </head>
     <body>
@@ -21,14 +22,29 @@
                 <div class="login-content">
                     <h1>New Account Creation</h1>
                     <h2>Register an account to explore Africa's vibrant landscapes</h2>
-                    <form class="login-input" action="{{ url_for('homepage') }}" method="post">
+                    <form class="login-input" action="{{ url_for('homepage') }}" method="post"  onsubmit="return comparePwd()">
                         <input type="email" id="email" name="email" placeholder="Enter email">
-                        <input type="username" id="username" name="username" placeholder="Enter username">
-                        <input type="password" id="password" name="password" placeholder="Enter password">
-                        <input type="password" id="password" name="password" placeholder="Enter password again">
-                        <a href="{{ url_for('homepage') }}">
-                            <button type="submit" class="login-btn">Register</button>
-                        </a>
+                        <input type="text" id="username" placeholder="Enter username">
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="Enter password">
+                            <button type="button" class="toggle-password" onclick="togglePassword('password')">👁</button>
+                        </div>
+                        <div class="password-container">
+                            <input type="password" id="password-confirm" name="password-confirm" placeholder="Enter password again">
+                            <button type="button" class="toggle-password" onclick="togglePassword('password-confirm')">👁</button>
+                        </div>
+                        <!-- Error message will be shown here -->
+                        <p id="error-message" style="color: red; font-size: 0.9em;"></p>
+
+                        <input type="text" id="phone" name="phone" placeholder="Enter phone number">
+                        <div class="details-container">
+                            <label for="cars">Select an Account Type</label>
+                            <select name="cars" id="cars">
+                                <option value="volvo">Tour Operator</option>
+                                <option value="saab">Tourist</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="login-btn">Register</button>
                     </form>
                     <p>Already have an account? <a href="{{ url_for('login') }}"  class="hyperlink">Login here</a></p>
                 </div>
@@ -42,7 +58,7 @@
                 </div>
             </div>
         </footer>
-
     </body>
-    
+    <!-- <script src="{{ url_for('static', filename='script/register.js') }}"></script> -->
+     <script src="../static/script/register.js"></script>
 </html>

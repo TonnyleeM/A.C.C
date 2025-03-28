@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC - Country Profile</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/user-settings.css') }}">  -->
+    <link rel="stylesheet" href="../static/styles/user-settings.css"> 
+</head>
+<body>
+    <!-- Header -->
+    <header>
+            <nav class="nav-bar">
+                <div class="header-logo">
+                    <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
+                </div>
+                <ul class="index-menu">
+                    <li class="index-item">
+                        <a href="{{ url_for('homepage') }}"  class="nav-link">
+                            <img src="{{ url_for('static', filename='images/search.png') }}" alt="search" width="30" height="30">
+                        </a>
+                        <span class="tooltiptext-1">Search for Country</span>
+                    </li>
+                    <li class="index-item">
+                        <a href="{{ url_for('tour_guide_search') }}" class="nav-link">
+                            <img src="{{ url_for('static', filename='images/tour-guide.png') }}" alt="search" width="30" height="30">
+                        </a>
+                        <span class="tooltiptext-2">Search for Tour Guides</span>
+                    </li>
+                    <li class="index-item">
+                        <a href="{{ url_for('user_settings') }}"  class="nav-link">
+                            <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="search" width="30" height="30">
+                        </a>
+                        <span class="tooltiptext-3" >User Settings</span>
+                    </li>
+                </ul>
+            </nav>
+    </header>
+    <!-- Main -->
+    <main>
+        <div class="profile-container">
+            <div class="profile-content">
+                <h1>Hi, <span id="user-name">Sibahle Dlamini</span></h1>
+                <p>You are a:</p>
+                <p>Tourist</p>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <h2>Your Current Interests</h2>
+                <div class="interests-container">
+                    <div class="interests-content">
+                        <p>Wildlife</p>
+                    </div>
+                    <div class="interests-content">
+                        <p>Outdoors</p>
+                    </div>
+                    <div class="interests-content">
+                        <p>Nature</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update-container">
+            <div class="update-content">
+                <h2>Add New Interests</h2>
+                <form action="{{ url_for('user_settings') }}" method="POST">
+                    <div>
+                        <label>Select your interests:</label>
+                        <select name="interests" id="interests">
+                            <option value="wildlife">Wildlife</option>
+                            <option value="outdoors">Outdoors</option>
+                            <option value="nature">Nature</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="button">Update</button>
+                </form>
+            </div>
+        </div>
+        <div class="account-container">
+            <div class="logout-content">
+                <h2>Log Out Of Your Account</h2>
+                <form action="{{ url_for('login') }}" method="POST">
+                    <button type="submit">Log Out</button>
+                </form>
+            </div>
+            <div class="delete-content">
+                <h2>Delete Your Account</h2>
+                <form action="{{ url_for('login') }}" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 Africa Cultures Connected</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

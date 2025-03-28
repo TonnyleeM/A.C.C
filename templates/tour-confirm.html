@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACC - Tour Booking Confirmation</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='tour-confirm.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-confirm.css') }}">  
 </head>
 <body>
     <!-- Header -->
@@ -27,7 +27,7 @@
                 <p>Estimated price: <span>100 000 RWF</span></p>
                 <p>Additional information: <span>12 April 2025</span></p>
                 <div class="buttons">
-                    <a><button type="submit" class="login-btn">Back</button></a>
+                    <a href="{{ url_for('tour_booker') }}"><button type="submit" class="login-btn">Back</button></a>
                     <a><button type="submit" class="login-btn">Confirm</button></a>
                 </div>
             </div>
