@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request, redirect, url_for, session, render_template
 from flask_cors import CORS
 from flask_oauthlib.client import OAuth
+from werkzeug.security import generate_password_hash, check_password_hash
+
 import sqlite3
 import json
 
@@ -74,7 +76,7 @@ def insert_country_data():
 # Insert country data, if not already present
 insert_country_data()
 
-# Links to HTML pages
+# Links to all HTML pages (SD)
 @app.route('/', methods=['GET', 'POST'])
 def login():
     # if request.method == 'POST':
@@ -132,15 +134,16 @@ def tour_guide_search():
 def user_settings():
     return render_template('user-settings.html')
 
-# Login Check
+# Load user from db (SD)
 def get_user(username, password):
-    conn = sqlite3.connect(db_name)
+    conn = sqlite3.connect('African_Cultures_Connected.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
     user = cursor.fetchone()
     conn.close()
     return user
 
+# Login Check (SD)
 @app.route("/login_check", methods=["POST"])
 def login_check():
     data = request.json
@@ -152,21 +155,6 @@ def login_check():
         return jsonify({"success": True, "message": "Login successful"})
     else:
         return jsonify({"success": False, "message": "Invalid credentials"}), 401
-
-
-def save_user(email, username, password):
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-    try:
-        cursor.execute("INSERT INTO users (email, username, password) VALUES (?, ?, ?)", 
-                       (email, username, ))
-        conn.commit()
-        return True
-    except sqlite3.IntegrityError:
-        return False  # Username or email already exists
-    finally:
-        conn.close()
-
 
 
 @app.route('/callback')
@@ -302,9 +290,12 @@ def add_tour_operator():
     conn.close()
     return jsonify(new_operator), 201
 
-@app.route('/users', methods=['POST'])
+
+# Registering a New User (SD)
+@app.route('/add_user', methods=['POST'])
 def add_user():
-    new_user = request.json
+    new_user = request.get_json()
+    print("Received user data:", new_user)
     username = new_user.get('username')
     password = new_user.get('password')
     email = new_user.get('email')
@@ -312,31 +303,23 @@ def add_user():
     interests = new_user.get('interests')
     user_type = new_user.get('user_type')
 
+    print("Received user data:", new_user)
+
     conn = get_db_connection()
     cursor = conn.cursor()
-    
-    # Check if user exists
-    cursor.execute(f'''
-    SELECT * FROM {users_table_name} WHERE email = ?
-    ''', (email,))
+
+    cursor.execute(f'SELECT * FROM {users_table_name} WHERE email = ?', (email,))
     
     if cursor.fetchone() is None:
-        # If not exists, insert into the database
         cursor.execute(f'''
         INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
         VALUES (?, ?, ?, ?, ?, ?)
         ''', (username, password, email, phone, interests, user_type))
     else:
-        # Update the existing record if needed
-        cursor.execute(f'''
-        UPDATE {users_table_name} 
-        SET username = ?, password = ?, phone = ?, interests = ?, user_type = ?
-        WHERE email = ?
-        ''', (username, password, phone, interests, user_type, email))
-    
+        return jsonify({"success": False, "message": f"User Already Exists"}), 500
     conn.commit()
-    conn.close()
-    return jsonify(new_user), 201
+    conn.close()  
+    return jsonify({"success": True, "message": "User registered successfully!"}), 201
 
 @app.route('/tours', methods=['POST'])
 def add_tour():

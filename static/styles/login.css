@@ -4,10 +4,10 @@
   - Global Colors
   - Global Behaviours
 2. Layout
-3. Sections
-  - HEADER
-  - MAIN
-  - FOOTER
+  - Header
+  - Login Page 
+  - Password toggle buttons
+  - Footer
 */
 
 /*--------------------------------------------------------------
@@ -112,40 +112,8 @@ form {
   height: 100%;
 }
 
-input {
-  width: 500px;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  text-align: center;
-}
-
-.login-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  font-size: 15px;
-  width: 500px;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-}
-
-.input::hover {
-  border: 1px solid var(--primary-color);
-}
-
-.hyperlink {
-  color: var(--link-color);
-}
-
 /* Header
-    ============================= */
+    ===================================================== */
 
 .header {
   display: flex;
@@ -197,6 +165,9 @@ input {
   color: var(--primary-color);
 }
 
+/* Login Page Content
+    ===================================================== */
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -218,8 +189,41 @@ input {
   padding: 20px;
 }
 
+input {
+  width: 500px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.input::hover {
+  border: 1px solid var(--primary-color);
+}
+
+.hyperlink {
+  color: var(--link-color);
+}
+
+.login-btn,
+.register-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 15px;
+  width: 500px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
 /* Password toggle buttons
-    ============================= */
+    ================================================= */
 
 .password-container {
   display: flex;
@@ -238,6 +242,28 @@ input {
   cursor: pointer;
   width: 5px;
   font-size: 1.2em;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.acc-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  color: var(--primary-font-color-alt);
+  font-size: 15px;
+  width: 500px;
+  padding: 8px;
+  margin: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
 }
 
 /* Footer

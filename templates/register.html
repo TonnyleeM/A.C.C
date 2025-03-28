@@ -22,30 +22,37 @@
                 <div class="login-content">
                     <h1>New Account Creation</h1>
                     <h2>Register an account to explore Africa's vibrant landscapes</h2>
-                    <form class="login-input" action="{{ url_for('homepage') }}" method="post"  onsubmit="return comparePwd()">
-                        <input type="email" id="email" name="email" placeholder="Enter email">
+
+                    <form class="login-input" id="register-form">
+                        <!-- Username -->
                         <input type="text" id="username" placeholder="Enter username">
+                        <!-- Password -->
                         <div class="password-container">
                             <input type="password" id="password" name="password" placeholder="Enter password">
                             <button type="button" class="toggle-password" onclick="togglePassword('password')">👁</button>
                         </div>
+                        <!-- Password confirmation -->
                         <div class="password-container">
                             <input type="password" id="password-confirm" name="password-confirm" placeholder="Enter password again">
                             <button type="button" class="toggle-password" onclick="togglePassword('password-confirm')">👁</button>
                         </div>
-                        <!-- Error message will be shown here -->
-                        <p id="error-message" style="color: red; font-size: 0.9em;"></p>
-
+                        <!-- Error Message-->
+                        <p id="error-message" style="font-size: 0.9em;"></p>
+                        <!-- Additional Details (Email, Phone number, Account Type)-->
+                        <input type="email" id="email" name="email" placeholder="Enter email">
                         <input type="text" id="phone" name="phone" placeholder="Enter phone number">
+                        <!-- Account Type-->
                         <div class="details-container">
-                            <label for="cars">Select an Account Type</label>
-                            <select name="cars" id="cars">
-                                <option value="volvo">Tour Operator</option>
-                                <option value="saab">Tourist</option>
+                            <select name="acc-type" id="acc-type" class="acc-type">
+                                <option value="" disabled selected>Select User Type</option>
+                                <option value="operator">Tour Operator</option>
+                                <option value="tourist">Tourist</option>
                             </select>
                         </div>
-                        <button type="submit" class="login-btn">Register</button>
+                        <button type="submit" id="register-btn" class="register-btn">Register</button>
                     </form>
+                    <p id="error-message" style="color: red;"></p>
+                    <p id="success-message" style="color: green;"></p>
                     <p>Already have an account? <a href="{{ url_for('login') }}"  class="hyperlink">Login here</a></p>
                 </div>
             </div>

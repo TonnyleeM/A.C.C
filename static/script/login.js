@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
       let result = await response.json();
       if (result.success) {
           alert("Login successful!");
-          window.location.href = "/homepage"; // Redirect user after successful login
+
+          localStorage.setItem("username", username);
+
+          window.location.href = "/homepage";
       } else {
           alert("Invalid username or password");
       }
