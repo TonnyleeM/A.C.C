@@ -243,6 +243,71 @@ def delete_user():
         conn.close()
         return jsonify({"success": False, "message": "User not found"}), 404
 
+
+# Page to handle 404 error pages (SD)
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html"), 404 
+
+# Page to handle other error pages (SD)
+@app.errorhandler(Exception)
+def handle_exception(error):
+    return render_template("404.html"),
+
+@app.route('/get_country', methods=['POST'])
+def get_country_api():
+    data = request.get_json()
+    country_name = data.get('selectedCountry')
+
+    if not country_name:
+        return jsonify({'success': False, 'message': 'Country name not received'}), 400
+
+    
+    conn = sqlite3.connect('African_Cultures_Connected.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM country_summaries WHERE country_name = ?", (country_name,))
+    country = cursor.fetchone()
+    conn.close()
+
+    if country:
+        user_data = {
+            'country_id': country[0],
+            'country_name': country[1], 
+            'description': country[2], 
+            'map_url' : country[3]
+        }
+        return jsonify({'success': True, 'user': user_data})
+    else:
+        return jsonify({'success': False, 'message': 'Cuntry not found'}), 404
+
+# Page to handle other error pages (SD)
+@app.route('/get_tours', methods=['POST'])
+def get_destinations():
+    data = request.get_json()
+    country = data.get("country")
+
+    if not country:
+        return jsonify({"success": False, "message": "Country not provided"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT * FROM destinations WHERE country_id = (
+            SELECT id FROM country_summaries WHERE country_name = ?
+        ) 
+        LIMIT 6
+    """, (country,))
+    destinations = cursor.fetchall()
+    conn.close()
+
+    if not destinations:
+        return jsonify({"success": False, "message": "No destinations found"}), 404
+
+    destinations_list = [dict(row) for row in destinations]
+    return jsonify({"success": True, "destinations": destinations_list})
+
+
+
 @app.route('/callback')
 def authorized():
     response = google.authorized_response()

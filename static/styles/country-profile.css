@@ -251,7 +251,7 @@ form {
 
 .country-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -275,7 +275,7 @@ form {
 .country-content {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: center;
   font-size: 20px;
   padding: 20px;
 }
@@ -423,6 +423,17 @@ iframe {
   background-color: var(--hover-color-alt);
 }
 
+@media screen and (max-width: 800px) {
+  .country-container {
+    flex-direction: column;
+  }
+  .country-content,
+  .country-map {
+    text-align: center;
+    width: 100%;
+  }
+  
+}
 /* Footer
     ============================= */
 

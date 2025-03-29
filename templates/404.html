@@ -19,12 +19,12 @@
         </header>
         <!-- Main -->
         <main>
-            <div class="login-container">
-                <div class="login-content">
+            <div class="info-container">
+                <div class="info-content">
                     <h1 class="ACCtext">Oops.. We couldnt find that page for you</h1>
                     <img src="../static/images/404.png" alt="404" width="400">
                     <h2>Looks like you're lost. Let's get you back on track.</h2>
-                    <a href="{{ url_for('homepage') }}" class="hyperlink">Go back to homepage</a>
+                    <a href="{{ url_for('login') }}" class="hyperlink">Go back to homepage</a>
                 </div>
             </div>
         </main>
@@ -37,6 +37,4 @@
             </div>
         </footer>
     </body>
-    <!-- <script src="{{ url_for('static', filename='script/login.js') }}"></script> -->
-
 </html>

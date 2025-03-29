@@ -57,6 +57,7 @@ async function fetchUserData(username, password) {
         }
     } catch (error) {
         console.log('Error fetching user data:', error);
+
     }
 }
 
@@ -120,9 +121,7 @@ async function confirmDelete() {
     } else {
         console.log('No user data found in localStorage.');
     }
-
     // Close the overlay after deletion attempt
     closeOverlay();
-    
     window.location.href = '/';
 }
