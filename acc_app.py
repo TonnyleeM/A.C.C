@@ -1,6 +1,8 @@
-from flask import Flask, jsonify, request, redirect, url_for, session
+from flask import Flask, jsonify, request, redirect, url_for, session, render_template
 from flask_cors import CORS
 from flask_oauthlib.client import OAuth
+from werkzeug.security import generate_password_hash, check_password_hash
+
 import sqlite3
 import json
 
@@ -74,14 +76,172 @@ def insert_country_data():
 # Insert country data, if not already present
 insert_country_data()
 
-# API Endpoints
-@app.route('/')
-def index():
-    return 'Welcome! <a href="/login">Login with Google</a>'
-
-@app.route('/login')
+# Links to all HTML pages (SD)
+@app.route('/', methods=['GET', 'POST'])
 def login():
-    return google.authorize(callback=url_for('authorized', _external=True))
+    # if request.method == 'POST':
+    #     connection = sqlite3.connect('African_Cultures_Connected.db')
+    #     cursor = connection.cursor()
+    #     username = request.form['username']
+    #     password = request.form['password']
+    #     print(username, password)
+    #     query = "SELECT username,password FROM users WHERE username= '"+username+"' AND password= '"+password+"'"
+    #     cursor.execute(query)
+    #     result = cursor.fetchall()
+    #     if len(result) == 0:
+    #         print("Login failed")
+    #     else:
+    #         print("Login successful")
+    #         return render_template('homepage.html')
+
+    # return google.authorize(callback=url_for('authorized', _external=True))
+
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
+
+@app.route('/homepage', methods=['GET', 'POST'])
+def homepage():
+    return render_template('homepage.html')
+
+@app.route('/tour-booking', methods=['GET', 'POST'])
+def tour_booking():
+    return render_template('tour-booking.html')
+
+@app.route('/country_profile', methods=['GET', 'POST'])
+def country_profile():
+    return render_template('country-profile.html')
+
+@app.route('/tour_operator', methods=['GET', 'POST'])
+def tour_operator():
+    return render_template('tour-operator.html')
+
+@app.route('/tour_booker', methods=['GET', 'POST'])
+def tour_booker():
+    return render_template('tour-booker.html')
+
+@app.route('/tour_confirm', methods=['GET', 'POST'])
+def tour_confirm():
+    return render_template('tour-confirm.html')
+
+@app.route('/tour_guide_search', methods=['GET', 'POST'])
+def tour_guide_search():
+    return render_template('tour-guide-search.html')
+
+@app.route('/user_settings', methods=['GET', 'POST'])
+def user_settings():
+    return render_template('user-settings.html')
+
+# Load user from db (SD)
+@app.route("/get_user", methods=["POST"])
+def get_user_api():
+    # Extract the JSON data sent by JavaScript
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify({'success': False, 'message': 'Username and password are required'}), 400
+
+    # Fetch the user from the database
+    conn = sqlite3.connect('African_Cultures_Connected.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+    user = cursor.fetchone()
+    conn.close()
+
+    if user:
+        # Assuming the user data is returned as a tuple, convert it to a dictionary
+        user_data = {
+            'username': user[1],
+            'userType': user[6],  # Adjust index based on your database schema
+            'interests': user[5],  # Adjust accordingly if interests are stored in the database
+        }
+        return jsonify({'success': True, 'user': user_data})
+    else:
+        return jsonify({'success': False, 'message': 'User not found or incorrect password'}), 404
+
+
+def get_user(username, password):
+    conn = sqlite3.connect('African_Cultures_Connected.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+    user = cursor.fetchone()
+    conn.close()
+    return user
+
+# Login Check (SD)
+@app.route("/login_check", methods=["POST"])
+def login_check():
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
+    user_id = data.get("user_id")
+
+    user = get_user(username, password)
+    if user:
+        return jsonify({"success": True, "message": "Login successful", "user_id": user_id, "username": username, "password": password})
+    else:
+        return jsonify({"success": False, "message": "Invalid credentials"}), 401
+
+# Registering a New User (SD)
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    new_user = request.get_json()
+    print("Received user data:", new_user)
+    username = new_user.get('username')
+    password = new_user.get('password')
+    email = new_user.get('email')
+    phone = new_user.get('phone')
+    interests = new_user.get('interests')
+    user_type = new_user.get('user_type')
+
+    print("Received user data:", new_user)
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(f'SELECT * FROM {users_table_name} WHERE email = ?', (email,))
+    
+    if cursor.fetchone() is None:
+        cursor.execute(f'''
+        INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ''', (username, password, email, phone, interests, user_type))
+    else:
+        return jsonify({"success": False, "message": f"User Already Exists"}), 500
+    conn.commit()
+    conn.close()  
+    return jsonify({"success": True, "message": "User registered successfully!"}), 201
+
+# Removing a User (SD)
+@app.route('/delete_user', methods=['POST'])
+def delete_user():
+    # Get the username from the request data
+    data = request.get_json()
+    username = data.get('username')
+
+    if not username:
+        return jsonify({"success": False, "message": "Username is required"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    # Check if the user exists
+    cursor.execute(f'SELECT * FROM {users_table_name} WHERE username = ?', (username,))
+    user = cursor.fetchone()
+
+    if user:
+        # User exists, so delete it
+        cursor.execute(f'DELETE FROM {users_table_name} WHERE username = ?', (username,))
+        conn.commit()
+        conn.close()
+        return jsonify({"success": True, "message": "User deleted successfully!"}), 200
+    else:
+        conn.close()
+        return jsonify({"success": False, "message": "User not found"}), 404
 
 @app.route('/callback')
 def authorized():
@@ -125,7 +285,7 @@ def add_country():
     cursor = conn.cursor()
     
     # Check if country exists
-    cursor.execute(f'''
+    cursor.execute(f''' 
     SELECT * FROM {country_table_name} WHERE country_name = ?
     ''', (country_name,))
     
@@ -215,42 +375,6 @@ def add_tour_operator():
     conn.commit()
     conn.close()
     return jsonify(new_operator), 201
-
-@app.route('/users', methods=['POST'])
-def add_user():
-    new_user = request.json
-    username = new_user.get('username')
-    password = new_user.get('password')
-    email = new_user.get('email')
-    phone = new_user.get('phone')
-    interests = new_user.get('interests')
-    user_type = new_user.get('user_type')
-
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    
-    # Check if user exists
-    cursor.execute(f'''
-    SELECT * FROM {users_table_name} WHERE email = ?
-    ''', (email,))
-    
-    if cursor.fetchone() is None:
-        # If not exists, insert into the database
-        cursor.execute(f'''
-        INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
-        VALUES (?, ?, ?, ?, ?, ?)
-        ''', (username, password, email, phone, interests, user_type))
-    else:
-        # Update the existing record if needed
-        cursor.execute(f'''
-        UPDATE {users_table_name} 
-        SET username = ?, password = ?, phone = ?, interests = ?, user_type = ?
-        WHERE email = ?
-        ''', (username, password, phone, interests, user_type, email))
-    
-    conn.commit()
-    conn.close()
-    return jsonify(new_user), 201
 
 @app.route('/tours', methods=['POST'])
 def add_tour():

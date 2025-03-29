@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC - Tour Booking Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-confirm.css') }}">  
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="nav-bar">
+            <div class="header-logo">
+                <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Main -->
+    <main>
+        <div class="login-container">
+            <div class="login-content">
+                <h1 class="header-tour">Tour Confirmation</h1>
+                <h2 class="header-tour">Confirm the following details:</h2>
+                <p>Visit Date: <span>12 April 2025</span></p>
+                <p>Booking for: <span>5 people</span></p>
+                <p>Chosen Tour Operator: <span>Ronald McDonald</span></p>
+                <p>Estimated price: <span>100 000 RWF</span></p>
+                <p>Additional information: <span>12 April 2025</span></p>
+                <div class="buttons">
+                    <a href="{{ url_for('tour_booker') }}"><button type="submit" class="login-btn">Back</button></a>
+                    <a><button type="submit" class="login-btn">Confirm</button></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 Africa Cultures Connected</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

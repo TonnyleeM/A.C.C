@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACC - Tour Operator Search</title>
-    <link rel="stylesheet" href="styles/tour-guide.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-guide.css') }}">
 </head>
     <body>
         <!-- Header -->
         <header>
             <nav class="nav-bar">
                 <div class="header-logo">
-                    <a href="index.html" class="nav-link">ACC</a>
+                    <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
                 </div>
                 <ul class="index-menu">
                     <li class="index-item">
-                        <a href="#" class="nav-link">
-                            <img src="images/search.png" alt="search" width="30" height="30">
+                        <a href="{{ url_for('homepage') }}"  class="nav-link">
+                            <img src="{{ url_for('static', filename='images/search.png') }}" alt="search" width="30" height="30">
                         </a>
-                        <span class="tooltiptext-1">Search for Locations</span>
+                        <span class="tooltiptext-1">Search for Country</span>
                     </li>
                     <li class="index-item">
-                        <a href="tour-guide-search.html" class="nav-link">
-                            <img src="images/tour-guide.png" alt="search" width="30" height="30">
+                        <a href="{{ url_for('tour_guide_search') }}" class="nav-link">
+                            <img src="{{ url_for('static', filename='images/tour-guide.png') }}" alt="search" width="30" height="30">
                         </a>
                         <span class="tooltiptext-2">Search for Tour Guides</span>
                     </li>
                     <li class="index-item">
-                        <a href="#" class="nav-link">
-                            <img src="images/user-icon.png" alt="search" width="30" height="30">
+                        <a href="{{ url_for('user_settings') }}"  class="nav-link">
+                            <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="search" width="30" height="30">
                         </a>
                         <span class="tooltiptext-3" >User Settings</span>
                     </li>
@@ -41,55 +41,56 @@
                 <h1>Connect with operators around Rwanda</h1>
                 <div class="search-content">
                     <input type="text" placeholder="search for expertise (wildlife, rock climbing, etc.)">
-                    <button type="submit"><img src="images/search.png" width="30"></button>
+                    <button type="submit"><img src="{{ url_for('static', filename='images/search.png') }}" width="30"></button>
                 </div>
             </div>
             <div class="content-container">
                 <div class="content">
-                    <h2>Discover Africa</h2>
+                    <h2>Discover Local Operators</h2>
                     <div class="destination-container">
                         <div class="destination-content">
-                            <img src="images/location.jpg" alt="kenya" width="600">
+                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                             <h3 id="tour-name">Ronald Mutembe</h3>
                             <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
                             <p>Expertise in:</p>
                             <p id="expertise">wildlie, outdoors, safari</p>
-                            <a href="tour-operator.html" class="more-btn">
-                                <button>More</button>
+                            <a href="{{ url_for('tour_operator') }}">
+                                <button class="button">More</button>
                             </a>
                         </div>
                         <div class="destination-content">
-                            <img src="images/location.jpg" alt="kenya" width="600">
+                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                             <h3 id="tour-name">Ronald Mutembe</h3>
                             <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
                             <p>Expertise in:</p>
                             <p id="expertise">wildlie, outdoors, safari</p>
-                            <a href="tour-operator.html" class="more-btn">
-                                <button>More</button>
+                            <a href="{{ url_for('tour_operator') }}">
+                                <button class="button">More</button>
                             </a>
                         </div>
                         <div class="destination-content">
-                            <img src="images/location.jpg" alt="kenya" width="600">
+                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                             <h3 id="tour-name">Ronald Mutembe</h3>
                             <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
                             <p>Expertise in:</p>
                             <p id="expertise">wildlie, outdoors, safari</p>
-                            <a href="tour-operator.html" class="more-btn">
-                                <button>More</button>
+                            <a href="{{ url_for('tour_operator') }}">
+                                <button class="button">More</button>
                             </a>
                         </div>
                         <div class="destination-content">
-                            <img src="images/location.jpg" alt="kenya" width="600">
+                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                             <h3 id="tour-name">Ronald Mutembe</h3>
                             <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
                             <p>Expertise in:</p>
                             <p id="expertise">wildlie, outdoors, safari</p>
-                            <a href="tour-operator.html" class="more-btn">
-                                <button>More</button>
+                            <a href="{{ url_for('tour_operator') }}">
+                                <button class="button">More</button>
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
         </main>
         <!-- Footer -->
         <footer>

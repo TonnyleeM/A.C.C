@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC - Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}"> 
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="nav-bar">
+            <div class="header-logo">
+                <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
+            </div>
+            <ul class="index-menu">
+                <li class="index-item">
+                    <a href="{{ url_for('tour_guide_search') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/tour-guide.png') }}" alt="search" width="30" height="30">
+                    </a>
+                    <span class="tooltiptext-2">Search for Tour Guides</span>
+                </li>
+                <li class="index-item">
+                    <a href="{{ url_for('user_settings') }}" class="nav-link">
+                        <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="search" width="30" height="30">
+                    </a>
+                    <span class="tooltiptext-2">User Settings</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main -->
+    <main>
+        <div class="search-container">
+            <h1>Africa Cultures Connected</h1>
+            <h2>Enrich your cultures. Explore the world. Expand your mind.</h2>
+        </div>
+        <div class="country-container">
+            <h2>Learn About Africa</h2>
+            <div class="location-container">
+                <div class="location-content">
+                    <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="Eswatini" width="800">
+                    <h3>Eswatini</h3>
+                    <a href="{{ url_for('country_profile') }}">
+                        <button class="button">More info</button>
+                    </a>
+                </div>
+                <div class="location-content">
+                    <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="Rwanda" width="800">
+                    <h3>Rwanda</h3>
+                    <a href="{{ url_for('country_profile') }}">
+                        <button class="button">More info</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <h2>Discover Locations</h2>
+                <div class="destination-container">
+                    <div class="destination-content">
+                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
+                        <h3>Lion's Den Wildlife Tours</h3>
+                        <p>Eswatini</p>
+                        <a href="{{ url_for('tour_booking') }}">
+                            <button class="button">More</button>
+                        </a>
+                    </div>
+                    <div class="destination-content">
+                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="ghana" width="600">
+                        <h3>Sibebe Rock Climbing</h3>
+                        <p>Eswatini</p>
+                        <a href="{{ url_for('tour_booking') }}">
+                            <button class="button">More</button>
+                        </a>
+                    </div>
+                    <div class="destination-content">
+                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="nigeria" width="600">
+                        <h3>Lake Kivu Boat Riding</h3>
+                        <p>Rwanda</p>
+                        <a href="{{ url_for('tour_booking') }}">
+                            <button class="button">More</button>
+                        </a>
+                    </div>
+                    <div class="destination-content">
+                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="south-africa" width="600">
+                        <h3>Forest Hills Hiking</h3>
+                        <p>Rwanda</p>
+                        <a href="{{ url_for('tour_booking') }}">
+                            <button class="button">More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 Africa Cultures Connected</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
