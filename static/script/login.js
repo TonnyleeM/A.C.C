@@ -1,3 +1,8 @@
+// Resetting Cached Info
+localStorage.removeItem('userData');
+localStorage.removeItem("password");
+console.log("Cached info reset successfully.");
+
 // Toggling password visibility
 function togglePassword(id) {
   const input = document.getElementById(id);
@@ -28,8 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (result.success) {
           alert("Login successful!");
 
-          localStorage.setItem("username", username);
-
+          localStorage.setItem("username", result.username);
+          console.log("Cached username:", result.username);
+          localStorage.setItem("password", result.password);
+          console.log("Cached password:", result.password);
+          console.log("Logged in as:", result.username);
           window.location.href = "/homepage";
       } else {
           alert("Invalid username or password");
