@@ -399,7 +399,6 @@ iframe {
 .destination-content p {
   color: var(--primary-font-color);
   padding: 5px;
-  padding-bottom: 0px;
 }
 
 .destination-content a {

@@ -76,30 +76,21 @@ async function fetchDestinations(selectedCountry) {
         return;
     }
 
-    // Check if cached data exists
-    const cachedDestinations = localStorage.getItem(`destinations_${selectedCountry}`);
-    if (cachedDestinations) {
-        console.log("Loaded destinations from cache.");
-        displayDestinations(JSON.parse(cachedDestinations));
-        return;
-    }
-
     try {
         
         const response = await fetch('/get_tours', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ country: selectedCountry })
+            body: JSON.stringify({ country_name: selectedCountry })
         });
 
         const data = await response.json();
-
-        if (data.success) {
-            console.log('Destinations:', data.destinations);
-            localStorage.setItem(`destinations_${selectedCountry}`, JSON.stringify(data.destinations)); // Cache data
-            displayDestinations(data.destinations);
+        console.log(data)
+        if (Array.isArray(data)) {  // Since API directly returns an array
+            console.log('Destinations:', data);
+            displayDestinations(data);
         } else {
-            console.error('Error:', data.message);
+            console.error('Unexpected response:', data);
         }
     } catch (error) {
         console.error('Fetch error:', error);
@@ -115,7 +106,6 @@ function displayDestinations(destinations) {
     destinations.slice(0, 6).forEach(destination => {
         const destinationHTML = `
             <div class="destination-content">
-                <img src="/static/images/location.jpg" alt="${destination.name}" width="600">
                 <h3>${destination.name}</h3>
                 <p>${destination.description}</p>
                 <a href="/tour-booking">
