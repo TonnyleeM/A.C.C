@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             expertise: expertise,
             services_offered: serviceOffered
         };
-        
+        console.log("Additional data:", data)
         try {
             // Send user data first
             let response = await fetch("/add_user", {
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)  // Change to 'data'
+                body: JSON.stringify(userData)  // Change to 'data'
             });
 
             let result = await response.json();
