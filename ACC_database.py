@@ -1,12 +1,7 @@
-from flask import Flask, jsonify, request
-from flask_cors import CORS
-import sqlite3
 import json
+import sqlite3
 
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
-# Database and table names
+# Define the database and table names
 db_name = 'African_Cultures_Connected.db'
 country_table_name = 'country_summaries'
 destination_table_name = 'destinations'
@@ -15,230 +10,134 @@ users_table_name = 'users'
 tours_table_name = 'tours'
 bookings_table_name = 'bookings'
 
-def get_db_connection():
-    conn = sqlite3.connect(db_name)
-    conn.row_factory = sqlite3.Row
-    return conn
+# Create a connection to the SQLite database
+conn = sqlite3.connect(db_name)
+cursor = conn.cursor()
 
-def create_tables():
-    conn = get_db_connection()
-    cursor = conn.cursor()
+# Create the country summaries table if it doesn't exist
+cursor.execute(f'''
+CREATE TABLE IF NOT EXISTS {country_table_name} (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    country_name TEXT UNIQUE,
+    description TEXT,
+    map_url TEXT
+)
+''')
 
-    # Create tables if they don't exist
-    cursor.execute(f'''
-    CREATE TABLE IF NOT EXISTS {country_table_name} (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        country_name TEXT,
-        description TEXT,
-        map_url TEXT
-    )
-    ''')
+# Create the destinations table if it doesn't exist
+cursor.execute(f'''
+CREATE TABLE IF NOT EXISTS {destination_table_name} (
+    destination_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    country_id INTEGER,
+    name CHAR UNIQUE,
+    description TEXT,
+    location TEXT,  -- Changed from POINT to TEXT for iframe link
+    photo_url TEXT, -- New column for image URLs
+    FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
+)
+''')
 
-    cursor.execute(f'''
-    CREATE TABLE IF NOT EXISTS {destination_table_name} (
-        destination_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        country_id INTEGER,
-        name CHAR,
-        description TEXT,
-        location POINT,
-        FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
-    )
-    ''')
+# Create the tour operators table if it doesn't exist
+cursor.execute(f'''
+CREATE TABLE IF NOT EXISTS {tour_operators_table_name} (
+    operator_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    country_id INTEGER,
+    company_name CHAR UNIQUE,
+    expertise TEXT,
+    services_offered TEXT,
+    FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
+    FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
+)
+''')
 
-    cursor.execute(f'''
-    CREATE TABLE IF NOT EXISTS {tour_operators_table_name} (
-        operator_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
-        country_id INTEGER,
-        company_name CHAR,
-        expertise TEXT,
-        services_offered TEXT,
-        FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
-        FOREIGN KEY (country_id) REFERENCES {country_table_name}(id)
-    )
-    ''')
+# Create the users table if it doesn't exist
+cursor.execute(f'''
+CREATE TABLE IF NOT EXISTS {users_table_name} (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username CHAR UNIQUE,
+    password CHAR,
+    email CHAR UNIQUE,
+    phone CHAR,
+    interests TEXT,
+    user_type CHAR CHECK(user_type IN ('tourist', 'operator'))
+)
+''')
 
-    cursor.execute(f'''
-    CREATE TABLE IF NOT EXISTS {users_table_name} (
-        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username CHAR,
-        password CHAR,
-        email CHAR,
-        phone CHAR,
-        interests TEXT,
-        user_type CHAR CHECK(user_type IN ('tourist', 'operator'))
-    )
-    ''')
+# Create the tours table if it doesn't exist
+cursor.execute(f'''
+CREATE TABLE IF NOT EXISTS {tours_table_name} (
+    tour_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    operator_id INTEGER,
+    destination_id INTEGER,
+    tour_name CHAR UNIQUE,
+    description TEXT,
+    price DECIMAL,
+    duration CHAR,
+    FOREIGN KEY (operator_id) REFERENCES {tour_operators_table_name}(operator_id),
+    FOREIGN KEY (destination_id) REFERENCES {destination_table_name}(destination_id)
+)
+''')
 
-    cursor.execute(f'''
-    CREATE TABLE IF NOT EXISTS {tours_table_name} (
-        tour_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        operator_id INTEGER,
-        destination_id INTEGER,
-        tour_name CHAR,
-        description TEXT,
-        price DECIMAL,
-        duration CHAR,
-        FOREIGN KEY (operator_id) REFERENCES {tour_operators_table_name}(operator_id),
-        FOREIGN KEY (destination_id) REFERENCES {destination_table_name}(destination_id)
-    )
-    ''')
+# Create the bookings table if it doesn't exist
+cursor.execute(f'''
+CREATE TABLE IF NOT EXISTS {bookings_table_name} (
+    booking_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    tour_id INTEGER,
+    booking_date DATE,
+    status CHAR CHECK(status IN ('pending', 'confirmed', 'cancelled')),
+    total_cost DECIMAL,
+    FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
+    FOREIGN KEY (tour_id) REFERENCES {tours_table_name}(tour_id)
+)
+''')
 
-    cursor.execute(f'''
-    CREATE TABLE IF NOT EXISTS {bookings_table_name} (
-        booking_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
-        tour_id INTEGER,
-        booking_date DATE,
-        status CHAR CHECK(status IN ('pending', 'confirmed', 'cancelled')),
-        total_cost DECIMAL,
-        FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),
-        FOREIGN KEY (tour_id) REFERENCES {tours_table_name}(tour_id)
-    )
-    ''')
-
-    conn.commit()
-    conn.close()
-
-# Call the function to create tables
-create_tables()
-
-# Load country data from JSON file and insert it into the database
+# Read data from the country summaries JSON file
 with open('african_summaries.json', 'r') as file:
     country_data = json.load(file)
 
-def insert_country_data():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    
-    for country, description in country_data.items():
-        map_url = f"https://www.google.com/maps/place/{country.replace(' ', '+')}"
-        cursor.execute(f'''
-        INSERT INTO {country_table_name} (country_name, description, map_url)
-        VALUES (?, ?, ?)
-        ''', (country, description, map_url))
-    
-    conn.commit()
-    conn.close()
-
-# Insert country data, if not already present
-insert_country_data()
-
-# API Endpoints
-@app.route('/countries', methods=['GET'])
-def get_countries():
-    conn = get_db_connection()
-    countries = conn.execute('SELECT * FROM country_summaries').fetchall()
-    conn.close()
-    return jsonify([dict(row) for row in countries])
-
-@app.route('/countries', methods=['POST'])
-def add_country():
-    new_country = request.json
-    country_name = new_country.get('country_name')
-    description = new_country.get('description')
-
-    map_url = f"https://www.google.com/maps/place/{country_name.replace(' ', '+')}"
-    
-    conn = get_db_connection()
-    conn.execute(f'''
-    INSERT INTO {country_table_name} (country_name, description, map_url)
+# Prepare and insert data into the country summaries table
+for country, description in country_data.items():
+    map_url = f"https://www.google.com/maps/place/{country.replace(' ', '+')}"
+    cursor.execute(f'''
+    INSERT OR IGNORE INTO {country_table_name} (country_name, description, map_url)
     VALUES (?, ?, ?)
-    ''', (country_name, description, map_url))
-    conn.commit()
-    conn.close()
-    return jsonify(new_country), 201
+    ''', (country, description, map_url))
 
-@app.route('/destinations', methods=['POST'])
-def add_destination():
-    new_destination = request.json
-    country_id = new_destination.get('country_id')
-    name = new_destination.get('name')
-    description = new_destination.get('description')
-    location = new_destination.get('location')
+# Commit the changes for country summaries
+conn.commit()
 
-    conn = get_db_connection()
-    conn.execute(f'''
-    INSERT INTO {destination_table_name} (country_id, name, description, location)
-    VALUES (?, ?, ?, ?)
-    ''', (country_id, name, description, location))
-    conn.commit()
-    conn.close()
-    return jsonify(new_destination), 201
+# Read data from the african_countries_data.json file
+with open('african_countries_data.json', 'r') as file:
+    african_countries_data = json.load(file)
 
-@app.route('/tour_operators', methods=['POST'])
-def add_tour_operator():
-    new_operator = request.json
-    user_id = new_operator.get('user_id')
-    country_id = new_operator.get('country_id')
-    company_name = new_operator.get('company_name')
-    expertise = new_operator.get('expertise')
-    services_offered = new_operator.get('services_offered')
+# Prepare and insert data into the destinations table
+for country, destinations in african_countries_data.items():
+    # Get the country_id for the current country
+    cursor.execute(f'''
+    SELECT id FROM {country_table_name} WHERE country_name = ?
+    ''', (country,))
+    country_id = cursor.fetchone()
 
-    conn = get_db_connection()
-    conn.execute(f'''
-    INSERT INTO {tour_operators_table_name} (user_id, country_id, company_name, expertise, services_offered)
-    VALUES (?, ?, ?, ?, ?)
-    ''', (user_id, country_id, company_name, expertise, services_offered))
-    conn.commit()
-    conn.close()
-    return jsonify(new_operator), 201
+    if country_id:
+        country_id = country_id[0]
+        for destination in destinations:
+            # Extract the description, iframe link, and photo URL
+            description = destination.get('description', '')
+            iframe_link = destination.get('iframe_link', '')
+            photo_url = destination.get('photo_url', '')  # Ensure your JSON includes this field
 
-@app.route('/users', methods=['POST'])
-def add_user():
-    new_user = request.json
-    username = new_user.get('username')
-    password = new_user.get('password')
-    email = new_user.get('email')
-    phone = new_user.get('phone')
-    interests = new_user.get('interests')
-    user_type = new_user.get('user_type')
+            cursor.execute(f'''
+            INSERT OR IGNORE INTO {destination_table_name} (country_id, name, description, location, photo_url)
+            VALUES (?, ?, ?, ?, ?)
+            ''', (country_id, destination['name'], description, iframe_link, photo_url))
 
-    conn = get_db_connection()
-    conn.execute(f'''
-    INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
-    VALUES (?, ?, ?, ?, ?, ?)
-    ''', (username, password, email, phone, interests, user_type))
-    conn.commit()
-    conn.close()
-    return jsonify(new_user), 201
+# Commit the changes for destinations
+conn.commit()
 
-@app.route('/tours', methods=['POST'])
-def add_tour():
-    new_tour = request.json
-    operator_id = new_tour.get('operator_id')
-    destination_id = new_tour.get('destination_id')
-    tour_name = new_tour.get('tour_name')
-    description = new_tour.get('description')
-    price = new_tour.get('price')
-    duration = new_tour.get('duration')
+# Close the connection
+conn.close()
 
-    conn = get_db_connection()
-    conn.execute(f'''
-    INSERT INTO {tours_table_name} (operator_id, destination_id, tour_name, description, price, duration)
-    VALUES (?, ?, ?, ?, ?, ?)
-    ''', (operator_id, destination_id, tour_name, description, price, duration))
-    conn.commit()
-    conn.close()
-    return jsonify(new_tour), 201
-
-@app.route('/bookings', methods=['POST'])
-def add_booking():
-    new_booking = request.json
-    user_id = new_booking.get('user_id')
-    tour_id = new_booking.get('tour_id')
-    booking_date = new_booking.get('booking_date')
-    status = new_booking.get('status')
-    total_cost = new_booking.get('total_cost')
-
-    conn = get_db_connection()
-    conn.execute(f'''
-    INSERT INTO {bookings_table_name} (user_id, tour_id, booking_date, status, total_cost)
-    VALUES (?, ?, ?, ?, ?)
-    ''', (user_id, tour_id, booking_date, status, total_cost))
-    conn.commit()
-    conn.close()
-    return jsonify(new_booking), 201
-
-if __name__ == '__main__':
-    app.run(debug=True)
+print("Data has been successfully inserted into the country summaries and destinations tables.")
+print("All additional tables have been created empty.")
