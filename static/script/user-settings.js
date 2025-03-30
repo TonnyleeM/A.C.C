@@ -57,15 +57,16 @@ async function fetchUserData(username, password) {
         }
     } catch (error) {
         console.log('Error fetching user data:', error);
+
     }
 }
 
 // Log out function
 function logout() {
-    localStorage.removeItem('userData'); // Remove user data
-    localStorage.removeItem("password"); // Reset cached password
+    localStorage.removeItem('userData'); 
+    localStorage.removeItem("password"); 
     console.log("Cached info reset successfully.");
-    window.location.href = '/'; // Redirect to login page
+    window.location.href = '/'; 
 }
 
 // Wait for DOM to load before adding event listeners
@@ -80,11 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deleteButton.addEventListener('click', (e) => {
         e.preventDefault();
-        showOverlay(); // Show overlay for delete confirmation
+        showOverlay();
     });
 });
 
-// Overlay for delete confirmation
 function showOverlay() {
   document.getElementById("deleteOverlay").style.display = "flex";
 }
@@ -120,9 +120,7 @@ async function confirmDelete() {
     } else {
         console.log('No user data found in localStorage.');
     }
-
     // Close the overlay after deletion attempt
     closeOverlay();
-    
     window.location.href = '/';
 }

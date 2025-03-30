@@ -191,7 +191,7 @@ background-color: var(--primary-color);
   color: var(--primary-color);
 }
 
-.login-container {
+.info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -199,7 +199,7 @@ background-color: var(--primary-color);
   margin: 10px;
 }
 
-.login-content {
+.info-content {
   padding: 40px;
   display: flex;
   flex-direction: column;

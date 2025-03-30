@@ -102,6 +102,10 @@ def login():
 def register():
     return render_template('register.html')
 
+@app.route('/operator_login', methods=['GET', 'POST'])
+def operator_login():
+    return render_template('operator-login.html')
+
 @app.route('/homepage', methods=['GET', 'POST'])
 def homepage():
     return render_template('homepage.html')
@@ -163,7 +167,6 @@ def get_user_api():
     else:
         return jsonify({'success': False, 'message': 'User not found or incorrect password'}), 404
 
-
 def get_user(username, password):
     conn = sqlite3.connect('African_Cultures_Connected.db')
     cursor = conn.cursor()
@@ -198,8 +201,7 @@ def add_user():
     interests = new_user.get('interests')
     user_type = new_user.get('user_type')
 
-    print("Received user data:", new_user)
-
+ 
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -210,11 +212,41 @@ def add_user():
         INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
         VALUES (?, ?, ?, ?, ?, ?)
         ''', (username, password, email, phone, interests, user_type))
+
     else:
         return jsonify({"success": False, "message": f"User Already Exists"}), 500
     conn.commit()
+    user_id = cursor.lastrowid
     conn.close()  
-    return jsonify({"success": True, "message": "User registered successfully!"}), 201
+    return jsonify({"success": True, "message": "User registered successfully!", "user_id": user_id}), 201
+
+# Registering a New Operator (SD)
+@app.route('/save_operator', methods=['POST'])
+def save_operator():
+    new_operator = request.get_json()
+    print("Received operator data:", new_operator)
+    country = new_operator.get('country')
+    company_name = new_operator.get('company')
+    expertise = new_operator.get('expertise')
+    services_offered = new_operator.get('services_offered')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    # Check if an operator with the same country and company exists
+    cursor.execute('SELECT * FROM tour_operators WHERE country_id = ? AND company_name = ?', (country, company_name))
+
+    if cursor.fetchone() is None:
+        cursor.execute('''
+        INSERT INTO tour_operators (country_id, company_name, expertise, services_offered)
+        VALUES (?, ?, ?, ?)
+        ''', (country, company_name, expertise, services_offered))
+    else:
+        return jsonify({"success": False, "message": "Operator with the same country and company already exists"}), 500
+    
+    conn.commit()
+    conn.close()
+    return jsonify({"success": True, "message": "Operator information saved successfully!"}), 201
 
 # Removing a User (SD)
 @app.route('/delete_user', methods=['POST'])
@@ -229,11 +261,16 @@ def delete_user():
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    # Check if the user exists
+
     cursor.execute(f'SELECT * FROM {users_table_name} WHERE username = ?', (username,))
     user = cursor.fetchone()
 
+
     if user:
+        cursor.execute(f'SELECT user_id, user_type FROM {users_table_name} WHERE username = ?', (username,))
+        user_id, user_type = cursor.fetchone()
+        if user_type == "operator":
+            cursor.execute(f'DELETE FROM {tour_operators_table_name} WHERE user_id = ?', (user_id,))
         # User exists, so delete it
         cursor.execute(f'DELETE FROM {users_table_name} WHERE username = ?', (username,))
         conn.commit()
@@ -242,6 +279,143 @@ def delete_user():
     else:
         conn.close()
         return jsonify({"success": False, "message": "User not found"}), 404
+
+
+# Page to handle 404 error pages (SD)
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html"), 404 
+
+# Page to handle other error pages (SD)
+@app.errorhandler(Exception)
+def handle_exception(error):
+    return render_template("404.html"),
+
+@app.route('/get_country', methods=['POST'])
+def get_country_api():
+    data = request.get_json()
+    country_name = data.get('selectedCountry')
+
+    if not country_name:
+        return jsonify({'success': False, 'message': 'Country name not received'}), 400
+
+    
+    conn = sqlite3.connect('African_Cultures_Connected.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM country_summaries WHERE country_name = ?", (country_name,))
+    country = cursor.fetchone()
+    conn.close()
+
+    if country:
+        user_data = {
+            'country_id': country[0],
+            'country_name': country[1], 
+            'description': country[2], 
+            'map_url' : country[3]
+        }
+        return jsonify({'success': True, 'user': user_data})
+    else:
+        return jsonify({'success': False, 'message': 'Cuntry not found'}), 404
+
+# Helper function to query the database
+def get_destinations_by_country(country_id):
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT destination_id, name, description FROM destinations WHERE country_id = ?", (country_id,))
+    destinations = [{"destination_id": row[0], "name": row[1], "description": row[2]} for row in cursor.fetchall()]
+    conn.close()
+    return destinations
+
+# Page to handle other error pages (SD)
+@app.route('/get_tours', methods=['POST'])
+def get_tours():
+    data = request.get_json()
+    country_name = data.get('country_name')
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT id FROM country_summaries WHERE country_name = ?", (country_name,))
+    country = cursor.fetchone()
+    conn.close()
+    print(country)
+    if country:
+        country_id = country[0]
+        destinations = get_destinations_by_country(country_id)
+        return jsonify(destinations)
+    else:
+        return jsonify({"error": "Country not found"}), 404
+
+
+@app.route('/get_tour_info', methods=['POST'])
+def get_tour_info():
+    data = request.get_json()
+    destinationName = data.get('destinationName')
+    
+    # Fetch country ID from country_summaries table
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM destinations WHERE name = ?", (destinationName,))
+    tour_info = cursor.fetchone()
+    print(tour_info)
+    conn.close()
+
+    if tour_info:
+        return jsonify(tour_info)
+    else:
+        return jsonify({"error": "Country not found"}), 404
+
+@app.route('/get_tour_operators', methods=['POST'])
+def get_tour_operators():
+    try:
+        # Get the company name (destination name) from the request
+        data = request.get_json()
+        company_name = data.get('company_name')
+        
+        if not company_name:
+            return jsonify({'error': 'Company name is required'}), 400
+        
+        # Database query to join the tables
+        query = """
+            SELECT u.username, u.email, u.phone, u.interests, u.user_type, 
+                   t.operator_id, t.company_name, t.expertise, t.services_offered 
+            FROM tour_operators t
+            JOIN users u ON t.user_id = u.user_id
+            JOIN destinations d ON t.country_id = d.country_id
+            WHERE d.name = ?
+        """
+        
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(query, (company_name,))
+        operators = cursor.fetchall()
+        conn.close()
+        
+        # If no operators are found
+        if not operators:
+            return jsonify({'message': 'No operators found for this company'}), 404
+        
+        # Format the result as a list of dictionaries
+        operators_list = []
+        for operator in operators:
+            operators_list.append({
+                'operator_id': operator['operator_id'],
+                'username': operator['username'],
+                'email': operator['email'],
+                'phone': operator['phone'],
+                'interests': operator['interests'],
+                'user_type': operator['user_type'],
+                'company_name': operator['company_name'],
+                'expertise': operator['expertise'],
+                'services_offered': operator['services_offered']
+            })
+        
+        return jsonify({'operators': operators_list}), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
+
 
 @app.route('/callback')
 def authorized():

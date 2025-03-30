@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACC - Tour Profile</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-booking.css') }}">  -->
-    <link rel="stylesheet" href="../static/styles/tour-booking.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-booking.css') }}">
 </head>
     <body>
         <!-- Header -->
@@ -15,12 +14,6 @@
                     <a href="{{ url_for('homepage') }}" class="nav-link">ACC</a>
                 </div>
                 <ul class="index-menu">
-                    <li class="index-item">
-                        <a href="{{ url_for('homepage') }}"  class="nav-link">
-                            <img src="{{ url_for('static', filename='images/search.png') }}" alt="search" width="30" height="30">
-                        </a>
-                        <span class="tooltiptext-1">Search for Country</span>
-                    </li>
                     <li class="index-item">
                         <a href="{{ url_for('tour_guide_search') }}" class="nav-link">
                             <img src="{{ url_for('static', filename='images/tour-guide.png') }}" alt="search" width="30" height="30">
@@ -39,12 +32,9 @@
         <!-- Main -->
         <main>
             <div class="profile-container">
-                <img src="{{ url_for('static', filename='images/person-placeholder.jpg') }}" width="400">
                 <div class="profile-content">
-                    <h1>Lion's Den Wildlife Tours</h1>
-                    <p id="location-desc">Get close and personal with the most majestic views and see the beauty of wildlife in its natural form!</p>
-                    <p id="location-price">Price: 100 000 RWF</p>
-                    <p id="location-duration">Duration: 2 Hours</p>
+                    <h1 id="location-name"></h1>
+                    <p id="location-desc"></p>
                     <a href="{{ url_for('tour_booker') }}" class="more-btn">
                         <button>Book Now!</button>
                     </a>
@@ -52,57 +42,18 @@
             </div>
             <div class="employees-container">
                 <h1>Operators working here:</h1>
-                <div class="employees-content">
-                    <div class="operator-content">
-                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
-                        <h3 id="tour-name">Ronald Mutembe</h3>
-                        <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
-                        <p>Expertise in:</p>
-                        <p id="expertise">wildlie, outdoors, safari</p>
-                        <a href="{{ url_for('tour_booker') }}" class="more-btn">
-                            <button>More</button>
-                        </a>
-                    </div>
-                    <div class="operator-content">
-                        <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
-                        <h3 id="tour-name">Ronald Mutembe</h3>
-                        <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
-                        <p>Expertise in:</p>
-                        <p id="expertise">wildlie, outdoors, safari</p>
-                        <a href="{{ url_for('tour_operator') }}" class="more-btn">
-                            <button>More</button>
-                        </a>
-                    </div>
+                <div class="employees-content" class="operator-list">
+                    <!-- Operator info will be shown here -->
+                     <div class="operator-content">
+                        <p>None</p>
+                     </div>
                 </div>
             </div>
             <div class="content-container">
                 <div class="content">
                     <h2>Discover Similar Locations</h2>
                     <div class="destination-container">
-                        <div class="destination-content">
-                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
-                            <h3>Lion's Den Wildlife Tours</h3>
-                            <p>Eswatini</p>
-                            <a href="{{ url_for('tour_booking') }}">
-                                <button class="button">More</button>
-                            </a>
-                        </div>
-                        <div class="destination-content">
-                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
-                            <h3>Lion's Den Wildlife Tours</h3>
-                            <p>Eswatini</p>
-                            <a href="{{ url_for('tour_booking') }}">
-                                <button class="button">More</button>
-                            </a>
-                        </div>
-                        <div class="destination-content">
-                            <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
-                            <h3>Lion's Den Wildlife Tours</h3>
-                            <p>Eswatini</p>
-                            <a href="{{ url_for('tour_booking') }}">
-                                <button class="button">More</button>
-                            </a>
-                        </div>
+                        <!-- Other destinations will be here -->
                     </div>
                 </div>
             </div>
@@ -116,4 +67,5 @@
             </div>
         </footer>
     </body>
+    <script src="{{ url_for('static', filename='script/tour-booking.js') }}"></script>
 </html>

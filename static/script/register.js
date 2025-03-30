@@ -36,7 +36,8 @@ function togglePassword(id) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("register-btn").addEventListener("click", async function () {
+    document.getElementById("register-btn").addEventListener("click", async function (event) {
+        event.preventDefault(); 
         let username = document.getElementById("username").value.trim();
         console.log(username);
         let password = document.getElementById("password").value;
@@ -47,17 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(phone);
         let interests = "";
         let user_type = document.getElementById("acc-type").value;
-        console.log(user_type)
-        let errorMessage = document.getElementById("error-message");
-        let successMessage = document.getElementById("success-message"); // Element for success messages
-
-        // Clear previous messages
-        errorMessage.textContent = "";
-        successMessage.textContent = "";
+        console.log(user_type);
 
         // Validate required fields
         if (!username || !password || !email || !phone || !user_type) {
-            errorMessage.textContent = "All fields except interests are required!";
+            alert("All fields except interests are required!");
+            console.log("All fields except interests are required!");
             return;
         }
 
@@ -65,36 +61,45 @@ document.addEventListener("DOMContentLoaded", function () {
         let userData = { username, password, email, phone, interests, user_type };
 
         console.log(userData);
-        try {
-            let response = await fetch("http://127.0.0.1:5000/add_user", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(userData)
-            });
 
-            let result = await response.json();
+        // If user type is 'operator', store the user data in cache and redirect
+        if (user_type === "operator") {
+            // Save the user data to cache (localStorage)
+            localStorage.setItem("tempUserData", JSON.stringify(userData));
+            localStorage.setItem("username", username);
+            console.log("Operator user data cached. Redirecting...");
+            // Redirect to operator login page
+            window.location.href = "/operator_login";
 
-            console.log(result);
+        } else {
+            // If user type is not 'operator', proceed with saving to the database
+            try {
+                let response = await fetch("/add_user", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userData)
+                });
 
-            if (result.success === true) {
-                successMessage.textContent = "Registration successful!";
-                console.log("Registration successful!");
-                alert("Registration successful! /n You can now log in with your credentials.");
-                // Redirect to login page after a short delay
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 2000); 
-            } else {
-                errorMessage.textContent = "Registration failed: " + (result.message || "Unknown error");
-                alert("Registration failed: " + (result.message || "Unknown error"));
-                console.log("Registration failed: " + (result.message || "Unknown error"));
+                let result = await response.json();
+                console.log("Result: ", result);
+
+                if (result.success === false) {
+                    alert("Registration failed: " + (result.message || "Unknown error"));
+                    console.log("Registration failed: " + (result.message || "Unknown error"));
+                } else {
+                    console.log("Registration successful!");
+                    alert("Registration successful! \nYou can now log in with your credentials.");
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 2000); 
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                console.log("Registration unsuccessful!");
+                alert("Something went wrong. Please try again!");
             }
-        } catch (error) {
-            console.error("Error:", error);
-            console.log("Registration unsuccessful!");
-            errorMessage.textContent = "Something went wrong. Please try again!";
         }
     });
 });
