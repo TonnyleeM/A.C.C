@@ -550,31 +550,36 @@
             "name": "Hlane Royal National Park",
             "city": "Eswatini",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Hlane+Royal+National+Park,Eswatini",
-            "description": "Known for its wildlife and beautiful landscapes."
+            "description": "Known for its wildlife and beautiful landscapes.",
+            "photo_url": "https://media.istockphoto.com/id/1182437949/photo/blesbuck-in-mlilwane-wildlife-sanctuary-swaziland.jpg?s=612x612&w=0&k=20&c=jQ11_L0_yt8LcU1v27Pdbk9vWg8sh7xN5ooYa6ZXQ2k="
         },
         {
             "name": "Mantenga Cultural Village",
             "city": "Eswatini",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mantenga+Cultural+Village,Eswatini",
-            "description": "A cultural village showcasing the traditions of the Swazi people."
+            "description": "A cultural village showcasing the traditions of the Swazi people.",
+            "photo_url": "https://alloutafrica.com/wp-content/uploads/2019/06/Mantenga-cultural-village_5-1500x630.jpg"
         },
         {
             "name": "Mlilwane Wildlife Sanctuary",
             "city": "Eswatini",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Mlilwane+Wildlife+Sanctuary,Eswatini",
-            "description": "A sanctuary offering a chance to see diverse wildlife and enjoy outdoor activities."
+            "description": "A sanctuary offering a chance to see diverse wildlife and enjoy outdoor activities.",
+            "photo_url": "https://toursa.com/wp-content/uploads/2022/05/MlilwaneSacntuary.jpg"
         },
         {
             "name": "Royal Swazi Spa",
             "city": "Eswatini",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Royal+Swazi+Spa,Eswatini",
-            "description": "A luxurious spa known for its relaxing treatments and beautiful surroundings."
+            "description": "A luxurious spa known for its relaxing treatments and beautiful surroundings.",
+            "photo_url": "https://pix10.agoda.net/hotelImages/773/77348/77348_15110909570037596487.jpg?ca=&ce=1&s=414x232&ar=16x9"
         },
         {
             "name": "Sibebe Rock",
             "city": "Eswatini",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Sibebe+Rock,Eswatini",
-            "description": "A massive granite rock formation offering hiking opportunities and scenic views."
+            "description": "A massive granite rock formation offering hiking opportunities and scenic views.",
+            "photo_url": "https://q-xx.bstatic.com/xdata/images/hotel/max500/639986172.jpg?k=bbe6b26b8b3ae6a37345e3f5b302e1138fb5bbdd94f1385c3778e35355686dbc&o="
         }
     ],
     "Ethiopia": [
@@ -1254,31 +1259,36 @@
             "name": "Akagera National Park",
             "city": "Rwanda",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Akagera+National+Park,Rwanda",
-            "description": "A national park known for its diverse wildlife and scenic landscapes."
+            "description": "A national park known for its diverse wildlife and scenic landscapes.",
+            "photo_url": "https://www.explorerwandatours.com/wp-content/uploads/2021/07/Filming-in-Akagera-National-Park-e1597587467695-1200x600-750x450.jpg"
         },
         {
             "name": "Kigali Genocide Memorial",
             "city": "Rwanda",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Kigali+Genocide+Memorial,Rwanda",
-            "description": "A memorial site honoring the victims of the Rwandan genocide."
+            "description": "A memorial site honoring the victims of the Rwandan genocide.",
+            "photo_url": "https://media.defense.gov/2019/Mar/04/2002095902/2000/2000/0/190304-F-EN010-3040.JPG"
         },
         {
             "name": "Lake Kivu",
             "city": "Rwanda",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Lake+Kivu,Rwanda",
-            "description": "A beautiful lake known for its scenic views and recreational activities."
+            "description": "A beautiful lake known for its scenic views and recreational activities.",
+            "photo_url": "https://trekafricatours.com/wp-content/uploads/2020/08/lake-kivu-1.jpg"
         },
         {
             "name": "Nyungwe Forest National Park",
             "city": "Rwanda",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Nyungwe+Forest+National+Park,Rwanda",
-            "description": "A national park known for its rich biodiversity and canopy walk."
+            "description": "A national park known for its rich biodiversity and canopy walk.",
+            "photo_url": "https://i.ytimg.com/vi/r0n-Ta63BIs/maxresdefault.jpg"
         },
         {
             "name": "Volcanoes National Park",
             "city": "Rwanda",
             "iframe_link": "https://www.google.com/maps/embed/v1/place?key=AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A&q=Volcanoes+National+Park,Rwanda",
-            "description": "Famous for its mountain gorillas and stunning landscapes."
+            "description": "Famous for its mountain gorillas and stunning landscapes.",
+            "photo_url": "https://thetravelhackinglife.com/wp-content/uploads/2018/12/si-1024x678.jpg"
         }
     ],
     "São Tomé and Príncipe": [
