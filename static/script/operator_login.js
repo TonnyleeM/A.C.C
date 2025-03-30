@@ -15,7 +15,7 @@ console.log("User Data from LocalStorage:", userData);
 
 document.getElementById("country-name").addEventListener("change", function() {
     const selectedCountry = this.value;
-    
+    console.log("Selected country:", selectedCountry)
     if (selectedCountry) {
         fetch('/get_tours', {
             method: 'POST',
@@ -29,12 +29,13 @@ document.getElementById("country-name").addEventListener("change", function() {
             .then(response => response.json())
             .then(data => {
                 const companySelect = document.getElementById("company-name");
+                console.log("Data:", data)
                 companySelect.innerHTML = '<option value="" disabled selected>Select Destination</option>'; // Reset the options
                 if (data.length > 0) {
                     data.forEach(destination => {
                         const option = document.createElement("option");
-                        option.value = destination[0];  // destination_id
-                        option.textContent = destination[1];  // destination name
+                        option.value = destination.destination_id;  // Corrected key access
+                        option.textContent = destination.name;  // destination name
                         companySelect.appendChild(option);
                     });
                 } else {
@@ -51,7 +52,6 @@ document.getElementById("country-name").addEventListener("change", function() {
         companySelect.innerHTML = '<option value="" disabled selected>Select Country First</option>';  // Reset if no country is selected
     }
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
