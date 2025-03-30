@@ -138,6 +138,11 @@ def tour_guide_search():
 def user_settings():
     return render_template('user-settings.html')
 
+@app.route('/operator_settings', methods=['GET', 'POST'])
+def operator_settings():
+    return render_template('operator-settings.html')
+
+
 # Load user from db (SD)
 @app.route("/get_user", methods=["POST"])
 def get_user_api():
@@ -225,8 +230,10 @@ def add_user():
 def save_operator():
     new_operator = request.get_json()
     print("Received operator data:", new_operator)
+    user_id = new_operator.get('user_id')
     country = new_operator.get('country')
-    company_name = new_operator.get('company')
+    company_name = new_operator.get('company_name')
+    print(user_id)
     expertise = new_operator.get('expertise')
     services_offered = new_operator.get('services_offered')
 
@@ -238,9 +245,9 @@ def save_operator():
 
     if cursor.fetchone() is None:
         cursor.execute('''
-        INSERT INTO tour_operators (country_id, company_name, expertise, services_offered)
-        VALUES (?, ?, ?, ?)
-        ''', (country, company_name, expertise, services_offered))
+        INSERT INTO tour_operators (user_id, country_id, company_name, expertise, services_offered)
+        VALUES (?, ?, ?, ?, ?)
+        ''', (user_id, country, company_name, expertise, services_offered))
     else:
         return jsonify({"success": False, "message": "Operator with the same country and company already exists"}), 500
     
@@ -279,6 +286,28 @@ def delete_user():
     else:
         conn.close()
         return jsonify({"success": False, "message": "User not found"}), 404
+
+@app.route('/load_operator', methods=['POST'])
+def load_operator():
+    data = request.get_json()
+    username = data.get('username')
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT user_id FROM users WHERE username = ?", (username,))
+    result = cursor.fetchone()
+    
+    print(result)
+    if result:
+        user_id = result[0]  # Extract user_id
+        cursor.execute("SELECT * FROM tour_operators WHERE user_id = ?", (user_id,))
+        operator = cursor.fetchone()
+        conn.close()
+        return jsonify(operator)
+    else:
+        conn.close()
+        return jsonify({"error": "Operator not found"}), 404
+    
+
 
 
 # Page to handle 404 error pages (SD)

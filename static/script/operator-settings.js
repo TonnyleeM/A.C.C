@@ -14,6 +14,7 @@ window.onload = function() {
     const password = localStorage.getItem("password")
     // Call fetchUserData when the page loads
     fetchUserData(username, password);
+    fetchEmployer(username);
 };
 
  // Fetch user data from API
@@ -33,23 +34,45 @@ async function fetchUserData(username, password) {
             usernameElement.innerText = data.user.username;
             document.getElementById("user-type").innerText = data.user.userType;
             interestsContainer.innerHTML = "";
-            if (data.user.userType = "operator") {
-                window.location.href = '/operator_settings';
-            }
-
+            console.log("User data found")
         } else {
             console.log("Error:", data.message);
         }
+
     } catch (error) {
         console.log('Error fetching user data:', error);
 
     }
 }
 
+async function fetchEmployer(username) {
+    console.log("Searching for user data...")
+    try {
+        const response = await fetch(`/load_operator`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username }),
+        });
+        const data = await response.json();
+        console.log("Found databia:", data)
+        if (data) {
+            usernameElement = document.getElementById('employer-name');
+            usernameElement.innerText = data[3];
+            console.log("Operator data found")
+        } else {
+            console.log("Error:", data.message);
+        }
+
+    } catch (error) {
+        console.log('Error fetching user data:', error);
+
+    }
+    
+}
 // Log out function
 function logout() {
-    localStorage.removeItem('userData'); 
-    localStorage.removeItem("password"); 
+    sessionStorage.clear();
+    localStorage.clear();
     console.log("Cached info reset successfully.");
     window.location.href = '/'; 
 }
@@ -80,22 +103,24 @@ function closeOverlay() {
 
 // Handle user confirmation to delete account
 async function confirmDelete() {
-    const username = localStorage.getItem("username"); // Directly get the username as a string
+    const username = localStorage.getItem("username"); 
 
     if (username) {
         try {
             const response = await fetch('/delete_user', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username }) // Send the username to the server
+                body: JSON.stringify({ username })
             });
 
             const data = await response.json();
 
             if (data.success) {
+                sessionStorage.clear();
+                localStorage.clear();
                 console.log('User deleted successfully!');
-                // Optionally, log the user out or redirect to a different page
-                window.location.href = '/login'; // Redirect to login page or homepage
+                
+                window.location.href = '/login';
             } else {
                 console.log('Error:', data.message);
             }
@@ -105,7 +130,6 @@ async function confirmDelete() {
     } else {
         console.log('No user data found in localStorage.');
     }
-    // Close the overlay after deletion attempt
     closeOverlay();
     window.location.href = '/';
 }

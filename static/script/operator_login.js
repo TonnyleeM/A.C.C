@@ -34,7 +34,6 @@ document.getElementById("country-name").addEventListener("change", function() {
                 if (data.length > 0) {
                     data.forEach(destination => {
                         const option = document.createElement("option");
-                        option.value = destination.destination_id;  // Corrected key access
                         option.textContent = destination.name;  // destination name
                         companySelect.appendChild(option);
                     });
@@ -65,10 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please fill in all fields before saving.");
             return;
         }
+        console.log("Company name:", company)
 
         const data = {
             country: country,
-            company: company,
+            company_name: company,
             expertise: expertise,
             services_offered: serviceOffered
         };
