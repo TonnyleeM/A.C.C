@@ -562,8 +562,8 @@ def get_country_api():
 def get_destinations_by_country(country_id):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
-    cursor.execute("SELECT destination_id, name, description FROM destinations WHERE country_id = ?", (country_id,))
-    destinations = [{"destination_id": row[0], "name": row[1], "description": row[2]} for row in cursor.fetchall()]
+    cursor.execute("SELECT destination_id, name, description, location, photo_url FROM destinations WHERE country_id = ?", (country_id,))
+    destinations = [{"destination_id": row[0], "name": row[1], "description": row[2], "location": row[3], "photo_url": row[4]} for row in cursor.fetchall()]
     conn.close()
     return destinations
 
@@ -620,7 +620,7 @@ def get_tour_operators():
         SELECT 
             t.tour_id, t.tour_name, t.description, t.price, t.duration,
             o.operator_id, o.company_name, o.expertise, o.services_offered,
-            u.user_id, u.username, u.email, u.phone, u.interests, u.user_type
+            u.user_id, u.username, u.email, u.phone, u.interests, u.user_type, t.destination_id
         FROM tour_operators o
         JOIN users u ON o.user_id = u.user_id
         JOIN tours t ON o.operator_id = t.operator_id
@@ -655,7 +655,8 @@ def get_tour_operators():
                 'email': row[11],
                 'phone': row[12],
                 'interests': row[13],
-                'user_type': row[14]
+                'user_type': row[14],
+                'country_name' : row[15]
             })
 
         return jsonify({'operators': operators_list}), 200

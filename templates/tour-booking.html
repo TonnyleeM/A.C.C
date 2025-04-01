@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACC - Tour Profile</title>
+    <link rel="stylesheet" href="../static/styles/tour-booking.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/tour-booking.css') }}">
 </head>
     <body>
@@ -33,6 +34,7 @@
         <main>
             <div class="profile-container">
                 <div class="profile-content">
+                    <img id="location-image" width="800" height="400">
                     <h1 id="location-name"></h1>
                     <p id="location-desc"></p>
                     <a href="{{ url_for('tour_booker') }}" class="more-btn">
@@ -48,6 +50,14 @@
                      </div>
                 </div>
             </div>
+            <div id="location-container">
+                <h2>Discover The Area</h2>
+                <div id="location-map-container">
+                    <p class="location-map-content">Cool</p>
+                    <!-- Map will be displayed here -->
+                </div>
+            </div>
+            
             <div class="content-container">
                 <div class="content">
                     <h2>Discover Similar Locations</h2>

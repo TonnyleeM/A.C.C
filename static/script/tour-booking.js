@@ -32,6 +32,20 @@ async function fetchTourInfo() {
             document.getElementById('location-name').textContent = data[2];
             document.getElementById('location-desc').textContent = data[3];
             sessionStorage.setItem('selectedDesc', data[3])
+            console.log('GetTouInfo response:', data)
+            const location_container = document.getElementById('location-map-container');
+            location_container.innerHTML = '';
+
+            const operatorContent = document.createElement('div');
+            operatorContent.classList.add('location-map-content');
+           
+            operatorContent.innerHTML = `
+              <iframe src="${data[3].location}" title="Location Map"></iframe>
+           `;
+           location_container.appendChild(operatorContent);
+           console.log(data[5])
+           document.getElementById("location-image").src = data[5];
+            console.log('Location URL:', data[5]);
         } else {
             // Handle error if destination not found
             console.error(data.error);
@@ -108,7 +122,6 @@ async function fetchDestinations(selectedCountry) {
         const data = await response.json();
         console.log("Destinations:",data)
         if (Array.isArray(data)) {  
-            console.log('Destinations:', data);
             displayDestinations(data);
         } else {
             console.error('Unexpected response:', data);

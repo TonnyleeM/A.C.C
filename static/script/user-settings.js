@@ -6,18 +6,18 @@ if (username) {
 } else {
   console.log("User not logged in.");
   alert("User logged out unexpectedly, Redirecting to login page")
-  window.location.href = '/'; // Redirect to login page if not logged in
+  window.location.href = '/';
 }
 
 window.onload = function() {
     const username = localStorage.getItem("username")
     const password = localStorage.getItem("password")
-    // Call fetchUserData when the page loads
+    
     fetchUserData(username, password);
     showBookings();
 };
 
- // Fetch user data from API
+// Fetch user data from API
 async function fetchUserData(username, password) {
     console.log("Searching for user data...")
     try {
@@ -55,7 +55,7 @@ function logout() {
     window.location.href = '/'; 
 }
 
-// Wait for DOM to load before adding event listeners
+
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logoutbutton");
     const deleteButton = document.getElementById("deletebutton");
@@ -111,8 +111,6 @@ async function confirmDelete() {
     window.location.href = '/';
 }
 
-
-
 // Showing the bookings for a user
 async function showBookings() {
     const username = localStorage.getItem("username");
@@ -130,7 +128,7 @@ async function showBookings() {
         }
 
         const data = await response.json();
-        console.log("Received Data:", data); // Moved here to log actual JSON response
+        console.log("Received Data:", data);
 
         if (data.error) {
             console.error('Error:', data.error);
@@ -140,7 +138,7 @@ async function showBookings() {
         const container = document.querySelector(".interests-container");
         if (!container) return;
 
-        container.innerHTML = ""; // Clear previous content
+        container.innerHTML = ""; 
 
         data.bookings.forEach(booking => {
             const bookingHTML = `
@@ -149,7 +147,6 @@ async function showBookings() {
                     <p>Booking Date: ${booking.booking_date}</p>
                     <p>Status: ${booking.status}</p>
                     <p>Total Cost: $${booking.total_cost}</p>
-                    <a><button class="button" id="cancel-btn">Cancel Booking</button></a>
                 </div>
             `;
             container.innerHTML += bookingHTML;
