@@ -33,16 +33,16 @@
         <main>
             <div class="search-container">
                 <h1>Connect with operators around Rwanda</h1>
-                <div class="search-content">
+                <!-- <div class="search-content">
                     <input type="text" placeholder="search for expertise (wildlife, rock climbing, etc.)">
                     <button type="submit"><img src="{{ url_for('static', filename='images/search.png') }}" width="30"></button>
-                </div>
+                </div> -->
             </div>
             <div class="content-container">
                 <div class="content">
                     <h2>Discover Local Operators</h2>
-                    <div class="destination-container">
-                        <div class="destination-content">
+                    <div class="destination-container" id="destination-container">
+                        <!-- <div class="destination-content">
                             <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="kenya" width="600">
                             <h3 id="tour-name">Ronald Mutembe</h3>
                             <h3 id="tour-destination">Lion's Den Wildlife Tours</h3>
@@ -81,7 +81,7 @@
                             <a href="{{ url_for('tour_operator') }}">
                                 <button class="button">More</button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -94,7 +94,6 @@
                 </div>
             </div>
         </footer>
-
     </body>
-    
+    <script src="{{ url_for('static', filename='script/tour-guide-search.js') }}"></script>
 </html>

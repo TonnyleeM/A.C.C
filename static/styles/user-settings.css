@@ -331,7 +331,7 @@ form {
   justify-content: center;
 }
 
-.interests-content {
+.booking-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -340,30 +340,41 @@ form {
   background-color: var(--primary-color);
   padding: 20px;
   border-radius: 8px;
-  width: 200px;
+  width: 400px;
   margin: 10px;
   box-shadow: 0 3px 5px var(--shadow-color);
 }
 
-.interests-content h3 {
+.booking-content h3 {
   padding: 10px;
+  font-size: 2.5vh;
 }
 
-.interests-content p {
+.booking-content p {
   color: var(--primary-font-color);
   padding: 5px;
   font-size: 20px;
 }
 
-.interests-content a {
+.booking-content a {
   width: 100%;
 }
 
 .more-btn {
   width: 100%;
 }
+.booking-content button {
+  margin: 10px 0;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--primary-font-color-alt);
+}
 
-.interests-content button:hover {
+.booking-content button:hover {
   background-color: var(--hover-color-alt);
 }
 

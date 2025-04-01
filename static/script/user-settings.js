@@ -14,6 +14,7 @@ window.onload = function() {
     const password = localStorage.getItem("password")
     // Call fetchUserData when the page loads
     fetchUserData(username, password);
+    showBookings();
 };
 
  // Fetch user data from API
@@ -26,30 +27,15 @@ async function fetchUserData(username, password) {
             body: JSON.stringify({ username, password }),
         });
         const data = await response.json();
-
+        console.log("Recieved data for Settings: ",data)
         if (data.success) {
             usernameElement = document.querySelector('#user-name');
             const interestsContainer = document.getElementById("interests-container");
             usernameElement.innerText = data.user.username;
             document.getElementById("user-type").innerText = data.user.userType;
             interestsContainer.innerHTML = "";
-
-            if (data.user.interests && data.user.interests.length > 0) {
-                data.user.interests.forEach(interest => {
-                    const interestElement = document.createElement('div');
-                    interestElement.classList.add('interests-content');
-                    const pElement = document.createElement('p');
-                    pElement.textContent = interest;
-                    interestElement.appendChild(pElement);
-                    interestsContainer.appendChild(interestElement);
-                });
-            } else {
-                const noInterestsElement = document.createElement('div');
-                noInterestsElement.classList.add('no-interests');
-                const noInterestsMessage = document.createElement('p');
-                noInterestsMessage.textContent = "No interests are found";
-                noInterestsElement.appendChild(noInterestsMessage);
-                interestsContainer.appendChild(noInterestsElement);
+            if (data.user.userType === "operator") {
+                window.location.href = '/operator_settings';
             }
 
         } else {
@@ -123,4 +109,53 @@ async function confirmDelete() {
     // Close the overlay after deletion attempt
     closeOverlay();
     window.location.href = '/';
+}
+
+
+
+// Showing the bookings for a user
+async function showBookings() {
+    const username = localStorage.getItem("username");
+
+    try {
+        const response = await fetch(`/show_tour`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username }),
+        });
+
+        if (!response.ok) {
+            console.error('Error fetching bookings:', response.statusText);
+            return;
+        }
+
+        const data = await response.json();
+        console.log("Received Data:", data); // Moved here to log actual JSON response
+
+        if (data.error) {
+            console.error('Error:', data.error);
+            return;
+        }
+
+        const container = document.querySelector(".interests-container");
+        if (!container) return;
+
+        container.innerHTML = ""; // Clear previous content
+
+        data.bookings.forEach(booking => {
+            const bookingHTML = `
+                <div class="booking-content">
+                    <h3>${booking.tour_name}</h3>
+                    <p>Booking Date: ${booking.booking_date}</p>
+                    <p>Status: ${booking.status}</p>
+                    <p>Total Cost: $${booking.total_cost}</p>
+                    <a><button class="button" id="cancel-btn">Cancel Booking</button></a>
+                </div>
+            `;
+            container.innerHTML += bookingHTML;
+        });
+
+    } catch (error) {
+        console.error('Error fetching bookings:', error);
+    }
 }

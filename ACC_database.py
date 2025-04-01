@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS {tour_operators_table_name} (
     operator_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     country_id INTEGER,
-    company_name CHAR UNIQUE,
+    company_name CHAR,
     expertise TEXT,
     services_offered TEXT,
     FOREIGN KEY (user_id) REFERENCES {users_table_name}(user_id),

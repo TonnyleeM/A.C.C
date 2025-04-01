@@ -20,13 +20,13 @@
     <main>
         <div class="profile-container">
             <div class="profile-content">
-                <h1>Hi, <span id="user-name"></span></h1>
+                <h1>Hi! We're almost there!</h1>
                 <p>We'll need some extra info to get you started as a Tour Operator in ACC</p>
             </div>
         </div>
         <div class="content-container">
             <div class="content">
-                <h2>Kindly Fill In Your Information</h2>
+                <h2>Kindly Fill In Your Tour Info</h2>
                 <select id="country-name">
                     <option value="" disabled selected>Select your Country</option>
                     <option>Rwanda</option>
@@ -36,13 +36,18 @@
                     <option value="" disabled selected>Select your Company Name</option>
                     <option value="" disabled selected>Select Country First</option>
                 </select>
+                <h3>State the price for the tour you offer (In USD)</h3>
+                <input type="text" id="tour_price" name="tour_price" placeholder="Enter price">
+                <h3>State the duration of the tour you offer (e.g. 2 hours 20 minutes)</h3>
+                <input type="text" id="tour_date" name="tour_date" placeholder="Enter time">
                 <h3>Provide a short description of your expertise:</h3>
                 <textarea id="expertise" rows="4" cols="50"></textarea>
                 <h3>Provide a short description of the services you can offer below:</h3>
                 <textarea id="service-offered" rows="4" cols="50"></textarea>
             </div>
             <div class="buttons-content">
-                <button>Save Info</button>
+                <button id="back">Back</button>
+                <button id="save-info">Save Info</button>
             </div>
         </div>
     </main>
