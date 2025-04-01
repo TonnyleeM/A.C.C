@@ -1,10 +1,8 @@
-// Ensuring password matches password-confirm
 document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password");
     const passwordConfirm = document.getElementById("password-confirm");
     const form = document.querySelector(".login-input");
     const errorMessage = document.getElementById("error-message");
-
     function validatePasswords() {
         if (password.value !== passwordConfirm.value) {
             errorMessage.textContent = "Passwords do not match!";
@@ -25,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Toggling password visibility
+// Show/hide password
 function togglePassword(id) {
     const input = document.getElementById(id);
     if (input.type === "password") {
@@ -35,6 +33,7 @@ function togglePassword(id) {
     }
 }
 
+// Caching data and saving to database
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("register-btn").addEventListener("click", async function (event) {
         event.preventDefault(); 
@@ -49,30 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
         let interests = "";
         let user_type = document.getElementById("acc-type").value;
         console.log(user_type);
-
-        // Validate required fields
         if (!username || !password || !email || !phone || !user_type) {
             alert("All fields except interests are required!");
             console.log("All fields except interests are required!");
             return;
         }
-
-        // Prepare data for API
         let userData = { username, password, email, phone, interests, user_type };
-
         console.log(userData);
-
-        // If user type is 'operator', store the user data in cache and redirect
         if (user_type === "operator") {
-            // Save the user data to cache (localStorage)
             localStorage.setItem("tempUserData", JSON.stringify(userData));
             localStorage.setItem("username", username);
             console.log("Operator user data cached. Redirecting...");
-            // Redirect to operator login page
             window.location.href = "/operator_login";
-
         } else {
-            // If user type is not 'operator', proceed with saving to the database
             try {
                 let response = await fetch("/add_user", {
                     method: "POST",
@@ -93,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     alert("Registration successful! \nYou can now log in with your credentials.");
                     setTimeout(() => {
                         window.location.href = "/";
-                    }, 2000); 
+                    }, 1000); 
                 }
             } catch (error) {
                 console.error("Error:", error);

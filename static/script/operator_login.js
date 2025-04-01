@@ -1,4 +1,3 @@
-// Retrieve the username from localStorage
 let username = localStorage.getItem("username");
 if (username) {
   console.log("Logged in as:", username);
@@ -12,7 +11,7 @@ if (username) {
 let userData = JSON.parse(localStorage.getItem("tempUserData")); ;
 console.log("User Data from LocalStorage:", userData);
 
-
+// Showing destinations based on country
 document.getElementById("country-name").addEventListener("change", function() {
     const selectedCountry = this.value;
     console.log("Selected country:", selectedCountry)
@@ -58,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Saving the user info
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#save-info").addEventListener("click", async function () {
         const country = document.getElementById("country-name").value;
@@ -111,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 let operatorResult = await operatorResponse.json();
-                alert(operatorResult.message);
                 operator_id = operatorResult.operator_id;
                 
                 console.log("Operator save result:", operatorResult);

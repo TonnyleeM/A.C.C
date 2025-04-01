@@ -1,14 +1,13 @@
-// Retrieve the username from localStorage
 let username = localStorage.getItem("username");
 if (username) {
   console.log("Logged in as:", username);
 } else {
   console.log("User not logged in.");
   alert("User logged out unexpectedly, Redirecting to login page")
-  window.location.href = '/'; // Redirect to login page if not logged in
+  window.location.href = '/'; 
 }
 
-// Fetch user data from API
+// Fetching and displaying Operator data
 async function fetchUserData(username, password) {
     console.log("Searching for user data...")
     try {
@@ -18,7 +17,6 @@ async function fetchUserData(username, password) {
             body: JSON.stringify({ username, password }),
         });
         const data = await response.json();
-
         if (data.success) {
             usernameElement = document.querySelector('#user-name');
             usernameElement.innerText = data.user.username;
@@ -27,12 +25,12 @@ async function fetchUserData(username, password) {
         } else {
             console.log("Error:", data.message);
         }
-
     } catch (error) {
         console.log('Error fetching user data:', error);
     }
 }
 
+// Displaying tour info
 async function fetchEmployer(username) {
     console.log("Searching for user data...")
     try {
@@ -57,7 +55,7 @@ async function fetchEmployer(username) {
     }
 }
 
-// Fetch bookings
+// Displaying bookings
 function fetchBookings() {
     const companyName = sessionStorage.getItem("company_name");
     const bookingsContainer = document.getElementById("bookings-container");
@@ -116,7 +114,7 @@ function fetchBookings() {
     });
 }
 
-
+// Function for accepting bookings
 async function acceptBooking(bookingId) {
     try {
         const response = await fetch('/accept_booking', {
@@ -126,17 +124,17 @@ async function acceptBooking(bookingId) {
         });
         const data = await response.json();
         if (data.message) {
-            alert(data.message); // Show success message
-            fetchBookings(); // Refresh the bookings list
+            alert(data.message);
+            fetchBookings();
         } else {
-            alert(data.error); // Show error message
+            alert(data.error);
         }
     } catch (error) {
         alert("Error accepting booking.");
     }
 }
 
-// Function to call the reject booking API
+// Function for rejecting bookings
 async function rejectBooking(bookingId) {
     try {
         const response = await fetch('/reject_booking', {
@@ -146,16 +144,15 @@ async function rejectBooking(bookingId) {
         });
         const data = await response.json();
         if (data.message) {
-            alert(data.message); // Show success message
-            fetchBookings(); // Refresh the bookings list
+            alert(data.message);
+            fetchBookings();
         } else {
-            alert(data.error); // Show error message
+            alert(data.error);
         }
     } catch (error) {
         alert("Error rejecting booking.");
     }
 }
-
 
 function logout() {
     sessionStorage.clear();
@@ -164,18 +161,13 @@ function logout() {
     window.location.href = '/'; 
 }
 
-
-
-// Wait for DOM to load before adding event listeners
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logoutbutton");
     const deleteButton = document.getElementById("deletebutton");
-
     logoutButton.addEventListener('click', (e) => {
         e.preventDefault();
         logout();
     });
-
     deleteButton.addEventListener('click', (e) => {
         e.preventDefault();
         showOverlay();
@@ -190,7 +182,8 @@ function closeOverlay() {
     document.getElementById("deleteOverlay").style.display = "none";
 }
 
-// Handle user confirmation to delete account
+
+// confirming deleting account
 async function confirmDelete() {
     const username = localStorage.getItem("username"); 
 
@@ -223,10 +216,9 @@ async function confirmDelete() {
     window.location.href = '/';
 }
 
-// Wait for DOM to load and then execute the functions
 window.onload = async function() {
     const password = localStorage.getItem("password");
     await fetchUserData(username, password);
     await fetchEmployer(username);
-    fetchBookings();  // Now fetchBookings runs after fetchEmployer
+    fetchBookings();
 };

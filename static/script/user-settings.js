@@ -1,23 +1,20 @@
-// Retrieve the username from localStorage
 let username = localStorage.getItem("username");
 if (username) {
   console.log("Logged in as:", username);
-
 } else {
   console.log("User not logged in.");
   alert("User logged out unexpectedly, Redirecting to login page")
-  window.location.href = '/'; // Redirect to login page if not logged in
+  window.location.href = '/';
 }
 
 window.onload = function() {
     const username = localStorage.getItem("username")
     const password = localStorage.getItem("password")
-    // Call fetchUserData when the page loads
     fetchUserData(username, password);
     showBookings();
 };
 
- // Fetch user data from API
+// Fetch user data from API
 async function fetchUserData(username, password) {
     console.log("Searching for user data...")
     try {
@@ -55,7 +52,6 @@ function logout() {
     window.location.href = '/'; 
 }
 
-// Wait for DOM to load before adding event listeners
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logoutbutton");
     const deleteButton = document.getElementById("deletebutton");
@@ -79,24 +75,23 @@ function closeOverlay() {
   document.getElementById("deleteOverlay").style.display = "none";
 }
 
-// Handle user confirmation to delete account
+// Confirmation to delete account
 async function confirmDelete() {
-    const username = localStorage.getItem("username"); // Directly get the username as a string
+    const username = localStorage.getItem("username");
 
     if (username) {
         try {
             const response = await fetch('/delete_user', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username }) // Send the username to the server
+                body: JSON.stringify({ username })
             });
 
             const data = await response.json();
 
             if (data.success) {
                 console.log('User deleted successfully!');
-                // Optionally, log the user out or redirect to a different page
-                window.location.href = '/login'; // Redirect to login page or homepage
+                window.location.href = '/login'; 
             } else {
                 console.log('Error:', data.message);
             }
@@ -106,42 +101,32 @@ async function confirmDelete() {
     } else {
         console.log('No user data found in localStorage.');
     }
-    // Close the overlay after deletion attempt
     closeOverlay();
     window.location.href = '/';
 }
 
-
-
-// Showing the bookings for a user
+// Showing bookings
 async function showBookings() {
     const username = localStorage.getItem("username");
-
     try {
         const response = await fetch(`/show_tour`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username }),
         });
-
         if (!response.ok) {
             console.error('Error fetching bookings:', response.statusText);
             return;
         }
-
         const data = await response.json();
-        console.log("Received Data:", data); // Moved here to log actual JSON response
-
+        console.log("Received Data:", data);
         if (data.error) {
             console.error('Error:', data.error);
             return;
         }
-
         const container = document.querySelector(".interests-container");
         if (!container) return;
-
-        container.innerHTML = ""; // Clear previous content
-
+        container.innerHTML = ""; 
         data.bookings.forEach(booking => {
             const bookingHTML = `
                 <div class="booking-content">
@@ -149,12 +134,10 @@ async function showBookings() {
                     <p>Booking Date: ${booking.booking_date}</p>
                     <p>Status: ${booking.status}</p>
                     <p>Total Cost: $${booking.total_cost}</p>
-                    <a><button class="button" id="cancel-btn">Cancel Booking</button></a>
                 </div>
             `;
             container.innerHTML += bookingHTML;
         });
-
     } catch (error) {
         console.error('Error fetching bookings:', error);
     }

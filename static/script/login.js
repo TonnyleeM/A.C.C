@@ -1,9 +1,7 @@
-// Resetting Cached Info
 localStorage.removeItem('userData');
 localStorage.removeItem("password");
 console.log("Cached info reset successfully.");
 
-// Toggling password visibility
 function togglePassword(id) {
   const input = document.getElementById(id);
   if (input.type === "password") {
@@ -13,10 +11,11 @@ function togglePassword(id) {
   }
 }
 
-// Login credentials validation
+
+// Logging into account
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".login-input").addEventListener("submit", async function (event) {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault();
 
       let username = document.getElementById("username").value;
       let password = document.getElementById("password").value;
@@ -34,9 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("Login successful!");
 
           localStorage.setItem("username", result.username);
-          console.log("Cached username:", result.username);
           localStorage.setItem("password", result.password);
-          console.log("Cached password:", result.password);
           console.log("Logged in as:", result.username);
           window.location.href = "/homepage";
       } else {
