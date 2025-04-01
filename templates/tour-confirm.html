@@ -24,10 +24,10 @@
                 <p>Booking for: <span id="tour_name"></span></p>
                 <p>Information: <span id="tour_desc"></span></p>
                 <p>Visit Date: <span id="tour_date"></span></p>
-                <p>Estimated price: <span id="tour_price"></span></p>
+                <p>Estimated price: USD <span id="tour_price"></span></p>
                 <div class="buttons">
-                    <a href="{{ url_for('tour_booker') }}"><button type="button" class="login-btn">Back</button></a>
-                    <a><button type="button" class="login-btn">Confirm</button></a>
+                    <a href="{{ url_for('tour_booker') }}"><button type="button" class="login-btn" id="to-back">Back</button></a>
+                    <a><button type="button" class="login-btn" id="to-confirm">Confirm</button></a>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("Selected Destination:", destinationName);
 
     fetchTourInfo();
-    // fetchAndDisplayOperators();
+    fetchAndDisplayOperators();
     fetchDestinations();
 });
 
@@ -62,24 +62,21 @@ async function fetchAndDisplayOperators() {
            return;
        }
 
-       // Assuming you want to insert this information into a container with the id 'operator-list'
        const operatorList = document.getElementById('operator-list');
-       operatorList.innerHTML = ''; // Clear existing content
+       operatorList.innerHTML = '';
 
-       // Iterate through operators and create the HTML
        data.operators.forEach(operator => {
-           // Create the operator content dynamically
            const operatorContent = document.createElement('div');
            operatorContent.classList.add('operator-content');
            
            operatorContent.innerHTML = `
-               <img src="{{ url_for('static', filename='images/location.jpg') }}" alt="${companyName}" width="600">
-               <h3 id="tour-name">${operator.username}</h3>
-               <h3 id="tour-destination">${operator.company_name}</h3>
+               <img src="../static/images/location.jpg" alt="${companyName}" width="600">
+               <h3 id="operator-name">${operator.username}</h3>
+               <h3 id="operator-company">${operator.company_name}</h3>
                <p>Expertise in:</p>
                <p id="expertise">${operator.expertise}</p>
-               <a href="{{ url_for('tour_booker') }}" class="more-btn">
-                   <button>More</button>
+               <a href="/tour_operator" class="more-btn">
+                   <button id="to_operator">More</button>
                </a>
            `;
 
@@ -143,3 +140,26 @@ function displayDestinations(destinations) {
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("click", function (event) {
+        // Check if the clicked element is a "More" button inside an operator-content div
+        if (event.target.closest("#to_operator")) {
+            const operatorDiv = event.target.closest(".operator-content");
+
+            if (!operatorDiv) return;
+
+            // Get operator details from the DOM
+            const operatorData = {
+                username: operatorDiv.querySelector("#operator-name")?.innerText || "",
+                company_name: operatorDiv.querySelector("#operator-company")?.innerText || "",
+                expertise: operatorDiv.querySelector("#expertise")?.innerText || "",
+            };
+
+            // Save to sessionStorage
+            sessionStorage.setItem("selectedOperator", JSON.stringify(operatorData));
+
+            console.log("Operator saved to sessionStorage:", operatorData);
+        }
+    });
+});

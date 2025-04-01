@@ -2,22 +2,13 @@
 let username = localStorage.getItem("username");
 if (username) {
   console.log("Logged in as:", username);
-
 } else {
   console.log("User not logged in.");
   alert("User logged out unexpectedly, Redirecting to login page")
   window.location.href = '/'; // Redirect to login page if not logged in
 }
 
-window.onload = function() {
-    const username = localStorage.getItem("username")
-    const password = localStorage.getItem("password")
-    // Call fetchUserData when the page loads
-    fetchUserData(username, password);
-    fetchEmployer(username);
-};
-
- // Fetch user data from API
+// Fetch user data from API
 async function fetchUserData(username, password) {
     console.log("Searching for user data...")
     try {
@@ -30,10 +21,8 @@ async function fetchUserData(username, password) {
 
         if (data.success) {
             usernameElement = document.querySelector('#user-name');
-            const interestsContainer = document.getElementById("interests-container");
             usernameElement.innerText = data.user.username;
             document.getElementById("user-type").innerText = data.user.userType;
-            interestsContainer.innerHTML = "";
             console.log("User data found")
         } else {
             console.log("Error:", data.message);
@@ -41,7 +30,6 @@ async function fetchUserData(username, password) {
 
     } catch (error) {
         console.log('Error fetching user data:', error);
-
     }
 }
 
@@ -54,28 +42,129 @@ async function fetchEmployer(username) {
             body: JSON.stringify({ username }),
         });
         const data = await response.json();
-        console.log("Found databia:", data)
+        console.log("Found data:", data)
         if (data) {
             usernameElement = document.getElementById('employer-name');
             usernameElement.innerText = data[3];
-            console.log("Operator data found")
+            console.log("Operator data found", data[3])
+            sessionStorage.setItem("company_name", data[3])
         } else {
             console.log("Error:", data.message);
         }
 
     } catch (error) {
         console.log('Error fetching user data:', error);
-
     }
-    
 }
-// Log out function
+
+// Fetch bookings
+function fetchBookings() {
+    const companyName = sessionStorage.getItem("company_name");
+    const bookingsContainer = document.getElementById("bookings-container");
+
+    fetch("/show_bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ company_name: companyName })
+    })
+    .then(response => response.json())
+    .then(data => {
+        bookingsContainer.innerHTML = "";
+        console.log("Bookings found: ", data)
+        if (data.error) {
+            bookingsContainer.innerHTML = `<p>${data.error}</p>`;
+            return;
+        }
+        
+        data.bookings.forEach(booking => {
+            const bookingDiv = document.createElement("div");
+
+            bookingDiv.innerHTML = `
+                <div class="booking-content">
+                    <p>Username: ${booking.username}</p>
+                    <p>Booking Date: ${booking.booking_date}</p>
+                    <p>Price: USD${booking.total_cost}</p>
+                    <p>Status: ${booking.status}</p>
+                    <button class="accept-btn" data-id="${booking.booking_id}">Accept</button>
+                    <button class="reject-btn" data-id="${booking.booking_id}">Reject</button>
+                </div>
+            `;
+            bookingsContainer.appendChild(bookingDiv);
+        });
+
+        // Add event listeners to accept/reject buttons after the bookings are rendered
+        const acceptButtons = document.querySelectorAll(".accept-btn");
+        const rejectButtons = document.querySelectorAll(".reject-btn");
+
+        acceptButtons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                const bookingId = e.target.getAttribute("data-id");
+                acceptBooking(bookingId);
+            });
+        });
+
+        rejectButtons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                const bookingId = e.target.getAttribute("data-id");
+                rejectBooking(bookingId);
+            });
+        });
+
+    })
+    .catch(error => {
+        bookingsContainer.innerHTML = `<p>Error loading bookings.</p>`;
+    });
+}
+
+
+async function acceptBooking(bookingId) {
+    try {
+        const response = await fetch('/accept_booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ booking_id: bookingId })
+        });
+        const data = await response.json();
+        if (data.message) {
+            alert(data.message); // Show success message
+            fetchBookings(); // Refresh the bookings list
+        } else {
+            alert(data.error); // Show error message
+        }
+    } catch (error) {
+        alert("Error accepting booking.");
+    }
+}
+
+// Function to call the reject booking API
+async function rejectBooking(bookingId) {
+    try {
+        const response = await fetch('/reject_booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ booking_id: bookingId })
+        });
+        const data = await response.json();
+        if (data.message) {
+            alert(data.message); // Show success message
+            fetchBookings(); // Refresh the bookings list
+        } else {
+            alert(data.error); // Show error message
+        }
+    } catch (error) {
+        alert("Error rejecting booking.");
+    }
+}
+
+
 function logout() {
     sessionStorage.clear();
     localStorage.clear();
     console.log("Cached info reset successfully.");
     window.location.href = '/'; 
 }
+
+
 
 // Wait for DOM to load before adding event listeners
 document.addEventListener("DOMContentLoaded", () => {
@@ -94,11 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showOverlay() {
-  document.getElementById("deleteOverlay").style.display = "flex";
+    document.getElementById("deleteOverlay").style.display = "flex";
 }
 
 function closeOverlay() {
-  document.getElementById("deleteOverlay").style.display = "none";
+    document.getElementById("deleteOverlay").style.display = "none";
 }
 
 // Handle user confirmation to delete account
@@ -133,3 +222,11 @@ async function confirmDelete() {
     closeOverlay();
     window.location.href = '/';
 }
+
+// Wait for DOM to load and then execute the functions
+window.onload = async function() {
+    const password = localStorage.getItem("password");
+    await fetchUserData(username, password);
+    await fetchEmployer(username);
+    fetchBookings();  // Now fetchBookings runs after fetchEmployer
+};

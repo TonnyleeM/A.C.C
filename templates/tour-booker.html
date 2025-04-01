@@ -35,7 +35,8 @@
                 <div class="profile-content">
                     <h2>You Are Booking for:</h2>
                     <h1 id="location-name">Lion's Den Wildlife Tours</h1>
-                    <p id="location-desc">Get close and personal with the most majestic views and see the beauty of wildlife in its natural form!</p>
+                    <p id="location-desc">Description</p>
+                    <p>Price: USD <span id="location-price">0</span></p>
                     </a>
                 </div>
             </div>
@@ -45,8 +46,10 @@
                     <div class="booking-container">
                         <h3>When are you planning to visit?</h3>
                         <input type="date" id="booking-date">  
-                        <a href="{{ url_for('tour_confirm') }}" class="more-btn">
-                            <button id="book-btn">Book Now</button>
+                        <a class="more-btn">
+                            <button id="back">Back</button>
+                            <a action="{{ url_for('tour_confirm') }}"><button id="book-btn">Book Now</button></a>
+                        </a>
                     </div>
                 </div>
             </div>
