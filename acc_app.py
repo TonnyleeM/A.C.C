@@ -47,55 +47,30 @@ with open('african_summaries.json', 'r') as file:
 def insert_country_data():
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     for country, description in country_data.items():
         map_url = f"https://www.google.com/maps/place/{country.replace(' ', '+')}"
-        
-        # Check if the country already exists
         cursor.execute(f'''
         SELECT * FROM {country_table_name} WHERE country_name = ?
         ''', (country,))
-        
         if cursor.fetchone() is None:
-            # If not exists, insert into the database
             cursor.execute(f'''
             INSERT INTO {country_table_name} (country_name, description, map_url)
             VALUES (?, ?, ?)
             ''', (country, description, map_url))
         else:
-            # Optionally, update the existing record if needed
             cursor.execute(f'''
             UPDATE {country_table_name} 
             SET description = ?, map_url = ?
             WHERE country_name = ?
             ''', (description, map_url, country))
-    
     conn.commit()
     conn.close()
 
-# Insert country data, if not already present
 insert_country_data()
 
 # Links to all HTML pages (SD)
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    # if request.method == 'POST':
-    #     connection = sqlite3.connect('African_Cultures_Connected.db')
-    #     cursor = connection.cursor()
-    #     username = request.form['username']
-    #     password = request.form['password']
-    #     print(username, password)
-    #     query = "SELECT username,password FROM users WHERE username= '"+username+"' AND password= '"+password+"'"
-    #     cursor.execute(query)
-    #     result = cursor.fetchall()
-    #     if len(result) == 0:
-    #         print("Login failed")
-    #     else:
-    #         print("Login successful")
-    #         return render_template('homepage.html')
-
-    # return google.authorize(callback=url_for('authorized', _external=True))
-
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -138,26 +113,27 @@ def tour_guide_search():
 def user_settings():
     return render_template('user-settings.html')
 
+<<<<<<< HEAD
+@app.route('/operator_settings', methods=['GET', 'POST'])
+def operator_settings():
+    return render_template('operator-settings.html')
+
+=======
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
 # Load user from db (SD)
 @app.route("/get_user", methods=["POST"])
 def get_user_api():
-    # Extract the JSON data sent by JavaScript
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-
     if not username or not password:
         return jsonify({'success': False, 'message': 'Username and password are required'}), 400
-
-    # Fetch the user from the database
     conn = sqlite3.connect('African_Cultures_Connected.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
     user = cursor.fetchone()
     conn.close()
-
     if user:
-        # Assuming the user data is returned as a tuple, convert it to a dictionary
         user_data = {
             'username': user[1],
             'userType': user[6],
@@ -182,7 +158,6 @@ def login_check():
     username = data.get("username")
     password = data.get("password")
     user_id = data.get("user_id")
-
     user = get_user(username, password)
     if user:
         return jsonify({"success": True, "message": "Login successful", "user_id": user_id, "username": username, "password": password})
@@ -200,13 +175,15 @@ def add_user():
     phone = new_user.get('phone')
     interests = new_user.get('interests')
     user_type = new_user.get('user_type')
+<<<<<<< HEAD
+    print(f"Username: {username}, Password: {password}, Email: {email}, Phone: {phone}, Interests: {interests}, UserType: {user_type}")
+=======
 
  
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     conn = get_db_connection()
     cursor = conn.cursor()
-
     cursor.execute(f'SELECT * FROM {users_table_name} WHERE email = ?', (email,))
-    
     if cursor.fetchone() is None:
         cursor.execute(f'''
         INSERT INTO {users_table_name} (username, password, email, phone, interests, user_type)
@@ -214,11 +191,142 @@ def add_user():
         ''', (username, password, email, phone, interests, user_type))
 
     else:
+<<<<<<< HEAD
+        conn.close()
+        return jsonify({"success": False, "message": f"User Already Exists"})
+
+# Saving tour info to database (SD)
+@app.route('/book_tour', methods=['POST'])
+def book_tour():
+    try:
+        data = request.json
+        username = data.get("username")
+        tour_name = data.get("tour_name")
+        booking_date = data.get("booking_date")
+        total_cost = data.get("total_cost")
+        if not username or not tour_name or not booking_date or total_cost is None:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        conn = sqlite3.connect(db_name)
+        cursor = conn.cursor()
+        cursor.execute("SELECT user_id FROM users WHERE username = ?", (username,))
+        user = cursor.fetchone()
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+        user_id = user[0]
+        cursor.execute("SELECT tour_id FROM tours WHERE tour_name = ?", (tour_name,))
+        tour = cursor.fetchone()
+        if not tour:
+            return jsonify({"error": "Tour not found"}), 404
+        tour_id = tour[0]
+        cursor.execute("""
+            INSERT INTO bookings (user_id, tour_id, booking_date, status, total_cost)
+            VALUES (?, ?, ?, 'pending', ?)
+        """, (user_id, tour_id, booking_date, total_cost))
+        conn.commit()
+        conn.close()
+        return jsonify({"message": "Booking successful"}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Showing tours (SD)
+@app.route('/show_tour', methods=['POST'])
+def show_tour():
+    try:
+        data = request.json
+        username = data.get("username")
+        if username is None:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        conn = sqlite3.connect(db_name)
+        cursor = conn.cursor()
+        cursor.execute("SELECT user_id FROM users WHERE username = ?", (username,))
+        user = cursor.fetchone()
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+        user_id = user[0]
+        cursor.execute("""
+            SELECT t.tour_name, b.booking_date, b.status, b.total_cost 
+            FROM tours AS t
+            JOIN bookings AS b ON t.tour_id = b.tour_id
+            WHERE b.user_id = ?
+        """, (user_id,))
+        tours = cursor.fetchall()
+        conn.close()
+        if not tours:
+            return jsonify({"error": "No tours found"}), 404
+
+        return jsonify({"bookings": [dict(zip(["tour_name", "booking_date", "status", "total_cost"], tour)) for tour in tours]}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Showing bookings (SD)
+@app.route('/show_bookings', methods=['POST'])
+def show_bookings():
+    try:
+        data = request.json
+        company_name = data.get("company_name")
+        if not company_name:
+            return jsonify({"error": "Missing company_name"}), 400
+        with sqlite3.connect(db_name) as conn:
+            cursor = conn.cursor()    
+            cursor.execute('''
+                SELECT u.username, b.booking_date, b.total_cost, b.status, b.booking_id 
+                FROM bookings AS b
+                JOIN users AS u ON b.user_id = u.user_id
+                JOIN tours AS t ON b.tour_id = t.tour_id
+                WHERE t.tour_name = ?
+            ''', (company_name,))
+            bookings = cursor.fetchall()
+        if not bookings:
+            return jsonify({"error": "No bookings found"}), 404
+
+        return jsonify({"bookings": [
+            {"username": row[0], "booking_date": row[1], "total_cost": row[2], "status": row[3], "booking_id": row[4]}
+            for row in bookings
+        ]}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Accept bookings (SD)
+@app.route('/accept_booking', methods=['POST'])
+def accept_booking():
+    try:
+        data = request.json
+        booking_id = data.get("booking_id")
+        if not booking_id:
+            return jsonify({"error": "Missing booking_id"}), 400
+        with sqlite3.connect(db_name) as conn:
+            cursor = conn.cursor()
+            cursor.execute("UPDATE bookings SET status = 'confirmed' WHERE booking_id = ?", (booking_id,))
+            conn.commit()
+        return jsonify({"message": "Booking confirmed"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Reject bookings (SD)
+@app.route('/reject_booking', methods=['POST'])
+def reject_booking():
+    try:
+        data = request.json
+        booking_id = data.get("booking_id")
+        if not booking_id:
+            return jsonify({"error": "Missing booking_id"}), 400
+        with sqlite3.connect(db_name) as conn:
+            cursor = conn.cursor()
+            cursor.execute("UPDATE bookings SET status = 'cancelled' WHERE booking_id = ?", (booking_id,))
+            conn.commit()
+        return jsonify({"message": "Booking rejected"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+=======
         return jsonify({"success": False, "message": f"User Already Exists"}), 500
     conn.commit()
     user_id = cursor.lastrowid
     conn.close()  
     return jsonify({"success": True, "message": "User registered successfully!", "user_id": user_id}), 201
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
 
 # Registering a New Operator (SD)
 @app.route('/save_operator', methods=['POST'])
@@ -229,9 +337,14 @@ def save_operator():
     company_name = new_operator.get('company')
     expertise = new_operator.get('expertise')
     services_offered = new_operator.get('services_offered')
-
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+    cursor.execute('''
+    INSERT INTO tour_operators (user_id, country_id, company_name, expertise, services_offered)
+    VALUES (?, ?, ?, ?, ?)
+    ''', (user_id, country, company_name, expertise, services_offered))
+=======
 
     # Check if an operator with the same country and company exists
     cursor.execute('SELECT * FROM tour_operators WHERE country_id = ? AND company_name = ?', (country, company_name))
@@ -244,6 +357,7 @@ def save_operator():
     else:
         return jsonify({"success": False, "message": "Operator with the same country and company already exists"}), 500
     
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     conn.commit()
     conn.close()
     return jsonify({"success": True, "message": "Operator information saved successfully!"}), 201
@@ -251,21 +365,23 @@ def save_operator():
 # Removing a User (SD)
 @app.route('/delete_user', methods=['POST'])
 def delete_user():
-    # Get the username from the request data
     data = request.get_json()
     username = data.get('username')
-
     if not username:
         return jsonify({"success": False, "message": "Username is required"}), 400
-
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+    cursor.execute(f'SELECT * FROM {users_table_name} WHERE username = ?', (username,))
+    user = cursor.fetchone()
+=======
 
 
     cursor.execute(f'SELECT * FROM {users_table_name} WHERE username = ?', (username,))
     user = cursor.fetchone()
 
 
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     if user:
         cursor.execute(f'SELECT user_id, user_type FROM {users_table_name} WHERE username = ?', (username,))
         user_id, user_type = cursor.fetchone()
@@ -280,6 +396,76 @@ def delete_user():
         conn.close()
         return jsonify({"success": False, "message": "User not found"}), 404
 
+<<<<<<< HEAD
+@app.route('/load_operator', methods=['POST'])
+def load_operator():
+    data = request.get_json()
+    username = data.get('username')
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT user_id FROM users WHERE username = ?", (username,))
+    result = cursor.fetchone()
+    print(result)
+    if result:
+        user_id = result[0]
+        cursor.execute("SELECT * FROM tour_operators WHERE user_id = ?", (user_id,))
+        operator = cursor.fetchone()
+        conn.close()
+        return jsonify(operator)
+    else:
+        conn.close()
+        return jsonify({"error": "Operator not found"}), 404
+
+@app.route('/save_tour', methods=['POST'])   
+def save_tour():
+    new_operator = request.get_json()
+    print("Received tour data:", new_operator)
+    operator_id = new_operator.get('operator_id')
+    destination_id = new_operator.get('country')
+    tour_name = new_operator.get('company_name')
+    price = new_operator.get('tour_price')
+    duration = new_operator.get('tour_date')
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('SELECT description FROM destinations WHERE name = ?', (tour_name,))
+    description = cursor.fetchone()
+    cursor.execute('SELECT * FROM tours WHERE operator_id = ? AND destination_id = ? AND tour_name = ?', 
+                   (operator_id, destination_id, tour_name))
+    existing_operator = cursor.fetchone()
+    if existing_operator:
+        return jsonify({"success": False, "message": "Operator with the same country and company already exists"}), 500
+    cursor.execute('''
+    INSERT INTO tours (operator_id, destination_id, tour_name, destination, price, duration)
+    VALUES (?, ?, ?, ?, ?)
+     ''', (operator_id, destination_id , tour_name, description, price, duration))
+    conn.commit()
+    conn.close()
+    return jsonify({"success": True, "message": "Operator information saved successfully!"}), 201
+
+@app.route('/save_tour_info', methods=['POST'])
+def save_tour_info():
+    new_tour = request.get_json()
+    print("Received tour data:", new_tour)
+    operator_id = new_tour.get('user_id')
+    destination_id = new_tour.get('country')
+    tour_name = new_tour.get('company_name')
+    description = new_tour.get('expertise')
+    price = new_tour.get('tour_price')
+    duration = new_tour.get('tour_date')
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    if cursor.fetchone() is None:
+        cursor.execute('''
+        INSERT INTO tours (operator_id, destination_id, tour_name, description, price, duration)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ''', (operator_id, destination_id , tour_name, description, price, duration))
+    else:
+        return jsonify({"success": False, "message": "Operator with the same country and company already exists"}), 500
+    conn.commit()
+    conn.close()
+    return jsonify({"success": True, "message": "Operator information saved successfully!"}), 201
+=======
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
 
 # Page to handle 404 error pages (SD)
 @app.errorhandler(404)
@@ -295,17 +481,13 @@ def handle_exception(error):
 def get_country_api():
     data = request.get_json()
     country_name = data.get('selectedCountry')
-
     if not country_name:
         return jsonify({'success': False, 'message': 'Country name not received'}), 400
-
-    
     conn = sqlite3.connect('African_Cultures_Connected.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM country_summaries WHERE country_name = ?", (country_name,))
     country = cursor.fetchone()
     conn.close()
-
     if country:
         user_data = {
             'country_id': country[0],
@@ -317,7 +499,7 @@ def get_country_api():
     else:
         return jsonify({'success': False, 'message': 'Cuntry not found'}), 404
 
-# Helper function to query the database
+# Helper function for get_tours (SD)
 def get_destinations_by_country(country_id):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
@@ -344,20 +526,21 @@ def get_tours():
     else:
         return jsonify({"error": "Country not found"}), 404
 
+<<<<<<< HEAD
+# Getting Destinations (SD)
+=======
 
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
 @app.route('/get_tour_info', methods=['POST'])
 def get_tour_info():
     data = request.get_json()
     destinationName = data.get('destinationName')
-    
-    # Fetch country ID from country_summaries table
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM destinations WHERE name = ?", (destinationName,))
     tour_info = cursor.fetchone()
     print(tour_info)
     conn.close()
-
     if tour_info:
         return jsonify(tour_info)
     else:
@@ -369,11 +552,17 @@ def get_tour_operators():
         # Get the company name (destination name) from the request
         data = request.get_json()
         company_name = data.get('company_name')
+<<<<<<< HEAD
+        print(company_name)
+        if not company_name:
+            return jsonify({'error': 'Company name is required'}), 400
+=======
         
         if not company_name:
             return jsonify({'error': 'Company name is required'}), 400
         
         # Database query to join the tables
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
         query = """
             SELECT u.username, u.email, u.phone, u.interests, u.user_type, 
                    t.operator_id, t.company_name, t.expertise, t.services_offered 
@@ -382,18 +571,26 @@ def get_tour_operators():
             JOIN destinations d ON t.country_id = d.country_id
             WHERE d.name = ?
         """
+<<<<<<< HEAD
+=======
         
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute(query, (company_name,))
         operators = cursor.fetchall()
         conn.close()
+<<<<<<< HEAD
+        if not results:
+            return jsonify({'message': 'No operators found for this company'}), 404
+=======
         
         # If no operators are found
         if not operators:
             return jsonify({'message': 'No operators found for this company'}), 404
         
         # Format the result as a list of dictionaries
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
         operators_list = []
         for operator in operators:
             operators_list.append({
@@ -407,15 +604,72 @@ def get_tour_operators():
                 'expertise': operator['expertise'],
                 'services_offered': operator['services_offered']
             })
+<<<<<<< HEAD
+=======
         
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
         return jsonify({'operators': operators_list}), 200
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+<<<<<<< HEAD
+# Getting Price (SD)
+@app.route('/get_price', methods=['POST'])
+def get_price():
+    data = request.get_json()
+    destinationName = data.get('destinationName')
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("SELECT price FROM tours WHERE tour_name = ?", (destinationName,))
+    tour_info = cursor.fetchone()
+    print(tour_info)
+    conn.close()
+    if tour_info:
+        return jsonify(tour_info)
+    else:
+        return jsonify({"error": "Price not found"}), 404
+
+# Getting tour operators based on country (SD)
+@app.route('/get_tour_operators_by_country', methods=['POST'])
+def get_tour_operators_by_country():
+    try:
+        print("Searching for data...")
+        query = """
+        SELECT 
+        u.user_id, u.username, u.email, u.phone, u.interests, u.user_type,
+        o.operator_id, o.company_name, o.expertise, o.services_offered
+        FROM users u
+        JOIN tour_operators o ON u.user_id = o.user_id;
+        """
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(query)
+        results = cursor.fetchall()
+        conn.close()
+        if not results:
+            return jsonify({'message': 'No operators found for this country'}), 404
+        operators_list = []
+        for row in results:
+            operators_list.append({
+                'user_id': row[0],
+                'username': row[1],
+                'email': row[2],
+                'phone': row[3],
+                'interests': row[4],
+                'user_type': row[5],
+                'operator_id': row[6],
+                'company_name': row[7],
+                'expertise': row[8],
+                'services_offered': row[9]
+            })
+        return jsonify({'operators' : operators_list}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+=======
 
 
-
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
 
 @app.route('/callback')
 def authorized():
@@ -425,7 +679,6 @@ def authorized():
             request.args['error_reason'],
             request.args['error_description']
         )
-    
     session['google_token'] = (response['access_token'], '')
     user_info = google.get('userinfo')
     
@@ -441,10 +694,8 @@ def authorized():
         INSERT INTO {users_table_name} (username, email) VALUES (?, ?)
         ON CONFLICT(email) DO UPDATE SET username = ?
     ''', (username, email, username))
-    
     conn.commit()
     conn.close()
-
     return f'Logged in as: {email}'
 
 @app.route('/countries', methods=['POST'])
@@ -457,12 +708,14 @@ def add_country():
     
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+=======
     
     # Check if country exists
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     cursor.execute(f''' 
     SELECT * FROM {country_table_name} WHERE country_name = ?
     ''', (country_name,))
-    
     if cursor.fetchone() is None:
         # If not exists, insert into the database
         cursor.execute(f'''
@@ -476,7 +729,6 @@ def add_country():
         SET description = ?, map_url = ?
         WHERE country_name = ?
         ''', (description, map_url, country_name))
-    
     conn.commit()
     conn.close()
     return jsonify(new_country), 201
@@ -488,15 +740,16 @@ def add_destination():
     name = new_destination.get('name')
     description = new_destination.get('description')
     location = new_destination.get('location')
-
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+=======
     
     # Check if destination exists
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     cursor.execute(f'''
     SELECT * FROM {destination_table_name} WHERE name = ? AND country_id = ?
     ''', (name, country_id))
-    
     if cursor.fetchone() is None:
         # If not exists, insert into the database
         cursor.execute(f'''
@@ -510,7 +763,6 @@ def add_destination():
         SET description = ?, location = ?
         WHERE name = ? AND country_id = ?
         ''', (description, location, name, country_id))
-    
     conn.commit()
     conn.close()
     return jsonify(new_destination), 201
@@ -523,15 +775,16 @@ def add_tour_operator():
     company_name = new_operator.get('company_name')
     expertise = new_operator.get('expertise')
     services_offered = new_operator.get('services_offered')
-
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+=======
     
     # Check if tour operator exists
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     cursor.execute(f'''
     SELECT * FROM {tour_operators_table_name} WHERE company_name = ? AND user_id = ?
     ''', (company_name, user_id))
-    
     if cursor.fetchone() is None:
         # If not exists, insert into the database
         cursor.execute(f'''
@@ -545,7 +798,6 @@ def add_tour_operator():
         SET country_id = ?, expertise = ?, services_offered = ?
         WHERE company_name = ? AND user_id = ?
         ''', (country_id, expertise, services_offered, company_name, user_id))
-    
     conn.commit()
     conn.close()
     return jsonify(new_operator), 201
@@ -559,15 +811,16 @@ def add_tour():
     description = new_tour.get('description')
     price = new_tour.get('price')
     duration = new_tour.get('duration')
-
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+=======
     
     # Check if tour exists
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     cursor.execute(f'''
     SELECT * FROM {tours_table_name} WHERE tour_name = ? AND operator_id = ?
     ''', (tour_name, operator_id))
-    
     if cursor.fetchone() is None:
         # If not exists, insert into the database
         cursor.execute(f'''
@@ -581,7 +834,6 @@ def add_tour():
         SET destination_id = ?, description = ?, price = ?, duration = ?
         WHERE tour_name = ? AND operator_id = ?
         ''', (destination_id, description, price, duration, tour_name, operator_id))
-    
     conn.commit()
     conn.close()
     return jsonify(new_tour), 201
@@ -594,15 +846,16 @@ def add_booking():
     booking_date = new_booking.get('booking_date')
     status = new_booking.get('status')
     total_cost = new_booking.get('total_cost')
-
     conn = get_db_connection()
     cursor = conn.cursor()
+<<<<<<< HEAD
+=======
     
     # Check if booking exists
+>>>>>>> bb8698847eebd183df2a1945a16be6a68bc35fda
     cursor.execute(f'''
     SELECT * FROM {bookings_table_name} WHERE user_id = ? AND tour_id = ? AND booking_date = ?
     ''', (user_id, tour_id, booking_date))
-    
     if cursor.fetchone() is None:
         # If not exists, insert into the database
         cursor.execute(f'''
@@ -616,7 +869,6 @@ def add_booking():
         SET status = ?, total_cost = ?
         WHERE user_id = ? AND tour_id = ? AND booking_date = ?
         ''', (status, total_cost, user_id, tour_id, booking_date))
-    
     conn.commit()
     conn.close()
     return jsonify(new_booking), 201

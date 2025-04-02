@@ -116,7 +116,6 @@ function displayDestinations(destinations) {
     const container = document.querySelector(".destination-container");
     const destinationName = sessionStorage.getItem("selectedDestination");
     if (!container) return;
-
     destinations.slice(0, 6).forEach(destination => {
         if (destination.name !== destinationName) {
             const destinationHTML = `
@@ -131,7 +130,7 @@ function displayDestinations(destinations) {
             container.innerHTML += destinationHTML;
         }
     });
-}
+}4
 
 // Caching operator info
 document.addEventListener("DOMContentLoaded", function () {
@@ -149,3 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+function cacheDestinationName(destination) {
+    sessionStorage.setItem("selectedDestination", destination);
+}
