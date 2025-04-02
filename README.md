@@ -35,7 +35,7 @@ Flask-Cors
 Flask-OAuthlib
 Werkzeug
 Install the required packages using pip
-pip install -r requirements.txt
+(pip install -r requirements.txt)
 
 Prepare JSON Files
 
