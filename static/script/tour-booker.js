@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Selected Description:", destinationDesc);
     document.getElementById('location-name').textContent = destinationName;
     document.getElementById('location-desc').textContent = destinationDesc;
-
     if (destinationName !== "Unknown") {
         fetchPrice(destinationName);
     }
@@ -17,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Tour Date saved to sessionStorage:", selectedTourDate);
         window.location.href = '/tour_confirm';
     });
+
     // Redirecting to confirm page
     document.getElementById('back').addEventListener('click', function () {
         window.location.href = '/tour-booking';

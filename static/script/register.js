@@ -12,10 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return true;
         }
     }
-
     password.addEventListener("input", validatePasswords);
     passwordConfirm.addEventListener("input", validatePasswords);
-
     form.addEventListener("submit", (event) => {
         if (!validatePasswords()) {
             event.preventDefault();
@@ -69,10 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     },
                     body: JSON.stringify(userData)
                 });
-
                 let result = await response.json();
                 console.log("Result: ", result);
-
                 if (result.success === false) {
                     alert("Registration failed: " + (result.message || "Unknown error"));
                     console.log("Registration failed: " + (result.message || "Unknown error"));

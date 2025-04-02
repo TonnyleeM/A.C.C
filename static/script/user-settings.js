@@ -34,7 +34,6 @@ async function fetchUserData(username, password) {
             if (data.user.userType === "operator") {
                 window.location.href = '/operator_settings';
             }
-
         } else {
             console.log("Error:", data.message);
         }

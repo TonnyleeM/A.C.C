@@ -66,14 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const tourDate = document.getElementById("tour_date").value;
         const expertise = document.getElementById("expertise").value.trim();
         const serviceOffered = document.getElementById("service-offered").value.trim();
-
         if (!country || !company || !expertise || !serviceOffered || !tourPrice || !tourDate) {
             alert("Please fill in all fields before saving.");
             return;
         }
-
         console.log("Company name:", company);
-
         const user_info = {
             country: country,
             company_name: company,
@@ -82,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
             tour_date: tourDate,
             tour_price: tourPrice
         };
-
         console.log("Tour info:", user_info);
         console.log("User info:", userData);
         try {
@@ -93,15 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify(userData)  
             });
-
             let data_result = await response.json();
             console.log("Result from add_user:", data_result);
-
             if (data_result.success) {
                 const userId = data_result.user_id;  
                 user_info.user_id = userId;  
                 console.log("user_id:", user_info.user_id);
-
                 let operatorResponse = await fetch("/save_operator", {
                     method: "POST",
                     headers: {
@@ -109,12 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     },
                     body: JSON.stringify(user_info) 
                 });
-
                 let operatorResult = await operatorResponse.json();
                 operator_id = operatorResult.operator_id;
-                
                 console.log("Operator save result:", operatorResult);
-
                 let tourResponse = await fetch("/save_tour_info", {
                     method: "POST",
                     headers: {
@@ -122,11 +112,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     },
                     body: JSON.stringify(user_info) 
                 });
-
                 let tourResult = await tourResponse.json();
                 alert(tourResult.message);
                 console.log("Tour save result:", tourResult);
-
                 window.location.href = '/'; 
             } else {
                 alert("Failed to create user, ",operatorResult);

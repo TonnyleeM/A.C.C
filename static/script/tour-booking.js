@@ -116,7 +116,6 @@ function displayDestinations(destinations) {
     const container = document.querySelector(".destination-container");
     const destinationName = sessionStorage.getItem("selectedDestination");
     if (!container) return;
-
     destinations.slice(0, 6).forEach(destination => {
         if (destination.name !== destinationName) {
             const destinationHTML = `
