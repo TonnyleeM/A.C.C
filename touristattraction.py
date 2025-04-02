@@ -382,14 +382,14 @@ locations = [
 ]
 
 # Google Maps API key
-api_key = "AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A"  # Replace with your actual Google Maps API key
+api_key = "AIzaSyC2SbTlOY4ClJP2-eQ2wvaG5JX9NNiUr3A"
 
 # Generate Google Maps iframe links and add them to the locations
 for location in locations:
     name = location["name"].replace(" ", "+")
     city = location["city"].replace(" ", "+")
     iframe_link = f"https://www.google.com/maps/embed/v1/place?key={api_key}&q={name},{city}"
-    location["iframe_link"] = iframe_link  # Add iframe link to the location
+    # location["iframe_link"] = iframe_link
 
 # Save the data with iframe links to a JSON file
 with open('africa_attractions_data.json', 'w') as json_file:
