@@ -7,7 +7,7 @@ with open('africa_attractions_data.json', 'r') as json_file:
 # Group locations by country
 grouped_locations = {}
 for location in locations:
-    country = location["city"]  # Assuming city is being used for country in your original data
+    country = location["city"]
     if country not in grouped_locations:
         grouped_locations[country] = []
     grouped_locations[country].append(location)
