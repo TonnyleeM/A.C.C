@@ -131,7 +131,7 @@ function displayDestinations(destinations) {
             container.innerHTML += destinationHTML;
         }
     });
-}
+}4
 
 // Caching operator info
 document.addEventListener("DOMContentLoaded", function () {
@@ -149,3 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+function cacheDestinationName(destination) {
+    sessionStorage.setItem("selectedDestination", destination);
+}

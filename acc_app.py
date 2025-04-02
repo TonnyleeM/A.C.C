@@ -141,7 +141,6 @@ def user_settings():
 def operator_settings():
     return render_template('operator-settings.html')
 
-
 # Load user from db (SD)
 @app.route("/get_user", methods=["POST"])
 def get_user_api():
@@ -382,9 +381,6 @@ def reject_booking():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
-
 # Registering a New Operator (SD)
 @app.route('/save_operator', methods=['POST'])
 def save_operator():
@@ -521,7 +517,6 @@ def save_tour_info():
     conn.commit()
     conn.close()
     return jsonify({"success": True, "message": "Operator information saved successfully!"}), 201
-
 
 # Page to handle 404 error pages (SD)
 @app.errorhandler(404)
@@ -723,7 +718,6 @@ def get_tour_operators_by_country():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
 
 @app.route('/callback')
 def authorized():
