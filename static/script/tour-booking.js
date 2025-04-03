@@ -51,6 +51,7 @@ async function fetchTourInfo() {
 // Fetching and displaying operators
 async function fetchAndDisplayOperators() {
     const companyName = sessionStorage.getItem("selectedDestination");
+    console.log("Destination: ", companyName)
     try {
         const response = await fetch('/get_tour_operators', {
             method: 'POST',
@@ -60,6 +61,7 @@ async function fetchAndDisplayOperators() {
             body: JSON.stringify({ company_name: companyName })
         });
         const data = await response.json();
+        console.log("Tour-Operators", data)
         if (!response.ok) {
             console.error('Error fetching data:', data.error);
             return;
